@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace MDbM
 {
-    static class Program
+    static class MDbM
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +16,7 @@ namespace MDbM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Main());
         }
     }
 }
