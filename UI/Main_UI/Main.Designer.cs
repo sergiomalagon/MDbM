@@ -1,5 +1,5 @@
 ﻿
-namespace MDbM.UI
+namespace MDbM.UI.MainUI
 {
     partial class Main
     {
@@ -32,9 +32,9 @@ namespace MDbM.UI
             this.panelControlVentana = new System.Windows.Forms.Panel();
             this.lblMinimize = new System.Windows.Forms.Label();
             this.panelLateral = new System.Windows.Forms.Panel();
+            this.imgPerfil1 = new ImagenPerfil.ImgPerfil();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.imgPerfil = new ImagenPerfil.ImgPerfil();
             this.lblListaCompleted = new System.Windows.Forms.Label();
             this.lblListaDropped = new System.Windows.Forms.Label();
             this.lblListaPlantToWatch = new System.Windows.Forms.Label();
@@ -57,9 +57,8 @@ namespace MDbM.UI
             this.panelAux = new System.Windows.Forms.Panel();
             this.panelControlVentana.SuspendLayout();
             this.panelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil1)).BeginInit();
             this.panelDetalle.SuspendLayout();
-            this.panelDescripcion.SuspendLayout();
             this.panelCambiarStatus.SuspendLayout();
             this.panelPortadaHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).BeginInit();
@@ -94,9 +93,9 @@ namespace MDbM.UI
             // panelLateral
             // 
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.panelLateral.Controls.Add(this.imgPerfil1);
             this.panelLateral.Controls.Add(this.lblVersion);
             this.panelLateral.Controls.Add(this.btnSalir);
-            this.panelLateral.Controls.Add(this.imgPerfil);
             this.panelLateral.Controls.Add(this.lblListaCompleted);
             this.panelLateral.Controls.Add(this.lblListaDropped);
             this.panelLateral.Controls.Add(this.lblListaPlantToWatch);
@@ -109,6 +108,15 @@ namespace MDbM.UI
             this.panelLateral.Name = "panelLateral";
             this.panelLateral.Size = new System.Drawing.Size(305, 854);
             this.panelLateral.TabIndex = 1;
+            // 
+            // imgPerfil1
+            // 
+            this.imgPerfil1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.imgPerfil1.Location = new System.Drawing.Point(50, 24);
+            this.imgPerfil1.Name = "imgPerfil1";
+            this.imgPerfil1.Size = new System.Drawing.Size(200, 200);
+            this.imgPerfil1.TabIndex = 21;
+            this.imgPerfil1.TabStop = false;
             // 
             // lblVersion
             // 
@@ -135,15 +143,6 @@ namespace MDbM.UI
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // imgPerfil
-            // 
-            this.imgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.imgPerfil.Location = new System.Drawing.Point(44, 6);
-            this.imgPerfil.Name = "imgPerfil";
-            this.imgPerfil.Size = new System.Drawing.Size(217, 212);
-            this.imgPerfil.TabIndex = 18;
-            this.imgPerfil.TabStop = false;
             // 
             // lblListaCompleted
             // 
@@ -383,8 +382,8 @@ namespace MDbM.UI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(1600, 900);
             this.Controls.Add(this.panelAux);
-            this.Controls.Add(this.panelDetalle);
             this.Controls.Add(this.panelLista);
+            this.Controls.Add(this.panelDetalle);
             this.Controls.Add(this.panelLateral);
             this.Controls.Add(this.panelControlVentana);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
@@ -396,10 +395,9 @@ namespace MDbM.UI
             this.panelControlVentana.ResumeLayout(false);
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil1)).EndInit();
             this.panelDetalle.ResumeLayout(false);
             this.panelDetalle.PerformLayout();
-            this.panelDescripcion.ResumeLayout(false);
             this.panelCambiarStatus.ResumeLayout(false);
             this.panelPortadaHolder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).EndInit();
@@ -420,7 +418,6 @@ namespace MDbM.UI
         private System.Windows.Forms.Label lblListaCompleted;
         private System.Windows.Forms.Label lblListaDropped;
         private System.Windows.Forms.Label lblListaPlantToWatch;
-        private ImagenPerfil.ImgPerfil imgPerfil;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.FlowLayoutPanel panelLista;
         private System.Windows.Forms.Panel panelDetalle;
@@ -436,5 +433,6 @@ namespace MDbM.UI
         private System.Windows.Forms.Label lblValoracion;
         private System.Windows.Forms.Label lblNombre;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private ImagenPerfil.ImgPerfil imgPerfil1;
     }
 }

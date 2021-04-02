@@ -1,5 +1,5 @@
 ﻿
-namespace MDbM
+namespace MDbM.UI.LoginUI
 {
     partial class Login
     {
@@ -38,6 +38,7 @@ namespace MDbM
             this.lblClose = new System.Windows.Forms.Label();
             this.lblMinimize = new System.Windows.Forms.Label();
             this.btnLoginRegistrer = new System.Windows.Forms.Button();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.panelControlVentana.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@ namespace MDbM
             this.txtBoxLoginUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxLoginUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxLoginUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.txtBoxLoginUsuario.Location = new System.Drawing.Point(343, 106);
+            this.txtBoxLoginUsuario.Location = new System.Drawing.Point(343, 76);
             this.txtBoxLoginUsuario.MaxLength = 15;
             this.txtBoxLoginUsuario.Name = "txtBoxLoginUsuario";
             this.txtBoxLoginUsuario.Size = new System.Drawing.Size(624, 44);
@@ -62,7 +63,7 @@ namespace MDbM
             this.txtBoxLoginPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxLoginPassword.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxLoginPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.txtBoxLoginPassword.Location = new System.Drawing.Point(343, 219);
+            this.txtBoxLoginPassword.Location = new System.Drawing.Point(343, 189);
             this.txtBoxLoginPassword.MaxLength = 15;
             this.txtBoxLoginPassword.Name = "txtBoxLoginPassword";
             this.txtBoxLoginPassword.Size = new System.Drawing.Size(624, 44);
@@ -74,7 +75,7 @@ namespace MDbM
             // panelLoginPassword
             // 
             this.panelLoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
-            this.panelLoginPassword.Location = new System.Drawing.Point(343, 269);
+            this.panelLoginPassword.Location = new System.Drawing.Point(343, 239);
             this.panelLoginPassword.Name = "panelLoginPassword";
             this.panelLoginPassword.Size = new System.Drawing.Size(624, 3);
             this.panelLoginPassword.TabIndex = 3;
@@ -82,7 +83,7 @@ namespace MDbM
             // panelLoginUsuario
             // 
             this.panelLoginUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
-            this.panelLoginUsuario.Location = new System.Drawing.Point(343, 156);
+            this.panelLoginUsuario.Location = new System.Drawing.Point(343, 126);
             this.panelLoginUsuario.Name = "panelLoginUsuario";
             this.panelLoginUsuario.Size = new System.Drawing.Size(624, 3);
             this.panelLoginUsuario.TabIndex = 1;
@@ -145,9 +146,20 @@ namespace MDbM
             this.btnLoginRegistrer.Name = "btnLoginRegistrer";
             this.btnLoginRegistrer.Size = new System.Drawing.Size(624, 55);
             this.btnLoginRegistrer.TabIndex = 999;
-            this.btnLoginRegistrer.Text = "LOGIN";
+            this.btnLoginRegistrer.Text = "LOGIN/REGISTRER";
             this.btnLoginRegistrer.UseVisualStyleBackColor = false;
             this.btnLoginRegistrer.Click += new System.EventHandler(this.btnLoginRegistrer_Click);
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Eras Medium ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblMensaje.Location = new System.Drawing.Point(340, 260);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(44, 17);
+            this.lblMensaje.TabIndex = 1000;
+            this.lblMensaje.Text = "label1";
             // 
             // Login
             // 
@@ -155,6 +167,7 @@ namespace MDbM
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(979, 364);
+            this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.panelControlVentana);
             this.Controls.Add(this.btnLoginRegistrer);
             this.Controls.Add(this.panelIcono);
@@ -166,7 +179,6 @@ namespace MDbM
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MdbM";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.panelControlVentana.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,6 +196,7 @@ namespace MDbM
         private System.Windows.Forms.Label lblClose;
         private System.Windows.Forms.Label lblMinimize;
         private System.Windows.Forms.Button btnLoginRegistrer;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }
 

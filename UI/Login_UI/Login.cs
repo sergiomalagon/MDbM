@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using MDbM.UI.Clases;
+using MDbM.UI.MongoDB;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using MDbM.UI;
+using System.Windows.Forms;
 
-namespace MDbM
+namespace MDbM.UI.LoginUI
 {
     public partial class Login : Form
     {
@@ -19,10 +14,30 @@ namespace MDbM
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        private readonly Mongo db = new Mongo();
+        private bool IsLogin = false;
+        private bool IsValidUsername = false;
+        private bool IsValidPassw = false;
 
         public Login()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            db.GetConexion();
+            lblMensaje.Visible = false;
+        }
+
+        private void RegistrarUsuario(Usuario Usuario)
+        {
+
+        }
+
+        private void IniciarSesion(Usuario Usuario)
+        {
 
         }
 
@@ -35,11 +50,6 @@ namespace MDbM
                 cp.ClassStyle |= CS_DROPSHADOW;
                 return cp;
             }
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void panelBarraControlVentana_MouseDown(object sender, MouseEventArgs e)
@@ -71,7 +81,26 @@ namespace MDbM
             if (txtBoxLoginUsuario.Text.Trim().Equals(""))
             {
                 txtBoxLoginUsuario.Text = "Usuario...";
+                this.IsValidUsername = false;
             }
+            else
+            {
+                if (db.ComprobarExisteUsuario(txtBoxLoginUsuario.Text.Trim()))
+                {
+                    btnLoginRegistrer.Text = "LOGIN";
+                    lblMensaje.Visible = false;
+                    this.IsLogin = true;
+                }
+                else
+                {
+                    btnLoginRegistrer.Text = "REGISTRER";
+                    this.IsLogin = false;
+                    lblMensaje.Text = "Advertencia!!!: Vas a crear un nuevo usuario";
+                    lblMensaje.Visible = true;
+                }
+                this.IsValidUsername = true;
+            }
+
         }
 
         private void txtBoxLoginPassword_Enter(object sender, EventArgs e)
@@ -89,6 +118,11 @@ namespace MDbM
             {
                 txtBoxLoginPassword.Text = "Contraseña...";
                 txtBoxLoginPassword.UseSystemPasswordChar = false;
+                this.IsValidPassw = false;
+            }
+            else
+            {
+                this.IsValidPassw = true;
             }
         }
 
@@ -115,8 +149,40 @@ namespace MDbM
 
         private void btnLoginRegistrer_Click(object sender, EventArgs e)
         {
-            new Main(this).Show();
-            this.Hide();
+            if (!this.IsValidUsername && !this.IsValidPassw)
+            {
+                lblMensaje.Text = "Error: Los campos USUARIO y CONTRASEÑA no pueden estar vacios";
+                lblMensaje.Visible = true;
+            }
+            else
+            {
+                if (!this.IsValidUsername)
+                {
+                    lblMensaje.Text = "Error: El campo USUARIO no puede estar vacio";
+                    lblMensaje.Visible = true;
+                }
+
+                if (!this.IsValidPassw)
+                {
+                    lblMensaje.Text = "Error: El campo CONTRASEÑA no puede estar vacio";
+                    lblMensaje.Visible = true;
+                }
+            }
+            if (this.IsLogin && this.IsValidPassw && this.IsValidUsername)
+            {
+                Usuario usuario = new Usuario();
+                //usuario.
+
+                IniciarSesion(usuario);
+            }
+            else if (!this.IsLogin && this.IsValidPassw && this.IsValidUsername)
+            {
+                Usuario usuario = new Usuario();
+                RegistrarUsuario(usuario);
+            }
+
+
+
         }
     }
 }

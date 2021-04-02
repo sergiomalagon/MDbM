@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace MDbM.UI
+namespace RepartoCtrl
 {
     public class RepartoControl : UserControl
     {
@@ -57,5 +54,20 @@ namespace MDbM.UI
             this.ResumeLayout(false);
 
         }
+
+
+
+        internal bool CambiarImagen(Image image)
+        {
+            picBoxRepartoImagen.Image = image;
+            return true;
+        }
+
+        internal void CambiarNombre(String nombre)
+        {
+            lblRepartoName.Text = nombre;
+        }
     }
+
+
 }

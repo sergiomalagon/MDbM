@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MDbM.UI.Clases;
+using RoundLbl;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MDbM.UI
+namespace PeliculaCtrl
 {
     public class PeliculaControl : UserControl
     {
@@ -55,21 +57,21 @@ namespace MDbM.UI
 
         }
 
-        public void CambiarEstado(EstadosPeliculaEnum.Tipos Estados)
+        public void CambiarEstado(Enums.EstadosPelicula Estados)
         {
 
             switch (Estados)
             {
-                case EstadosPeliculaEnum.Tipos.VIENDO:
+                case Enums.EstadosPelicula.VIENDO:
                     roundLblFilmStatus._BackColor = Color.FromArgb(0, 255, 0);
                     break;
-                case EstadosPeliculaEnum.Tipos.TERMINADA:
+                case Enums.EstadosPelicula.TERMINADA:
                     roundLblFilmStatus._BackColor = Color.FromArgb(0, 0, 255);
                     break;
-                case EstadosPeliculaEnum.Tipos.ABANDONADA:
+                case Enums.EstadosPelicula.ABANDONADA:
                     roundLblFilmStatus._BackColor = Color.FromArgb(182, 60, 60);
                     break;
-                case EstadosPeliculaEnum.Tipos.PLANEADA:
+                case Enums.EstadosPelicula.PLANEADA:
                     roundLblFilmStatus._BackColor = Color.FromArgb(207, 209, 184);
                     break;
             }

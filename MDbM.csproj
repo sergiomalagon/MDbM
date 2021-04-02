@@ -235,7 +235,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
@@ -249,8 +249,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
@@ -288,16 +288,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\Admin_UI\Admin.cs">
+    <Compile Include="Clases\Peliculas.cs" />
+    <Compile Include="Clases\Reparto.cs" />
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="MongoDB\Mongo.cs" />
+    <Compile Include="UI\Admin_UI\Admin_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Admin_UI\Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
+    <Compile Include="UI\Admin_UI\Admin_Lista.Designer.cs">
+      <DependentUpon>Admin_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ImgPerfil.cs">
+    <Compile Include="UI\Common_UI\ImgPerfil.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Main_UI\EstadosPeliculaEnum.cs" />
+    <Compile Include="Clases\Enums.cs" />
     <Compile Include="UI\Main_UI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,15 +316,18 @@
     </Compile>
     <Compile Include="MDbM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Main_UI\PeliculaControl.cs">
+    <Compile Include="UI\Common_UI\PeliculaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Main_UI\RepartoControl.cs">
+    <Compile Include="UI\Common_UI\RepartoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Main_UI\RoundLabel.cs">
+    <Compile Include="UI\Common_UI\RoundLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="UI\Admin_UI\Admin_Lista.resx">
+      <DependentUpon>Admin_Lista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Login_UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,10 +344,10 @@
     <EmbeddedResource Include="UI\Main_UI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Main_UI\PeliculaControl.resx">
+    <EmbeddedResource Include="UI\Common_UI\PeliculaControl.resx">
       <DependentUpon>PeliculaControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Main_UI\RepartoControl.resx">
+    <EmbeddedResource Include="UI\Common_UI\RepartoControl.resx">
       <DependentUpon>RepartoControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Config\packages.config" />
@@ -366,6 +373,8 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="Config\mongocrypt.dll" />
+    <None Include="Resources\UserPP\user_sergio.jpg" />
+    <None Include="Resources\UserPP\user_admin.jpg" />
     <None Include="Resources\People\people_viggo_mortensen.jpg" />
     <None Include="Resources\People\people_uma_thurman.jpg" />
     <None Include="Resources\People\people_tim_robbins.jpg" />

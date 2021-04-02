@@ -1,17 +1,12 @@
 ﻿using MDbM.Properties;
+using MDbM.UI.LoginUI;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Resources;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MDbM.UI
+namespace MDbM.UI.MainUI
 {
     public partial class Main : Form
     {
@@ -23,7 +18,7 @@ namespace MDbM.UI
         internal ResourceManager resourceManager = new ResourceManager(typeof(Resources));
 
 
-        internal Login LoginForm;
+        internal Login LoginForm = null;
         public Main(Login login)
         {
             InitializeComponent();
@@ -31,45 +26,43 @@ namespace MDbM.UI
             Init();
         }
 
-        /// <summary>
-        /// Cargo la informacion del usuario logeado
-        /// </summary>
         private void Init()
         {
+            //PeliculaControl pelicula = new PeliculaControl();
+            //PeliculaControl pelicula2 = new PeliculaControl();
+            //PeliculaControl pelicula3 = new PeliculaControl();
+            //PeliculaControl pelicula4 = new PeliculaControl();
 
+            //pelicula.CambiarEstado(Enums.EstadosPelicula.VIENDO);
+            //panelLista.Controls.Add(pelicula);
 
+            //pelicula2.CambiarEstado(EstadosPeliculaEnum.Tipos.TERMINADA);
+            //panelLista.Controls.Add(pelicula2);
 
-            PeliculaControl pelicula = new PeliculaControl();
-            PeliculaControl pelicula2 = new PeliculaControl();
-            PeliculaControl pelicula3 = new PeliculaControl();
-            PeliculaControl pelicula4 = new PeliculaControl();
+            //pelicula3.CambiarEstado(EstadosPeliculaEnum.Tipos.ABANDONADA);
+            //panelLista.Controls.Add(pelicula3);
 
-            pelicula.CambiarEstado(EstadosPeliculaEnum.Tipos.VIENDO);
-            panelLista.Controls.Add(pelicula);
+            //pelicula4.CambiarEstado(EstadosPeliculaEnum.Tipos.PLANEADA);
+            //panelLista.Controls.Add(pelicula4);
 
-            pelicula2.CambiarEstado(EstadosPeliculaEnum.Tipos.TERMINADA);
-            panelLista.Controls.Add(pelicula2);
+            //RepartoControl reparto = new RepartoControl();
+            //reparto.CambiarNombre("willis");
+            //panelListaReparto.Controls.Add(reparto);
+            //panelListaReparto.Controls.Add(new Panel());
+            //panelListaReparto.Controls.Add(new RepartoControl());
+            //panelListaReparto.Controls.Add(new RepartoControl());
+            //panelListaReparto.Controls.Add(new RepartoControl());
 
-            pelicula3.CambiarEstado(EstadosPeliculaEnum.Tipos.ABANDONADA);
-            panelLista.Controls.Add(pelicula3);
-
-            pelicula4.CambiarEstado(EstadosPeliculaEnum.Tipos.PLANEADA);
-            panelLista.Controls.Add(pelicula4);
-
-            panelListaReparto.Controls.Add(new RepartoControl());
-            panelListaReparto.Controls.Add(new Panel());
-            panelListaReparto.Controls.Add(new RepartoControl());
-            panelListaReparto.Controls.Add(new RepartoControl());
-            panelListaReparto.Controls.Add(new RepartoControl());
-
-            pelicula.EntrarDetallePelicula += new EventHandler(this.entrarPeliculaDetalle);
-
+            //pelicula.EntrarDetallePelicula += new EventHandler(this.entrarPeliculaDetalle);
         }
+
 
         private void entrarPeliculaDetalle(object sender, EventArgs e)
         {
             panelDetalle.BringToFront();
         }
+
+
         protected override CreateParams CreateParams
         {
             get
@@ -104,9 +97,9 @@ namespace MDbM.UI
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            
+
             this.LoginForm.Show();
-            Close();
+            Hide();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
