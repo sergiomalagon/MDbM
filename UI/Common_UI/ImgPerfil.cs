@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDbM.Properties;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Resources;
@@ -8,7 +9,7 @@ namespace ImagenPerfil
 {
     public class ImgPerfil : PictureBox
     {
-        ResourceManager rm = new ResourceManager(typeof(ImgPerfil));
+        ResourceManager rm = new ResourceManager(typeof(Resources));
 
         public ImgPerfil()
         {

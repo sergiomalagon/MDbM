@@ -1,7 +1,11 @@
 ﻿using MDbM.Properties;
+using MDbM.UI.Clases;
 using MDbM.UI.LoginUI;
 using System;
+using System.Collections;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -19,43 +23,22 @@ namespace MDbM.UI.MainUI
 
 
         internal Login LoginForm = null;
-        public Main(Login login)
+        internal Usuario Usuario = null;
+        internal static string PATH_IMG_PERFIL = "..\\..\\Resources\\UserPP\\";
+
+        public Main(Login Login, Usuario Usuario)
         {
             InitializeComponent();
-            this.LoginForm = login;
+            this.LoginForm = Login;
+            this.Usuario = Usuario;
             Init();
         }
 
         private void Init()
         {
-            //PeliculaControl pelicula = new PeliculaControl();
-            //PeliculaControl pelicula2 = new PeliculaControl();
-            //PeliculaControl pelicula3 = new PeliculaControl();
-            //PeliculaControl pelicula4 = new PeliculaControl();
-
-            //pelicula.CambiarEstado(Enums.EstadosPelicula.VIENDO);
-            //panelLista.Controls.Add(pelicula);
-
-            //pelicula2.CambiarEstado(EstadosPeliculaEnum.Tipos.TERMINADA);
-            //panelLista.Controls.Add(pelicula2);
-
-            //pelicula3.CambiarEstado(EstadosPeliculaEnum.Tipos.ABANDONADA);
-            //panelLista.Controls.Add(pelicula3);
-
-            //pelicula4.CambiarEstado(EstadosPeliculaEnum.Tipos.PLANEADA);
-            //panelLista.Controls.Add(pelicula4);
-
-            //RepartoControl reparto = new RepartoControl();
-            //reparto.CambiarNombre("willis");
-            //panelListaReparto.Controls.Add(reparto);
-            //panelListaReparto.Controls.Add(new Panel());
-            //panelListaReparto.Controls.Add(new RepartoControl());
-            //panelListaReparto.Controls.Add(new RepartoControl());
-            //panelListaReparto.Controls.Add(new RepartoControl());
-
-            //pelicula.EntrarDetallePelicula += new EventHandler(this.entrarPeliculaDetalle);
+            imgPerfil.ImageLocation = PATH_IMG_PERFIL + this.Usuario.imagenPerfil + ".jpg";
+            lblNombreUsuario.Text = this.Usuario.nombre;
         }
-
 
         private void entrarPeliculaDetalle(object sender, EventArgs e)
         {

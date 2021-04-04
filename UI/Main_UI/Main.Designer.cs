@@ -32,7 +32,7 @@ namespace MDbM.UI.MainUI
             this.panelControlVentana = new System.Windows.Forms.Panel();
             this.lblMinimize = new System.Windows.Forms.Label();
             this.panelLateral = new System.Windows.Forms.Panel();
-            this.imgPerfil1 = new ImagenPerfil.ImgPerfil();
+            this.imgPerfil = new ImagenPerfil.ImgPerfil();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblListaCompleted = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@ namespace MDbM.UI.MainUI
             this.panelAux = new System.Windows.Forms.Panel();
             this.panelControlVentana.SuspendLayout();
             this.panelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).BeginInit();
             this.panelDetalle.SuspendLayout();
             this.panelCambiarStatus.SuspendLayout();
             this.panelPortadaHolder.SuspendLayout();
@@ -93,7 +93,7 @@ namespace MDbM.UI.MainUI
             // panelLateral
             // 
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.panelLateral.Controls.Add(this.imgPerfil1);
+            this.panelLateral.Controls.Add(this.imgPerfil);
             this.panelLateral.Controls.Add(this.lblVersion);
             this.panelLateral.Controls.Add(this.btnSalir);
             this.panelLateral.Controls.Add(this.lblListaCompleted);
@@ -109,14 +109,15 @@ namespace MDbM.UI.MainUI
             this.panelLateral.Size = new System.Drawing.Size(305, 854);
             this.panelLateral.TabIndex = 1;
             // 
-            // imgPerfil1
+            // imgPerfil
             // 
-            this.imgPerfil1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.imgPerfil1.Location = new System.Drawing.Point(50, 24);
-            this.imgPerfil1.Name = "imgPerfil1";
-            this.imgPerfil1.Size = new System.Drawing.Size(200, 200);
-            this.imgPerfil1.TabIndex = 21;
-            this.imgPerfil1.TabStop = false;
+            this.imgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.imgPerfil.Location = new System.Drawing.Point(50, 24);
+            this.imgPerfil.Name = "imgPerfil";
+            this.imgPerfil.Size = new System.Drawing.Size(200, 200);
+            this.imgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPerfil.TabIndex = 21;
+            this.imgPerfil.TabStop = false;
             // 
             // lblVersion
             // 
@@ -211,7 +212,6 @@ namespace MDbM.UI.MainUI
             // 
             // lblNombreUsuario
             // 
-            this.lblNombreUsuario.AutoSize = true;
             this.lblNombreUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
             this.lblNombreUsuario.Location = new System.Drawing.Point(12, 238);
@@ -219,6 +219,7 @@ namespace MDbM.UI.MainUI
             this.lblNombreUsuario.Size = new System.Drawing.Size(275, 32);
             this.lblNombreUsuario.TabIndex = 1;
             this.lblNombreUsuario.Text = "Nombre Apellido Apellido";
+            this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblInicio
             // 
@@ -395,7 +396,7 @@ namespace MDbM.UI.MainUI
             this.panelControlVentana.ResumeLayout(false);
             this.panelLateral.ResumeLayout(false);
             this.panelLateral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).EndInit();
             this.panelDetalle.ResumeLayout(false);
             this.panelDetalle.PerformLayout();
             this.panelCambiarStatus.ResumeLayout(false);
@@ -433,6 +434,6 @@ namespace MDbM.UI.MainUI
         private System.Windows.Forms.Label lblValoracion;
         private System.Windows.Forms.Label lblNombre;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private ImagenPerfil.ImgPerfil imgPerfil1;
+        private ImagenPerfil.ImgPerfil imgPerfil;
     }
 }

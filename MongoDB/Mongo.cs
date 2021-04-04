@@ -1,14 +1,20 @@
-﻿using MDbM.UI.Clases;
+﻿using MDbM.Properties;
+using MDbM.UI.Clases;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Resources;
+using System.Threading.Tasks;
 
 namespace MDbM.UI.MongoDB
 {
     class Mongo
     {
         private MongoClient conexion;
+        private ResourceManager rm = new ResourceManager(typeof(Resources));
 
         internal MongoClient GetConexion()
         {
@@ -42,11 +48,22 @@ namespace MDbM.UI.MongoDB
             return false;
         }
 
+        internal Image GetImagenUsuario(string NombreUsuario)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("nombre", NombreUsuario);
+
+            BsonDocument document = GetCollection("Usuarios").Find(filter).First();
+
+            //Usuario usuario = new Usuario();
+            //usuario.imagenPerfil = (string) document.GetValue("imagenPerfil", "N/A");
+
+            return (Image) rm.GetObject((string)document.GetValue("imagenPerfil", "N/A"));
+        }
+
         internal bool CearUsuario(Usuario Usuario)
         {
-
-
-            return false;
+            GetCollection("Usuarios").InsertOne(Usuario.ToBsonDocument());
+            return true;
         }
 
         internal bool LoginUsuario(Usuario Usuario)
@@ -54,6 +71,17 @@ namespace MDbM.UI.MongoDB
 
 
             return false;
+        }
+
+        internal List<Peliculas> GetListaPeliculas()
+        {
+            List<BsonDocument> lista = GetCollection("Peliculas").Find(new BsonDocument()).ToList();
+            List<Peliculas> salida = new List<Peliculas>();
+            foreach(BsonDocument bd in lista)
+            {
+                salida.Add(BsonSerializer.Deserialize<Peliculas>(bd));
+            }
+            return salida;
         }
     }
 }

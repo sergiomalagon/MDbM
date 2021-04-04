@@ -2,7 +2,7 @@
 
 namespace MDbM.UI.Clases
 {
-    class Usuario
+    public class Usuario
     {
         public ObjectId _id { get; set; }
 

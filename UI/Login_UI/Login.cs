@@ -1,8 +1,14 @@
-﻿using MDbM.UI.Clases;
+﻿using MDbM.Properties;
+using MDbM.UI.Clases;
+using MDbM.UI.MainUI;
 using MDbM.UI.MongoDB;
+using MDbM.UI.AdminUI;
+using MongoDB.Bson;
 using System;
+using System.Collections;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace MDbM.UI.LoginUI
@@ -21,6 +27,7 @@ namespace MDbM.UI.LoginUI
 
         public Login()
         {
+            new Admin().Show();
             InitializeComponent();
             Init();
         }
@@ -31,13 +38,44 @@ namespace MDbM.UI.LoginUI
             lblMensaje.Visible = false;
         }
 
-        private void RegistrarUsuario(Usuario Usuario)
+        private void RegistrarUsuario()
+        {
+            Usuario usuario = new Usuario
+            {
+                nombre = txtBoxLoginUsuario.Text.Trim(),
+                passw = txtBoxLoginPassword.Text.Trim(),
+                rol = (int)Enums.TipoUsuario.USER,
+                imagenPerfil = GenerarUrlImagenPerfil(txtBoxLoginUsuario.Text.Trim()),
+                abandonada = new ObjectId[0],
+                completada = new ObjectId[0],
+                planeada = new ObjectId[0],
+                viendo = new ObjectId[0],
+            };
+
+            if (db.CearUsuario(usuario))
+            {
+                imgPerfil.Image.Save("..\\..\\Resources\\UserPP" + "\\" + usuario.imagenPerfil + ".jpg");
+                new Main(this, usuario).Show();
+                this.Hide();
+            }
+        }
+
+        private void IniciarSesion()
         {
 
         }
 
-        private void IniciarSesion(Usuario Usuario)
+        private string GenerarUrlImagenPerfil(string nombre)
         {
+            string[] aux = nombre.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            sb.Append("user");
+            foreach (string a in aux)
+            {
+                sb.Append("_");
+                sb.Append(a);
+            }
+            return sb.ToString();
 
         }
 
@@ -90,6 +128,9 @@ namespace MDbM.UI.LoginUI
                     btnLoginRegistrer.Text = "LOGIN";
                     lblMensaje.Visible = false;
                     this.IsLogin = true;
+                    imgPerfil.Image = db.GetImagenUsuario(txtBoxLoginUsuario.Text.Trim());
+                    imgPerfil.Visible = true;
+                    btnImagenUsuario.SendToBack();
                 }
                 else
                 {
@@ -97,6 +138,8 @@ namespace MDbM.UI.LoginUI
                     this.IsLogin = false;
                     lblMensaje.Text = "Advertencia!!!: Vas a crear un nuevo usuario";
                     lblMensaje.Visible = true;
+                    imgPerfil.Image = null;
+                    btnImagenUsuario.BringToFront();
                 }
                 this.IsValidUsername = true;
             }
@@ -170,19 +213,26 @@ namespace MDbM.UI.LoginUI
             }
             if (this.IsLogin && this.IsValidPassw && this.IsValidUsername)
             {
-                Usuario usuario = new Usuario();
-                //usuario.
-
-                IniciarSesion(usuario);
+                lblMensaje.Visible = false;
+                IniciarSesion();
             }
             else if (!this.IsLogin && this.IsValidPassw && this.IsValidUsername)
             {
-                Usuario usuario = new Usuario();
-                RegistrarUsuario(usuario);
+                lblMensaje.Visible = false;
+                RegistrarUsuario();
             }
+        }
+        private void btnImagenUsuario_Click(object sender, EventArgs e)
+        {
+            Image File;
+            OpenFileDialog f = new OpenFileDialog();
+            f.Filter = "Image files (*.jpg, *.png) | *.jpg; *.png";
 
-
-
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                File = Image.FromFile(f.FileName);
+                imgPerfil.Image = File;
+            }
         }
     }
 }

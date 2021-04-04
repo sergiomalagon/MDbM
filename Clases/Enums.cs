@@ -7,7 +7,8 @@
             VIENDO,
             TERMINADA,
             ABANDONADA,
-            PLANEADA
+            PLANEADA,
+            NO_AGREGADA
         }
         public enum TipoUsuario
         {

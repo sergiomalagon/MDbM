@@ -39,7 +39,11 @@ namespace MDbM.UI.LoginUI
             this.lblMinimize = new System.Windows.Forms.Label();
             this.btnLoginRegistrer = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
+            this.btnImagenUsuario = new System.Windows.Forms.Button();
+            this.imgPerfil = new ImagenPerfil.ImgPerfil();
+            this.panelIcono.SuspendLayout();
             this.panelControlVentana.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBoxLoginUsuario
@@ -91,6 +95,8 @@ namespace MDbM.UI.LoginUI
             // panelIcono
             // 
             this.panelIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.panelIcono.Controls.Add(this.imgPerfil);
+            this.panelIcono.Controls.Add(this.btnImagenUsuario);
             this.panelIcono.Location = new System.Drawing.Point(26, 76);
             this.panelIcono.Name = "panelIcono";
             this.panelIcono.Size = new System.Drawing.Size(290, 270);
@@ -161,6 +167,31 @@ namespace MDbM.UI.LoginUI
             this.lblMensaje.TabIndex = 1000;
             this.lblMensaje.Text = "label1";
             // 
+            // btnImagenUsuario
+            // 
+            this.btnImagenUsuario.AutoSize = true;
+            this.btnImagenUsuario.BackColor = System.Drawing.Color.Black;
+            this.btnImagenUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImagenUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagenUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnImagenUsuario.Location = new System.Drawing.Point(108, 123);
+            this.btnImagenUsuario.Name = "btnImagenUsuario";
+            this.btnImagenUsuario.Size = new System.Drawing.Size(75, 34);
+            this.btnImagenUsuario.TabIndex = 1;
+            this.btnImagenUsuario.Text = "SUBIR";
+            this.btnImagenUsuario.UseVisualStyleBackColor = false;
+            this.btnImagenUsuario.Click += new System.EventHandler(this.btnImagenUsuario_Click);
+            // 
+            // imgPerfil
+            // 
+            this.imgPerfil.BackColor = System.Drawing.Color.DarkGray;
+            this.imgPerfil.Location = new System.Drawing.Point(21, 11);
+            this.imgPerfil.Name = "imgPerfil";
+            this.imgPerfil.Size = new System.Drawing.Size(250, 250);
+            this.imgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPerfil.TabIndex = 0;
+            this.imgPerfil.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,7 +210,10 @@ namespace MDbM.UI.LoginUI
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MdbM";
+            this.panelIcono.ResumeLayout(false);
+            this.panelIcono.PerformLayout();
             this.panelControlVentana.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +231,8 @@ namespace MDbM.UI.LoginUI
         private System.Windows.Forms.Label lblMinimize;
         private System.Windows.Forms.Button btnLoginRegistrer;
         private System.Windows.Forms.Label lblMensaje;
+        private ImagenPerfil.ImgPerfil imgPerfil;
+        private System.Windows.Forms.Button btnImagenUsuario;
     }
 }
 
