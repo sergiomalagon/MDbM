@@ -1,4 +1,6 @@
-﻿using MDbM.UI.Clases;
+﻿using MDbM.Clases;
+using MDbM.UI.Clases;
+using MongoDB.Bson;
 using RoundLbl;
 using System;
 using System.Drawing;
@@ -11,7 +13,7 @@ namespace PeliculaCtrl
         public event EventHandler EntrarDetallePelicula;
         private RoundLabel roundLblFilmStatus;
         private PictureBox portadaPelicula;
-        internal static string PATH_IMG_PERFIL = "..\\..\\Resources\\FilmCovers\\";
+        public ObjectId id;
 
 
         public PeliculaControl()
@@ -84,7 +86,12 @@ namespace PeliculaCtrl
 
         public void SetPortada(string UrlPortada)
         {
-            portadaPelicula.ImageLocation = PATH_IMG_PERFIL + UrlPortada + ".jpg";
+            portadaPelicula.ImageLocation = Path.GetFilmCoversPath() + UrlPortada + ".jpg";
+        }
+
+        public void SetObjectId(ObjectId id)
+        {
+            this.id = id;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

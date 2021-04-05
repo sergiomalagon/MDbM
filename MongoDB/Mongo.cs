@@ -83,5 +83,38 @@ namespace MDbM.UI.MongoDB
             }
             return salida;
         }
+
+        internal List<Reparto> GetListaReparto()
+        {
+            List<BsonDocument> lista = GetCollection("Reparto").Find(new BsonDocument()).ToList();
+
+            List<Reparto> salida = new List<Reparto>();
+
+            foreach (BsonDocument bd in lista)
+            {
+                salida.Add(BsonSerializer.Deserialize<Reparto>(bd));
+            }
+
+            return salida;
+        }
+
+        internal Peliculas GetPelicula(ObjectId id)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+
+            BsonDocument document = GetCollection("Peliculas").Find(filter).First();
+
+            return BsonSerializer.Deserialize<Peliculas>(document);
+        }
+
+        internal Reparto GetReparto(ObjectId id)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+
+            BsonDocument document = GetCollection("Reparto").Find(filter).First();
+
+            return BsonSerializer.Deserialize<Reparto>(document);
+        }
+
     }
 }

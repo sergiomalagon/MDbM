@@ -9,6 +9,7 @@ namespace RepartoCtrl
 
         private Label lblRepartoName;
         private PictureBox picBoxRepartoImagen;
+        internal static string PATH_IMG_PERFIL = "..\\..\\Resources\\People\\";
 
         public RepartoControl()
         {
@@ -28,6 +29,7 @@ namespace RepartoCtrl
             this.picBoxRepartoImagen.Location = new System.Drawing.Point(3, 3);
             this.picBoxRepartoImagen.Name = "picBoxRepartoImagen";
             this.picBoxRepartoImagen.Size = new System.Drawing.Size(144, 207);
+            this.picBoxRepartoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxRepartoImagen.TabIndex = 0;
             this.picBoxRepartoImagen.TabStop = false;
             // 
@@ -57,10 +59,9 @@ namespace RepartoCtrl
 
 
 
-        internal bool CambiarImagen(Image image)
+        internal void CambiarImagen(string image)
         {
-            picBoxRepartoImagen.Image = image;
-            return true;
+            picBoxRepartoImagen.ImageLocation = PATH_IMG_PERFIL + image + ".jpg";
         }
 
         internal void CambiarNombre(String nombre)

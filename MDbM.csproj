@@ -288,6 +288,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Path.cs" />
     <Compile Include="Clases\Peliculas.cs" />
     <Compile Include="Clases\Reparto.cs" />
     <Compile Include="Clases\Usuario.cs" />
