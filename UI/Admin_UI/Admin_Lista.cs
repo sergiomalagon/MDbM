@@ -1,11 +1,13 @@
 ﻿using MDbM.Clases;
 using MDbM.UI.Clases;
 using MDbM.UI.MongoDB;
+using MongoDB.Bson;
 using PeliculaCtrl;
 using RepartoCtrl;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +29,7 @@ namespace MDbM.UI.AdminUI
 
         private void Init()
         {
+
         }
 
         private void CargarEditorPeliculas()
@@ -35,6 +38,7 @@ namespace MDbM.UI.AdminUI
             txtBoxValoracion.Text = this.PeliculaPulsada.valoracion.ToString();
             txtBoxTitulo.Text = this.PeliculaPulsada.titulo;
             txtBoxDescripcion.Text = this.PeliculaPulsada.descripcion;
+            txtBoxAño.Text = this.PeliculaPulsada.año.ToString();
 
             foreach(Reparto r in this.db.GetListaReparto())
             {
@@ -56,10 +60,28 @@ namespace MDbM.UI.AdminUI
             cBoxReparto3.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[2]).nombre;
             picBoxReparto3.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[2]).imagenPerfil + ".jpg");
 
-
+            foreach(string genero in this.PeliculaPulsada.generos)
+            {
+                listBoxGenerosSeleccionados.Items.Add(genero.ToUpper());
+            }
 
             editarPelicula.BringToFront();
         }
+
+        private string GenerarUrlPortada(string nombre)
+        {
+            string[] aux = nombre.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            sb.Append("cover");
+            foreach (string a in aux)
+            {
+                sb.Append("_");
+                sb.Append(a.ToLower());
+            }
+            return sb.ToString();
+
+        }
+
 
         private void verPeliculas_Click(object sender, EventArgs e)
         {
@@ -113,8 +135,85 @@ namespace MDbM.UI.AdminUI
             if (f.ShowDialog() == DialogResult.OK)
             {
                 File = Image.FromFile(f.FileName);
-                picBoxDirector.Image = File;
+                picBoxPortada.Image = File;
             }
+        }
+
+        private void listBoxTodosGeneros_DoubleClick(object sender, EventArgs e)
+        {
+            var GeneroSeleccionado = listBoxTodosGeneros.SelectedItem;
+            if (!listBoxGenerosSeleccionados.Items.Contains(GeneroSeleccionado))
+            {
+                listBoxGenerosSeleccionados.Items.Add(GeneroSeleccionado);
+            }
+        }
+
+        private void listBoxGenerosSeleccionados_DoubleClick(object sender, EventArgs e)
+        {
+            var GeneroSeleccionado = listBoxGenerosSeleccionados.SelectedItem;
+            listBoxGenerosSeleccionados.Items.Remove(GeneroSeleccionado);
+        }
+
+        private void cBoxDirector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Image imagen = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(cBoxDirector.SelectedItem.ToString()).imagenPerfil + ".jpg");
+            picBoxDirector.Image = imagen;
+        }
+
+        private void cBoxReparto1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Image imagen = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(cBoxReparto1.SelectedItem.ToString()).imagenPerfil + ".jpg");
+            picBoxReparto1.Image = imagen;
+        }
+
+        private void cBoxReparto2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Image imagen = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(cBoxReparto2.SelectedItem.ToString()).imagenPerfil + ".jpg");
+            picBoxReparto2.Image = imagen;
+        }
+
+        private void cBoxReparto3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Image imagen = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(cBoxReparto3.SelectedItem.ToString()).imagenPerfil + ".jpg");
+            picBoxReparto3.Image = imagen;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            List<ObjectId> lista = new List<ObjectId>();
+            List<string> listaGeneros = new List<string>();
+            Peliculas pelicula = new Peliculas();
+            pelicula._id = this.PeliculaPulsada._id;
+            pelicula.valoracion = double.Parse(txtBoxValoracion.Text);
+            pelicula.año = Int32.Parse(txtBoxAño.Text);
+            lista.Add(this.db.GetReparto(cBoxDirector.SelectedItem.ToString())._id);
+            pelicula.director = lista.ToArray();
+            lista.Clear();
+            pelicula.portada = GenerarUrlPortada(txtBoxTitulo.Text);
+
+            lista.Add(this.db.GetReparto(cBoxReparto1.SelectedItem.ToString())._id);
+            lista.Add(this.db.GetReparto(cBoxReparto2.SelectedItem.ToString())._id);
+            lista.Add(this.db.GetReparto(cBoxReparto3.SelectedItem.ToString())._id);
+
+            pelicula.reparto = lista.ToArray();
+            lista.Clear();
+            pelicula.descripcion = txtBoxDescripcion.Text;
+            pelicula.titulo = txtBoxTitulo.Text;
+            
+            foreach(string item in listBoxGenerosSeleccionados.Items)
+            {
+                listaGeneros.Add(item.ToLower());
+            }
+            pelicula.generos = listaGeneros.ToArray();
+            listaGeneros.Clear();
+
+            this.db.ActualizarPelicula(pelicula);
+            Console.WriteLine("pelicula actualizada");
+
+            picBoxPortada.Image.Save(Path.GetFilmCoversPath() + GenerarUrlPortada(txtBoxTitulo.Text) + ".jpg");
+
+
+            verPeliculas_Click(sender, e);
         }
     }
 }

@@ -20,5 +20,7 @@ namespace MDbM.UI.Clases
 
         public string titulo { get; set; }
 
+        public string[] generos { get; set; }
+
     }
 }

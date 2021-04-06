@@ -116,5 +116,21 @@ namespace MDbM.UI.MongoDB
             return BsonSerializer.Deserialize<Reparto>(document);
         }
 
+        internal Reparto GetReparto(string nombre)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("nombre", nombre);
+
+            BsonDocument document = GetCollection("Reparto").Find(filter).First();
+
+            return BsonSerializer.Deserialize<Reparto>(document);
+        }
+
+        internal void ActualizarPelicula(Peliculas pelicula)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
+
+            GetCollection("Peliculas").ReplaceOneAsync(filter, pelicula.ToBsonDocument());
+        }
+
     }
 }
