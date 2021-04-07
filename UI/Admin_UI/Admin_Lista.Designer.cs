@@ -40,6 +40,18 @@ namespace MDbM.UI.AdminUI
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.adminPanel = new System.Windows.Forms.Panel();
             this.editarPelicula = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxAño = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBoxTitulo = new System.Windows.Forms.TextBox();
+            this.txtBoxValoracion = new System.Windows.Forms.TextBox();
+            this.txtBoxDescripcion = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.picBoxReparto2 = new System.Windows.Forms.PictureBox();
@@ -50,36 +62,24 @@ namespace MDbM.UI.AdminUI
             this.cBoxReparto2 = new System.Windows.Forms.ComboBox();
             this.cBoxReparto3 = new System.Windows.Forms.ComboBox();
             this.cBoxDirector = new System.Windows.Forms.ComboBox();
-            this.btnCambiarPortada = new System.Windows.Forms.Button();
-            this.picBoxPortada = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxTitulo = new System.Windows.Forms.TextBox();
-            this.txtBoxValoracion = new System.Windows.Forms.TextBox();
-            this.txtBoxDescripcion = new System.Windows.Forms.RichTextBox();
-            this.editarReparto = new System.Windows.Forms.Panel();
-            this.listBoxGenerosSeleccionados = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listBoxTodosGeneros = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.listBoxTodosGeneros = new System.Windows.Forms.ListBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtBoxAño = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.listBoxGenerosSeleccionados = new System.Windows.Forms.ListBox();
+            this.btnCambiarPortada = new System.Windows.Forms.Button();
+            this.picBoxPortada = new System.Windows.Forms.PictureBox();
+            this.editarReparto = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.editarPelicula.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxDirector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -120,8 +120,9 @@ namespace MDbM.UI.AdminUI
             // crearPeliculas
             // 
             this.crearPeliculas.Name = "crearPeliculas";
-            this.crearPeliculas.Size = new System.Drawing.Size(151, 22);
+            this.crearPeliculas.Size = new System.Drawing.Size(180, 22);
             this.crearPeliculas.Text = "Crear Peliculas";
+            this.crearPeliculas.Click += new System.EventHandler(this.crearPeliculas_Click);
             // 
             // repartoList
             // 
@@ -176,6 +177,127 @@ namespace MDbM.UI.AdminUI
             this.editarPelicula.Name = "editarPelicula";
             this.editarPelicula.Size = new System.Drawing.Size(1149, 545);
             this.editarPelicula.TabIndex = 0;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(141, 499);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 23;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(23, 499);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 22;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txtBoxAño);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txtBoxTitulo);
+            this.groupBox3.Controls.Add(this.txtBoxValoracion);
+            this.groupBox3.Controls.Add(this.txtBoxDescripcion);
+            this.groupBox3.Location = new System.Drawing.Point(243, 7);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(476, 272);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "General";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(354, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(26, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Año";
+            // 
+            // txtBoxAño
+            // 
+            this.txtBoxAño.Location = new System.Drawing.Point(386, 19);
+            this.txtBoxAño.Name = "txtBoxAño";
+            this.txtBoxAño.Size = new System.Drawing.Size(59, 20);
+            this.txtBoxAño.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 160);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Descripcion";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(46, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Titulo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Valoracion";
+            // 
+            // txtBoxTitulo
+            // 
+            this.txtBoxTitulo.Location = new System.Drawing.Point(90, 59);
+            this.txtBoxTitulo.Name = "txtBoxTitulo";
+            this.txtBoxTitulo.Size = new System.Drawing.Size(190, 20);
+            this.txtBoxTitulo.TabIndex = 2;
+            // 
+            // txtBoxValoracion
+            // 
+            this.txtBoxValoracion.Location = new System.Drawing.Point(90, 19);
+            this.txtBoxValoracion.Name = "txtBoxValoracion";
+            this.txtBoxValoracion.Size = new System.Drawing.Size(50, 20);
+            this.txtBoxValoracion.TabIndex = 1;
+            // 
+            // txtBoxDescripcion
+            // 
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(90, 109);
+            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(355, 154);
+            this.txtBoxDescripcion.TabIndex = 0;
+            this.txtBoxDescripcion.Text = "";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.picBoxReparto2);
+            this.groupBox2.Controls.Add(this.picBoxReparto1);
+            this.groupBox2.Controls.Add(this.picBoxDirector);
+            this.groupBox2.Controls.Add(this.picBoxReparto3);
+            this.groupBox2.Controls.Add(this.cBoxReparto1);
+            this.groupBox2.Controls.Add(this.cBoxReparto2);
+            this.groupBox2.Controls.Add(this.cBoxReparto3);
+            this.groupBox2.Controls.Add(this.cBoxDirector);
+            this.groupBox2.Location = new System.Drawing.Point(243, 296);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(894, 237);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Reparto";
             // 
             // label5
             // 
@@ -267,92 +389,6 @@ namespace MDbM.UI.AdminUI
             this.cBoxDirector.TabIndex = 8;
             this.cBoxDirector.SelectedIndexChanged += new System.EventHandler(this.cBoxDirector_SelectedIndexChanged);
             // 
-            // btnCambiarPortada
-            // 
-            this.btnCambiarPortada.Location = new System.Drawing.Point(24, 285);
-            this.btnCambiarPortada.Name = "btnCambiarPortada";
-            this.btnCambiarPortada.Size = new System.Drawing.Size(192, 31);
-            this.btnCambiarPortada.TabIndex = 7;
-            this.btnCambiarPortada.Text = "Cambiar Portada";
-            this.btnCambiarPortada.UseVisualStyleBackColor = true;
-            this.btnCambiarPortada.Click += new System.EventHandler(this.btnCambiarPortada_Click);
-            // 
-            // picBoxPortada
-            // 
-            this.picBoxPortada.Location = new System.Drawing.Point(23, 7);
-            this.picBoxPortada.Name = "picBoxPortada";
-            this.picBoxPortada.Size = new System.Drawing.Size(193, 272);
-            this.picBoxPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxPortada.TabIndex = 6;
-            this.picBoxPortada.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 160);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Descripcion";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Titulo";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Valoracion";
-            // 
-            // txtBoxTitulo
-            // 
-            this.txtBoxTitulo.Location = new System.Drawing.Point(90, 59);
-            this.txtBoxTitulo.Name = "txtBoxTitulo";
-            this.txtBoxTitulo.Size = new System.Drawing.Size(190, 20);
-            this.txtBoxTitulo.TabIndex = 2;
-            // 
-            // txtBoxValoracion
-            // 
-            this.txtBoxValoracion.Location = new System.Drawing.Point(90, 19);
-            this.txtBoxValoracion.Name = "txtBoxValoracion";
-            this.txtBoxValoracion.Size = new System.Drawing.Size(50, 20);
-            this.txtBoxValoracion.TabIndex = 1;
-            // 
-            // txtBoxDescripcion
-            // 
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(90, 109);
-            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(355, 154);
-            this.txtBoxDescripcion.TabIndex = 0;
-            this.txtBoxDescripcion.Text = "";
-            // 
-            // editarReparto
-            // 
-            this.editarReparto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editarReparto.Location = new System.Drawing.Point(0, 24);
-            this.editarReparto.Name = "editarReparto";
-            this.editarReparto.Size = new System.Drawing.Size(1149, 545);
-            this.editarReparto.TabIndex = 1;
-            // 
-            // listBoxGenerosSeleccionados
-            // 
-            this.listBoxGenerosSeleccionados.FormattingEnabled = true;
-            this.listBoxGenerosSeleccionados.Location = new System.Drawing.Point(22, 59);
-            this.listBoxGenerosSeleccionados.Name = "listBoxGenerosSeleccionados";
-            this.listBoxGenerosSeleccionados.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxGenerosSeleccionados.Size = new System.Drawing.Size(148, 199);
-            this.listBoxGenerosSeleccionados.TabIndex = 18;
-            this.listBoxGenerosSeleccionados.DoubleClick += new System.EventHandler(this.listBoxGenerosSeleccionados_DoubleClick);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBoxTodosGeneros);
@@ -365,60 +401,6 @@ namespace MDbM.UI.AdminUI
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generos";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.picBoxReparto2);
-            this.groupBox2.Controls.Add(this.picBoxReparto1);
-            this.groupBox2.Controls.Add(this.picBoxDirector);
-            this.groupBox2.Controls.Add(this.picBoxReparto3);
-            this.groupBox2.Controls.Add(this.cBoxReparto1);
-            this.groupBox2.Controls.Add(this.cBoxReparto2);
-            this.groupBox2.Controls.Add(this.cBoxReparto3);
-            this.groupBox2.Controls.Add(this.cBoxDirector);
-            this.groupBox2.Location = new System.Drawing.Point(243, 296);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(894, 237);
-            this.groupBox2.TabIndex = 20;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Reparto";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtBoxAño);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtBoxTitulo);
-            this.groupBox3.Controls.Add(this.txtBoxValoracion);
-            this.groupBox3.Controls.Add(this.txtBoxDescripcion);
-            this.groupBox3.Location = new System.Drawing.Point(243, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(476, 272);
-            this.groupBox3.TabIndex = 21;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "General";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(260, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Generos Disponibles";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Generos Seleccionados";
             // 
             // listBoxTodosGeneros
             // 
@@ -443,40 +425,60 @@ namespace MDbM.UI.AdminUI
             this.listBoxTodosGeneros.TabIndex = 19;
             this.listBoxTodosGeneros.DoubleClick += new System.EventHandler(this.listBoxTodosGeneros_DoubleClick);
             // 
-            // btnAceptar
+            // label6
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(23, 499);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 22;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(260, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Generos Disponibles";
             // 
-            // btnCancelar
+            // label7
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(141, 499);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 23;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Generos Seleccionados";
             // 
-            // txtBoxAño
+            // listBoxGenerosSeleccionados
             // 
-            this.txtBoxAño.Location = new System.Drawing.Point(386, 19);
-            this.txtBoxAño.Name = "txtBoxAño";
-            this.txtBoxAño.Size = new System.Drawing.Size(59, 20);
-            this.txtBoxAño.TabIndex = 6;
+            this.listBoxGenerosSeleccionados.FormattingEnabled = true;
+            this.listBoxGenerosSeleccionados.Location = new System.Drawing.Point(22, 59);
+            this.listBoxGenerosSeleccionados.Name = "listBoxGenerosSeleccionados";
+            this.listBoxGenerosSeleccionados.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxGenerosSeleccionados.Size = new System.Drawing.Size(148, 199);
+            this.listBoxGenerosSeleccionados.TabIndex = 18;
+            this.listBoxGenerosSeleccionados.DoubleClick += new System.EventHandler(this.listBoxGenerosSeleccionados_DoubleClick);
             // 
-            // label8
+            // btnCambiarPortada
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(354, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(26, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Año";
+            this.btnCambiarPortada.Location = new System.Drawing.Point(24, 285);
+            this.btnCambiarPortada.Name = "btnCambiarPortada";
+            this.btnCambiarPortada.Size = new System.Drawing.Size(192, 31);
+            this.btnCambiarPortada.TabIndex = 7;
+            this.btnCambiarPortada.Text = "Cambiar Portada";
+            this.btnCambiarPortada.UseVisualStyleBackColor = true;
+            this.btnCambiarPortada.Click += new System.EventHandler(this.btnCambiarPortada_Click);
+            // 
+            // picBoxPortada
+            // 
+            this.picBoxPortada.Location = new System.Drawing.Point(23, 7);
+            this.picBoxPortada.Name = "picBoxPortada";
+            this.picBoxPortada.Size = new System.Drawing.Size(193, 272);
+            this.picBoxPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxPortada.TabIndex = 6;
+            this.picBoxPortada.TabStop = false;
+            // 
+            // editarReparto
+            // 
+            this.editarReparto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editarReparto.Location = new System.Drawing.Point(0, 24);
+            this.editarReparto.Name = "editarReparto";
+            this.editarReparto.Size = new System.Drawing.Size(1149, 545);
+            this.editarReparto.TabIndex = 1;
             // 
             // Admin
             // 
@@ -484,10 +486,10 @@ namespace MDbM.UI.AdminUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(1149, 569);
+            this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.editarPelicula);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.editarReparto);
-            this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin";
@@ -495,17 +497,17 @@ namespace MDbM.UI.AdminUI
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.editarPelicula.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxDirector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

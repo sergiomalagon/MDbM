@@ -57,7 +57,7 @@ namespace MDbM.UI.MongoDB
             //Usuario usuario = new Usuario();
             //usuario.imagenPerfil = (string) document.GetValue("imagenPerfil", "N/A");
 
-            return (Image) rm.GetObject((string)document.GetValue("imagenPerfil", "N/A"));
+            return (Image)rm.GetObject((string)document.GetValue("imagenPerfil", "N/A"));
         }
 
         internal bool CearUsuario(Usuario Usuario)
@@ -77,7 +77,7 @@ namespace MDbM.UI.MongoDB
         {
             List<BsonDocument> lista = GetCollection("Peliculas").Find(new BsonDocument()).ToList();
             List<Peliculas> salida = new List<Peliculas>();
-            foreach(BsonDocument bd in lista)
+            foreach (BsonDocument bd in lista)
             {
                 salida.Add(BsonSerializer.Deserialize<Peliculas>(bd));
             }
@@ -125,11 +125,16 @@ namespace MDbM.UI.MongoDB
             return BsonSerializer.Deserialize<Reparto>(document);
         }
 
-        internal void ActualizarPelicula(Peliculas pelicula)
+        internal async void ActualizarPelicula(Peliculas pelicula)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
 
-            GetCollection("Peliculas").ReplaceOneAsync(filter, pelicula.ToBsonDocument());
+            await GetCollection("Peliculas").ReplaceOneAsync(filter, pelicula.ToBsonDocument());
+        }
+
+        internal async void CrearPelicula(Peliculas pelicula)
+        {
+            await GetCollection("Peliculas").InsertOneAsync(pelicula.ToBsonDocument());
         }
 
     }

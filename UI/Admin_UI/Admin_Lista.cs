@@ -7,9 +7,12 @@ using RepartoCtrl;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Path = MDbM.Clases.Path;
 
 namespace MDbM.UI.AdminUI
 {
@@ -19,7 +22,8 @@ namespace MDbM.UI.AdminUI
 
         internal Peliculas PeliculaPulsada;
         internal Reparto RepartoPulsado;
-
+        internal bool IsCrearPelicula;
+        internal bool IsPortadaNueva;
 
         public Admin()
         {
@@ -34,38 +38,79 @@ namespace MDbM.UI.AdminUI
 
         private void CargarEditorPeliculas()
         {
-            picBoxPortada.Image = Image.FromFile(Path.GetFilmCoversPath() + this.PeliculaPulsada.portada + ".jpg");
-            txtBoxValoracion.Text = this.PeliculaPulsada.valoracion.ToString();
-            txtBoxTitulo.Text = this.PeliculaPulsada.titulo;
-            txtBoxDescripcion.Text = this.PeliculaPulsada.descripcion;
-            txtBoxAño.Text = this.PeliculaPulsada.año.ToString();
-
-            foreach(Reparto r in this.db.GetListaReparto())
+            if (!this.IsCrearPelicula)
             {
-                cBoxDirector.Items.Add(r.nombre);
-                cBoxReparto1.Items.Add(r.nombre);
-                cBoxReparto2.Items.Add(r.nombre);
-                cBoxReparto3.Items.Add(r.nombre);
+                try
+                {
+                    picBoxPortada.Image = Image.FromFile(Path.GetFilmCoversPath() + this.PeliculaPulsada.portada + ".jpg");
+                }
+                catch (FileNotFoundException)
+                {
+                    picBoxPortada.Image = null;
+                }
+                txtBoxValoracion.Text = this.PeliculaPulsada.valoracion.ToString();
+                txtBoxTitulo.Text = this.PeliculaPulsada.titulo;
+                txtBoxDescripcion.Text = this.PeliculaPulsada.descripcion;
+                txtBoxAño.Text = this.PeliculaPulsada.año.ToString();
+
+                foreach (Reparto r in this.db.GetListaReparto())
+                {
+                    cBoxDirector.Items.Add(r.nombre);
+                    cBoxReparto1.Items.Add(r.nombre);
+                    cBoxReparto2.Items.Add(r.nombre);
+                    cBoxReparto3.Items.Add(r.nombre);
+                }
+
+                cBoxDirector.Text = this.db.GetReparto(this.PeliculaPulsada.director[0]).nombre;
+                picBoxDirector.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.director[0]).imagenPerfil + ".jpg");
+
+                cBoxReparto1.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[0]).nombre;
+                picBoxReparto1.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[0]).imagenPerfil + ".jpg");
+
+                cBoxReparto2.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[1]).nombre;
+                picBoxReparto2.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[1]).imagenPerfil + ".jpg");
+
+                cBoxReparto3.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[2]).nombre;
+                picBoxReparto3.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[2]).imagenPerfil + ".jpg");
+
+                listBoxGenerosSeleccionados.Items.Clear();
+                foreach (string genero in this.PeliculaPulsada.generos)
+                {
+                    listBoxGenerosSeleccionados.Items.Add(genero.ToUpper());
+                }
+
+                editarPelicula.BringToFront();
+            }
+            else
+            {
+                txtBoxValoracion.Text = "";
+                txtBoxTitulo.Text = "";
+                txtBoxDescripcion.Text = "";
+                txtBoxAño.Text = "";
+
+                picBoxPortada.Image = null;
+                picBoxDirector.Image = null;
+                picBoxReparto1.Image = null;
+                picBoxReparto2.Image = null;
+                picBoxReparto3.Image = null;
+
+                cBoxDirector.Items.Clear();
+                cBoxReparto1.Items.Clear();
+                cBoxReparto2.Items.Clear();
+                cBoxReparto3.Items.Clear();
+
+                foreach (Reparto r in this.db.GetListaReparto())
+                {
+                    cBoxDirector.Items.Add(r.nombre);
+                    cBoxReparto1.Items.Add(r.nombre);
+                    cBoxReparto2.Items.Add(r.nombre);
+                    cBoxReparto3.Items.Add(r.nombre);
+                }
+                listBoxGenerosSeleccionados.Items.Clear();
+
+                editarPelicula.BringToFront();
             }
 
-            cBoxDirector.Text = this.db.GetReparto(this.PeliculaPulsada.director[0]).nombre;
-            picBoxDirector.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.director[0]).imagenPerfil + ".jpg");
-
-            cBoxReparto1.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[0]).nombre;
-            picBoxReparto1.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[0]).imagenPerfil + ".jpg");
-
-            cBoxReparto2.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[1]).nombre;
-            picBoxReparto2.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[1]).imagenPerfil + ".jpg");
-
-            cBoxReparto3.Text = this.db.GetReparto(this.PeliculaPulsada.reparto[2]).nombre;
-            picBoxReparto3.Image = Image.FromFile(Path.GetPeoplePath() + this.db.GetReparto(this.PeliculaPulsada.reparto[2]).imagenPerfil + ".jpg");
-
-            foreach(string genero in this.PeliculaPulsada.generos)
-            {
-                listBoxGenerosSeleccionados.Items.Add(genero.ToUpper());
-            }
-
-            editarPelicula.BringToFront();
         }
 
         private string GenerarUrlPortada(string nombre)
@@ -85,9 +130,10 @@ namespace MDbM.UI.AdminUI
 
         private void verPeliculas_Click(object sender, EventArgs e)
         {
+
             flowLayoutPanel.Controls.Clear();
             List<Peliculas> peliculas = this.db.GetListaPeliculas();
-            foreach(Peliculas p in peliculas)
+            foreach (Peliculas p in peliculas)
             {
                 PeliculaControl control = new PeliculaControl();
                 control.EntrarDetallePelicula += new EventHandler(EntrarDetallePelicula);
@@ -99,10 +145,17 @@ namespace MDbM.UI.AdminUI
             flowLayoutPanel.BringToFront();
         }
 
+        private void crearPeliculas_Click(object sender, EventArgs e)
+        {
+            this.IsCrearPelicula = true;
+            CargarEditorPeliculas();
+        }
+
         private void EntrarDetallePelicula(object sender, EventArgs e)
         {
+            this.IsCrearPelicula = false;
             Control b = (Control)sender;
-            PeliculaControl pc =(PeliculaControl) b.Parent;
+            PeliculaControl pc = (PeliculaControl)b.Parent;
             this.PeliculaPulsada = this.db.GetPelicula(pc.id);
             CargarEditorPeliculas();
         }
@@ -135,7 +188,13 @@ namespace MDbM.UI.AdminUI
             if (f.ShowDialog() == DialogResult.OK)
             {
                 File = Image.FromFile(f.FileName);
+                if (picBoxPortada.Image != null)
+                {
+                    picBoxPortada.Image.Dispose();
+                    picBoxPortada.Image = null;
+                }
                 picBoxPortada.Image = File;
+                this.IsPortadaNueva = true;
             }
         }
 
@@ -180,40 +239,64 @@ namespace MDbM.UI.AdminUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            List<ObjectId> lista = new List<ObjectId>();
-            List<string> listaGeneros = new List<string>();
-            Peliculas pelicula = new Peliculas();
-            pelicula._id = this.PeliculaPulsada._id;
-            pelicula.valoracion = double.Parse(txtBoxValoracion.Text);
-            pelicula.año = Int32.Parse(txtBoxAño.Text);
-            lista.Add(this.db.GetReparto(cBoxDirector.SelectedItem.ToString())._id);
-            pelicula.director = lista.ToArray();
-            lista.Clear();
-            pelicula.portada = GenerarUrlPortada(txtBoxTitulo.Text);
-
-            lista.Add(this.db.GetReparto(cBoxReparto1.SelectedItem.ToString())._id);
-            lista.Add(this.db.GetReparto(cBoxReparto2.SelectedItem.ToString())._id);
-            lista.Add(this.db.GetReparto(cBoxReparto3.SelectedItem.ToString())._id);
-
-            pelicula.reparto = lista.ToArray();
-            lista.Clear();
-            pelicula.descripcion = txtBoxDescripcion.Text;
-            pelicula.titulo = txtBoxTitulo.Text;
             
-            foreach(string item in listBoxGenerosSeleccionados.Items)
+                List<ObjectId> lista = new List<ObjectId>();
+                List<string> listaGeneros = new List<string>();
+                Peliculas pelicula = new Peliculas();
+
+                pelicula.valoracion = double.Parse(txtBoxValoracion.Text);
+                pelicula.año = Int32.Parse(txtBoxAño.Text);
+                lista.Add(this.db.GetReparto(cBoxDirector.SelectedItem.ToString())._id);
+                pelicula.director = lista.ToArray();
+                lista.Clear();
+
+                pelicula.portada = GenerarUrlPortada(txtBoxTitulo.Text.Trim());
+
+                lista.Add(this.db.GetReparto(cBoxReparto1.SelectedItem.ToString())._id);
+                lista.Add(this.db.GetReparto(cBoxReparto2.SelectedItem.ToString())._id);
+                lista.Add(this.db.GetReparto(cBoxReparto3.SelectedItem.ToString())._id);
+
+                pelicula.reparto = lista.ToArray();
+                lista.Clear();
+                pelicula.descripcion = txtBoxDescripcion.Text;
+                pelicula.titulo = txtBoxTitulo.Text;
+
+                foreach (string item in listBoxGenerosSeleccionados.Items)
+                {
+                    listaGeneros.Add(item.ToLower());
+                }
+                pelicula.generos = listaGeneros.ToArray();
+                listaGeneros.Clear();
+
+            try
             {
-                listaGeneros.Add(item.ToLower());
+                picBoxPortada.Image.Save(Path.GetFilmCoversPath() + GenerarUrlPortada(txtBoxTitulo.Text.Trim()) + ".jpg");
             }
-            pelicula.generos = listaGeneros.ToArray();
-            listaGeneros.Clear();
+            catch (Exception){}
+            
 
-            this.db.ActualizarPelicula(pelicula);
-            Console.WriteLine("pelicula actualizada");
+            if (!this.IsCrearPelicula)
+            {
+                pelicula._id = this.PeliculaPulsada._id;
+                this.db.ActualizarPelicula(pelicula);
+                Console.WriteLine("Pelicula actualizada");
+            }
+            else
+            {
+                this.db.CrearPelicula(pelicula);
+                Console.WriteLine("Pelicula creada");
+            }
 
-            picBoxPortada.Image.Save(Path.GetFilmCoversPath() + GenerarUrlPortada(txtBoxTitulo.Text) + ".jpg");
-
+            
 
             verPeliculas_Click(sender, e);
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            verPeliculas_Click(sender, e);
+        }
+
+
     }
 }
