@@ -254,6 +254,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
@@ -289,7 +290,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Path.cs" />
-    <Compile Include="Clases\Peliculas.cs" />
+    <Compile Include="Clases\Pelicula.cs" />
     <Compile Include="Clases\Reparto.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="MongoDB\Mongo.cs" />

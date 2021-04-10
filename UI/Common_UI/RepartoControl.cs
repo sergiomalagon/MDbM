@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MDbM.Clases;
+using MongoDB.Bson;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,10 +8,11 @@ namespace RepartoCtrl
 {
     public class RepartoControl : UserControl
     {
-
+        public event EventHandler EntrarDetalleReparto;
         private Label lblRepartoName;
         private PictureBox picBoxRepartoImagen;
-        internal static string PATH_IMG_PERFIL = "..\\..\\Resources\\People\\";
+        public ObjectId id;
+
 
         public RepartoControl()
         {
@@ -32,6 +35,7 @@ namespace RepartoCtrl
             this.picBoxRepartoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxRepartoImagen.TabIndex = 0;
             this.picBoxRepartoImagen.TabStop = false;
+            this.picBoxRepartoImagen.Click += new System.EventHandler(this.PicBoxRepartoImagen_Click);
             // 
             // lblRepartoName
             // 
@@ -44,6 +48,7 @@ namespace RepartoCtrl
             this.lblRepartoName.TabIndex = 1;
             this.lblRepartoName.Text = "label1";
             this.lblRepartoName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRepartoName.Click += new System.EventHandler(this.LblRepartoName_Click);
             // 
             // RepartoControl
             // 
@@ -61,12 +66,27 @@ namespace RepartoCtrl
 
         internal void CambiarImagen(string image)
         {
-            picBoxRepartoImagen.ImageLocation = PATH_IMG_PERFIL + image + ".jpg";
+            picBoxRepartoImagen.ImageLocation = Path.GetPeoplePath() + image + ".jpg";
         }
 
         internal void CambiarNombre(String nombre)
         {
             lblRepartoName.Text = nombre;
+        }
+
+        public void SetObjectId(ObjectId id)
+        {
+            this.id = id;
+        }
+
+        private void PicBoxRepartoImagen_Click(object sender, EventArgs e)
+        {
+            EntrarDetalleReparto(sender, null);
+        }
+
+        private void LblRepartoName_Click(object sender, EventArgs e)
+        {
+            EntrarDetalleReparto(sender, null);
         }
     }
 

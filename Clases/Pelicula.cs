@@ -2,7 +2,7 @@
 
 namespace MDbM.UI.Clases
 {
-    class Peliculas
+    class Pelicula
     {
         public ObjectId _id { get; set; }
 

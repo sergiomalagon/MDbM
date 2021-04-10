@@ -40,46 +40,61 @@ namespace MDbM.UI.AdminUI
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.adminPanel = new System.Windows.Forms.Panel();
             this.editarPelicula = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.BtnEliminarPelicula = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.BtnAceptar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtBoxAño = new System.Windows.Forms.TextBox();
+            this.TxtBoxAño = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxTitulo = new System.Windows.Forms.TextBox();
-            this.txtBoxValoracion = new System.Windows.Forms.TextBox();
-            this.txtBoxDescripcion = new System.Windows.Forms.RichTextBox();
+            this.TxtBoxTitulo = new System.Windows.Forms.TextBox();
+            this.TxtBoxValoracion = new System.Windows.Forms.TextBox();
+            this.TxtBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.picBoxReparto2 = new System.Windows.Forms.PictureBox();
-            this.picBoxReparto1 = new System.Windows.Forms.PictureBox();
-            this.picBoxDirector = new System.Windows.Forms.PictureBox();
-            this.picBoxReparto3 = new System.Windows.Forms.PictureBox();
-            this.cBoxReparto1 = new System.Windows.Forms.ComboBox();
-            this.cBoxReparto2 = new System.Windows.Forms.ComboBox();
-            this.cBoxReparto3 = new System.Windows.Forms.ComboBox();
-            this.cBoxDirector = new System.Windows.Forms.ComboBox();
+            this.PicBoxReparto2 = new System.Windows.Forms.PictureBox();
+            this.PicBoxReparto1 = new System.Windows.Forms.PictureBox();
+            this.PicBoxDirector = new System.Windows.Forms.PictureBox();
+            this.PicBoxReparto3 = new System.Windows.Forms.PictureBox();
+            this.CBoxReparto1 = new System.Windows.Forms.ComboBox();
+            this.CBoxReparto2 = new System.Windows.Forms.ComboBox();
+            this.CBoxReparto3 = new System.Windows.Forms.ComboBox();
+            this.CBoxDirector = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBoxTodosGeneros = new System.Windows.Forms.ListBox();
+            this.ListBoxTodosGeneros = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.listBoxGenerosSeleccionados = new System.Windows.Forms.ListBox();
-            this.btnCambiarPortada = new System.Windows.Forms.Button();
-            this.picBoxPortada = new System.Windows.Forms.PictureBox();
+            this.ListBoxGenerosSeleccionados = new System.Windows.Forms.ListBox();
+            this.BtnCambiarPortada = new System.Windows.Forms.Button();
+            this.PicBoxPortada = new System.Windows.Forms.PictureBox();
             this.editarReparto = new System.Windows.Forms.Panel();
+            this.BtnEliminarReparto = new System.Windows.Forms.Button();
+            this.BtnCancelarReparto = new System.Windows.Forms.Button();
+            this.BtnAceptarReparto = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtBoxNombreReparto = new System.Windows.Forms.TextBox();
+            this.BtnCambiarImagenReparto = new System.Windows.Forms.Button();
+            this.PicBoxPortadaRetrato = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.LblEstadoServicio = new System.Windows.Forms.Label();
+            this.BtnIniciarServicio = new System.Windows.Forms.Button();
+            this.BtnPararServicio = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            this.adminPanel.SuspendLayout();
             this.editarPelicula.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxDirector)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxReparto2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxReparto1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxDirector)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxReparto3)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).BeginInit();
+            this.editarReparto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortadaRetrato)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -99,7 +114,7 @@ namespace MDbM.UI.AdminUI
             this.inicio.Name = "inicio";
             this.inicio.Size = new System.Drawing.Size(48, 20);
             this.inicio.Text = "Inicio";
-            this.inicio.Click += new System.EventHandler(this.inicio_Click);
+            this.inicio.Click += new System.EventHandler(this.Inicio_Click);
             // 
             // peliculasList
             // 
@@ -113,16 +128,16 @@ namespace MDbM.UI.AdminUI
             // verPeliculas
             // 
             this.verPeliculas.Name = "verPeliculas";
-            this.verPeliculas.Size = new System.Drawing.Size(151, 22);
+            this.verPeliculas.Size = new System.Drawing.Size(146, 22);
             this.verPeliculas.Text = "Ver Peliculas";
-            this.verPeliculas.Click += new System.EventHandler(this.verPeliculas_Click);
+            this.verPeliculas.Click += new System.EventHandler(this.VerPeliculas_Click);
             // 
             // crearPeliculas
             // 
             this.crearPeliculas.Name = "crearPeliculas";
-            this.crearPeliculas.Size = new System.Drawing.Size(180, 22);
-            this.crearPeliculas.Text = "Crear Peliculas";
-            this.crearPeliculas.Click += new System.EventHandler(this.crearPeliculas_Click);
+            this.crearPeliculas.Size = new System.Drawing.Size(146, 22);
+            this.crearPeliculas.Text = "Crear Pelicula";
+            this.crearPeliculas.Click += new System.EventHandler(this.CrearPeliculas_Click);
             // 
             // repartoList
             // 
@@ -138,13 +153,14 @@ namespace MDbM.UI.AdminUI
             this.verReparto.Name = "verReparto";
             this.verReparto.Size = new System.Drawing.Size(146, 22);
             this.verReparto.Text = "Ver Reparto";
-            this.verReparto.Click += new System.EventHandler(this.verReparto_Click);
+            this.verReparto.Click += new System.EventHandler(this.VerReparto_Click);
             // 
             // crearReparto
             // 
             this.crearReparto.Name = "crearReparto";
             this.crearReparto.Size = new System.Drawing.Size(146, 22);
             this.crearReparto.Text = "Crear Reparto";
+            this.crearReparto.Click += new System.EventHandler(this.CrearReparto_Click);
             // 
             // flowLayoutPanel
             // 
@@ -157,6 +173,10 @@ namespace MDbM.UI.AdminUI
             // 
             // adminPanel
             // 
+            this.adminPanel.Controls.Add(this.BtnPararServicio);
+            this.adminPanel.Controls.Add(this.BtnIniciarServicio);
+            this.adminPanel.Controls.Add(this.LblEstadoServicio);
+            this.adminPanel.Controls.Add(this.label10);
             this.adminPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminPanel.Location = new System.Drawing.Point(0, 24);
             this.adminPanel.Name = "adminPanel";
@@ -165,49 +185,61 @@ namespace MDbM.UI.AdminUI
             // 
             // editarPelicula
             // 
-            this.editarPelicula.Controls.Add(this.btnCancelar);
-            this.editarPelicula.Controls.Add(this.btnAceptar);
+            this.editarPelicula.Controls.Add(this.BtnEliminarPelicula);
+            this.editarPelicula.Controls.Add(this.BtnCancelar);
+            this.editarPelicula.Controls.Add(this.BtnAceptar);
             this.editarPelicula.Controls.Add(this.groupBox3);
             this.editarPelicula.Controls.Add(this.groupBox2);
             this.editarPelicula.Controls.Add(this.groupBox1);
-            this.editarPelicula.Controls.Add(this.btnCambiarPortada);
-            this.editarPelicula.Controls.Add(this.picBoxPortada);
+            this.editarPelicula.Controls.Add(this.BtnCambiarPortada);
+            this.editarPelicula.Controls.Add(this.PicBoxPortada);
             this.editarPelicula.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editarPelicula.Location = new System.Drawing.Point(0, 24);
             this.editarPelicula.Name = "editarPelicula";
             this.editarPelicula.Size = new System.Drawing.Size(1149, 545);
             this.editarPelicula.TabIndex = 0;
             // 
-            // btnCancelar
+            // BtnEliminarPelicula
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(141, 499);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 23;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.BtnEliminarPelicula.Location = new System.Drawing.Point(23, 454);
+            this.BtnEliminarPelicula.Name = "BtnEliminarPelicula";
+            this.BtnEliminarPelicula.Size = new System.Drawing.Size(192, 25);
+            this.BtnEliminarPelicula.TabIndex = 24;
+            this.BtnEliminarPelicula.Text = "Eliminar";
+            this.BtnEliminarPelicula.UseVisualStyleBackColor = true;
+            this.BtnEliminarPelicula.Visible = false;
+            this.BtnEliminarPelicula.Click += new System.EventHandler(this.BtnEliminarPelicula_Click);
             // 
-            // btnAceptar
+            // BtnCancelar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(23, 499);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 22;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.BtnCancelar.Location = new System.Drawing.Point(141, 499);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.BtnCancelar.TabIndex = 23;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // BtnAceptar
+            // 
+            this.BtnAceptar.Location = new System.Drawing.Point(23, 499);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.BtnAceptar.TabIndex = 22;
+            this.BtnAceptar.Text = "Aceptar";
+            this.BtnAceptar.UseVisualStyleBackColor = true;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtBoxAño);
+            this.groupBox3.Controls.Add(this.TxtBoxAño);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.txtBoxTitulo);
-            this.groupBox3.Controls.Add(this.txtBoxValoracion);
-            this.groupBox3.Controls.Add(this.txtBoxDescripcion);
+            this.groupBox3.Controls.Add(this.TxtBoxTitulo);
+            this.groupBox3.Controls.Add(this.TxtBoxValoracion);
+            this.groupBox3.Controls.Add(this.TxtBoxDescripcion);
             this.groupBox3.Location = new System.Drawing.Point(243, 7);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(476, 272);
@@ -224,12 +256,12 @@ namespace MDbM.UI.AdminUI
             this.label8.TabIndex = 7;
             this.label8.Text = "Año";
             // 
-            // txtBoxAño
+            // TxtBoxAño
             // 
-            this.txtBoxAño.Location = new System.Drawing.Point(386, 19);
-            this.txtBoxAño.Name = "txtBoxAño";
-            this.txtBoxAño.Size = new System.Drawing.Size(59, 20);
-            this.txtBoxAño.TabIndex = 6;
+            this.TxtBoxAño.Location = new System.Drawing.Point(386, 19);
+            this.TxtBoxAño.Name = "TxtBoxAño";
+            this.TxtBoxAño.Size = new System.Drawing.Size(59, 20);
+            this.TxtBoxAño.TabIndex = 6;
             // 
             // label3
             // 
@@ -258,40 +290,40 @@ namespace MDbM.UI.AdminUI
             this.label1.TabIndex = 3;
             this.label1.Text = "Valoracion";
             // 
-            // txtBoxTitulo
+            // TxtBoxTitulo
             // 
-            this.txtBoxTitulo.Location = new System.Drawing.Point(90, 59);
-            this.txtBoxTitulo.Name = "txtBoxTitulo";
-            this.txtBoxTitulo.Size = new System.Drawing.Size(190, 20);
-            this.txtBoxTitulo.TabIndex = 2;
+            this.TxtBoxTitulo.Location = new System.Drawing.Point(90, 59);
+            this.TxtBoxTitulo.Name = "TxtBoxTitulo";
+            this.TxtBoxTitulo.Size = new System.Drawing.Size(190, 20);
+            this.TxtBoxTitulo.TabIndex = 2;
             // 
-            // txtBoxValoracion
+            // TxtBoxValoracion
             // 
-            this.txtBoxValoracion.Location = new System.Drawing.Point(90, 19);
-            this.txtBoxValoracion.Name = "txtBoxValoracion";
-            this.txtBoxValoracion.Size = new System.Drawing.Size(50, 20);
-            this.txtBoxValoracion.TabIndex = 1;
+            this.TxtBoxValoracion.Location = new System.Drawing.Point(90, 19);
+            this.TxtBoxValoracion.Name = "TxtBoxValoracion";
+            this.TxtBoxValoracion.Size = new System.Drawing.Size(50, 20);
+            this.TxtBoxValoracion.TabIndex = 1;
             // 
-            // txtBoxDescripcion
+            // TxtBoxDescripcion
             // 
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(90, 109);
-            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(355, 154);
-            this.txtBoxDescripcion.TabIndex = 0;
-            this.txtBoxDescripcion.Text = "";
+            this.TxtBoxDescripcion.Location = new System.Drawing.Point(90, 109);
+            this.TxtBoxDescripcion.Name = "TxtBoxDescripcion";
+            this.TxtBoxDescripcion.Size = new System.Drawing.Size(355, 154);
+            this.TxtBoxDescripcion.TabIndex = 0;
+            this.TxtBoxDescripcion.Text = "";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.picBoxReparto2);
-            this.groupBox2.Controls.Add(this.picBoxReparto1);
-            this.groupBox2.Controls.Add(this.picBoxDirector);
-            this.groupBox2.Controls.Add(this.picBoxReparto3);
-            this.groupBox2.Controls.Add(this.cBoxReparto1);
-            this.groupBox2.Controls.Add(this.cBoxReparto2);
-            this.groupBox2.Controls.Add(this.cBoxReparto3);
-            this.groupBox2.Controls.Add(this.cBoxDirector);
+            this.groupBox2.Controls.Add(this.PicBoxReparto2);
+            this.groupBox2.Controls.Add(this.PicBoxReparto1);
+            this.groupBox2.Controls.Add(this.PicBoxDirector);
+            this.groupBox2.Controls.Add(this.PicBoxReparto3);
+            this.groupBox2.Controls.Add(this.CBoxReparto1);
+            this.groupBox2.Controls.Add(this.CBoxReparto2);
+            this.groupBox2.Controls.Add(this.CBoxReparto3);
+            this.groupBox2.Controls.Add(this.CBoxDirector);
             this.groupBox2.Location = new System.Drawing.Point(243, 296);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(894, 237);
@@ -317,84 +349,84 @@ namespace MDbM.UI.AdminUI
             this.label4.TabIndex = 16;
             this.label4.Text = "Director";
             // 
-            // picBoxReparto2
+            // PicBoxReparto2
             // 
-            this.picBoxReparto2.Location = new System.Drawing.Point(459, 69);
-            this.picBoxReparto2.Name = "picBoxReparto2";
-            this.picBoxReparto2.Size = new System.Drawing.Size(121, 157);
-            this.picBoxReparto2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxReparto2.TabIndex = 15;
-            this.picBoxReparto2.TabStop = false;
+            this.PicBoxReparto2.Location = new System.Drawing.Point(459, 69);
+            this.PicBoxReparto2.Name = "PicBoxReparto2";
+            this.PicBoxReparto2.Size = new System.Drawing.Size(121, 157);
+            this.PicBoxReparto2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxReparto2.TabIndex = 15;
+            this.PicBoxReparto2.TabStop = false;
             // 
-            // picBoxReparto1
+            // PicBoxReparto1
             // 
-            this.picBoxReparto1.Location = new System.Drawing.Point(277, 69);
-            this.picBoxReparto1.Name = "picBoxReparto1";
-            this.picBoxReparto1.Size = new System.Drawing.Size(121, 157);
-            this.picBoxReparto1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxReparto1.TabIndex = 14;
-            this.picBoxReparto1.TabStop = false;
+            this.PicBoxReparto1.Location = new System.Drawing.Point(277, 69);
+            this.PicBoxReparto1.Name = "PicBoxReparto1";
+            this.PicBoxReparto1.Size = new System.Drawing.Size(121, 157);
+            this.PicBoxReparto1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxReparto1.TabIndex = 14;
+            this.PicBoxReparto1.TabStop = false;
             // 
-            // picBoxDirector
+            // PicBoxDirector
             // 
-            this.picBoxDirector.Location = new System.Drawing.Point(34, 69);
-            this.picBoxDirector.Name = "picBoxDirector";
-            this.picBoxDirector.Size = new System.Drawing.Size(121, 157);
-            this.picBoxDirector.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxDirector.TabIndex = 13;
-            this.picBoxDirector.TabStop = false;
+            this.PicBoxDirector.Location = new System.Drawing.Point(34, 69);
+            this.PicBoxDirector.Name = "PicBoxDirector";
+            this.PicBoxDirector.Size = new System.Drawing.Size(121, 157);
+            this.PicBoxDirector.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxDirector.TabIndex = 13;
+            this.PicBoxDirector.TabStop = false;
             // 
-            // picBoxReparto3
+            // PicBoxReparto3
             // 
-            this.picBoxReparto3.Location = new System.Drawing.Point(637, 69);
-            this.picBoxReparto3.Name = "picBoxReparto3";
-            this.picBoxReparto3.Size = new System.Drawing.Size(121, 157);
-            this.picBoxReparto3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxReparto3.TabIndex = 12;
-            this.picBoxReparto3.TabStop = false;
+            this.PicBoxReparto3.Location = new System.Drawing.Point(637, 69);
+            this.PicBoxReparto3.Name = "PicBoxReparto3";
+            this.PicBoxReparto3.Size = new System.Drawing.Size(121, 157);
+            this.PicBoxReparto3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxReparto3.TabIndex = 12;
+            this.PicBoxReparto3.TabStop = false;
             // 
-            // cBoxReparto1
+            // CBoxReparto1
             // 
-            this.cBoxReparto1.FormattingEnabled = true;
-            this.cBoxReparto1.Location = new System.Drawing.Point(277, 42);
-            this.cBoxReparto1.Name = "cBoxReparto1";
-            this.cBoxReparto1.Size = new System.Drawing.Size(121, 21);
-            this.cBoxReparto1.TabIndex = 11;
-            this.cBoxReparto1.SelectedIndexChanged += new System.EventHandler(this.cBoxReparto1_SelectedIndexChanged);
+            this.CBoxReparto1.FormattingEnabled = true;
+            this.CBoxReparto1.Location = new System.Drawing.Point(277, 42);
+            this.CBoxReparto1.Name = "CBoxReparto1";
+            this.CBoxReparto1.Size = new System.Drawing.Size(121, 21);
+            this.CBoxReparto1.TabIndex = 11;
+            this.CBoxReparto1.SelectedIndexChanged += new System.EventHandler(this.CBoxReparto1_SelectedIndexChanged);
             // 
-            // cBoxReparto2
+            // CBoxReparto2
             // 
-            this.cBoxReparto2.FormattingEnabled = true;
-            this.cBoxReparto2.Location = new System.Drawing.Point(459, 42);
-            this.cBoxReparto2.Name = "cBoxReparto2";
-            this.cBoxReparto2.Size = new System.Drawing.Size(121, 21);
-            this.cBoxReparto2.TabIndex = 10;
-            this.cBoxReparto2.SelectedIndexChanged += new System.EventHandler(this.cBoxReparto2_SelectedIndexChanged);
+            this.CBoxReparto2.FormattingEnabled = true;
+            this.CBoxReparto2.Location = new System.Drawing.Point(459, 42);
+            this.CBoxReparto2.Name = "CBoxReparto2";
+            this.CBoxReparto2.Size = new System.Drawing.Size(121, 21);
+            this.CBoxReparto2.TabIndex = 10;
+            this.CBoxReparto2.SelectedIndexChanged += new System.EventHandler(this.CBoxReparto2_SelectedIndexChanged);
             // 
-            // cBoxReparto3
+            // CBoxReparto3
             // 
-            this.cBoxReparto3.FormattingEnabled = true;
-            this.cBoxReparto3.Location = new System.Drawing.Point(637, 42);
-            this.cBoxReparto3.Name = "cBoxReparto3";
-            this.cBoxReparto3.Size = new System.Drawing.Size(121, 21);
-            this.cBoxReparto3.TabIndex = 9;
-            this.cBoxReparto3.SelectedIndexChanged += new System.EventHandler(this.cBoxReparto3_SelectedIndexChanged);
+            this.CBoxReparto3.FormattingEnabled = true;
+            this.CBoxReparto3.Location = new System.Drawing.Point(637, 42);
+            this.CBoxReparto3.Name = "CBoxReparto3";
+            this.CBoxReparto3.Size = new System.Drawing.Size(121, 21);
+            this.CBoxReparto3.TabIndex = 9;
+            this.CBoxReparto3.SelectedIndexChanged += new System.EventHandler(this.CBoxReparto3_SelectedIndexChanged);
             // 
-            // cBoxDirector
+            // CBoxDirector
             // 
-            this.cBoxDirector.FormattingEnabled = true;
-            this.cBoxDirector.Location = new System.Drawing.Point(34, 42);
-            this.cBoxDirector.Name = "cBoxDirector";
-            this.cBoxDirector.Size = new System.Drawing.Size(121, 21);
-            this.cBoxDirector.TabIndex = 8;
-            this.cBoxDirector.SelectedIndexChanged += new System.EventHandler(this.cBoxDirector_SelectedIndexChanged);
+            this.CBoxDirector.FormattingEnabled = true;
+            this.CBoxDirector.Location = new System.Drawing.Point(34, 42);
+            this.CBoxDirector.Name = "CBoxDirector";
+            this.CBoxDirector.Size = new System.Drawing.Size(121, 21);
+            this.CBoxDirector.TabIndex = 8;
+            this.CBoxDirector.SelectedIndexChanged += new System.EventHandler(this.CBoxDirector_SelectedIndexChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBoxTodosGeneros);
+            this.groupBox1.Controls.Add(this.ListBoxTodosGeneros);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.listBoxGenerosSeleccionados);
+            this.groupBox1.Controls.Add(this.ListBoxGenerosSeleccionados);
             this.groupBox1.Location = new System.Drawing.Point(732, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(405, 272);
@@ -402,10 +434,10 @@ namespace MDbM.UI.AdminUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generos";
             // 
-            // listBoxTodosGeneros
+            // ListBoxTodosGeneros
             // 
-            this.listBoxTodosGeneros.FormattingEnabled = true;
-            this.listBoxTodosGeneros.Items.AddRange(new object[] {
+            this.ListBoxTodosGeneros.FormattingEnabled = true;
+            this.ListBoxTodosGeneros.Items.AddRange(new object[] {
             "ACCION",
             "DRAMA",
             "AVENTURA",
@@ -418,12 +450,12 @@ namespace MDbM.UI.AdminUI
             "SATIRA",
             "THRILLER",
             "WESTERN"});
-            this.listBoxTodosGeneros.Location = new System.Drawing.Point(241, 59);
-            this.listBoxTodosGeneros.Name = "listBoxTodosGeneros";
-            this.listBoxTodosGeneros.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxTodosGeneros.Size = new System.Drawing.Size(148, 199);
-            this.listBoxTodosGeneros.TabIndex = 19;
-            this.listBoxTodosGeneros.DoubleClick += new System.EventHandler(this.listBoxTodosGeneros_DoubleClick);
+            this.ListBoxTodosGeneros.Location = new System.Drawing.Point(241, 59);
+            this.ListBoxTodosGeneros.Name = "ListBoxTodosGeneros";
+            this.ListBoxTodosGeneros.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.ListBoxTodosGeneros.Size = new System.Drawing.Size(148, 199);
+            this.ListBoxTodosGeneros.TabIndex = 19;
+            this.ListBoxTodosGeneros.DoubleClick += new System.EventHandler(this.ListBoxTodosGeneros_DoubleClick);
             // 
             // label6
             // 
@@ -443,42 +475,162 @@ namespace MDbM.UI.AdminUI
             this.label7.TabIndex = 7;
             this.label7.Text = "Generos Seleccionados";
             // 
-            // listBoxGenerosSeleccionados
+            // ListBoxGenerosSeleccionados
             // 
-            this.listBoxGenerosSeleccionados.FormattingEnabled = true;
-            this.listBoxGenerosSeleccionados.Location = new System.Drawing.Point(22, 59);
-            this.listBoxGenerosSeleccionados.Name = "listBoxGenerosSeleccionados";
-            this.listBoxGenerosSeleccionados.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxGenerosSeleccionados.Size = new System.Drawing.Size(148, 199);
-            this.listBoxGenerosSeleccionados.TabIndex = 18;
-            this.listBoxGenerosSeleccionados.DoubleClick += new System.EventHandler(this.listBoxGenerosSeleccionados_DoubleClick);
+            this.ListBoxGenerosSeleccionados.FormattingEnabled = true;
+            this.ListBoxGenerosSeleccionados.Location = new System.Drawing.Point(22, 59);
+            this.ListBoxGenerosSeleccionados.Name = "ListBoxGenerosSeleccionados";
+            this.ListBoxGenerosSeleccionados.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.ListBoxGenerosSeleccionados.Size = new System.Drawing.Size(148, 199);
+            this.ListBoxGenerosSeleccionados.TabIndex = 18;
+            this.ListBoxGenerosSeleccionados.DoubleClick += new System.EventHandler(this.ListBoxGenerosSeleccionados_DoubleClick);
             // 
-            // btnCambiarPortada
+            // BtnCambiarPortada
             // 
-            this.btnCambiarPortada.Location = new System.Drawing.Point(24, 285);
-            this.btnCambiarPortada.Name = "btnCambiarPortada";
-            this.btnCambiarPortada.Size = new System.Drawing.Size(192, 31);
-            this.btnCambiarPortada.TabIndex = 7;
-            this.btnCambiarPortada.Text = "Cambiar Portada";
-            this.btnCambiarPortada.UseVisualStyleBackColor = true;
-            this.btnCambiarPortada.Click += new System.EventHandler(this.btnCambiarPortada_Click);
+            this.BtnCambiarPortada.Location = new System.Drawing.Point(24, 285);
+            this.BtnCambiarPortada.Name = "BtnCambiarPortada";
+            this.BtnCambiarPortada.Size = new System.Drawing.Size(192, 31);
+            this.BtnCambiarPortada.TabIndex = 7;
+            this.BtnCambiarPortada.Text = "Cambiar Portada";
+            this.BtnCambiarPortada.UseVisualStyleBackColor = true;
+            this.BtnCambiarPortada.Click += new System.EventHandler(this.BtnCambiarPortada_Click);
             // 
-            // picBoxPortada
+            // PicBoxPortada
             // 
-            this.picBoxPortada.Location = new System.Drawing.Point(23, 7);
-            this.picBoxPortada.Name = "picBoxPortada";
-            this.picBoxPortada.Size = new System.Drawing.Size(193, 272);
-            this.picBoxPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxPortada.TabIndex = 6;
-            this.picBoxPortada.TabStop = false;
+            this.PicBoxPortada.Location = new System.Drawing.Point(23, 7);
+            this.PicBoxPortada.Name = "PicBoxPortada";
+            this.PicBoxPortada.Size = new System.Drawing.Size(193, 272);
+            this.PicBoxPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxPortada.TabIndex = 6;
+            this.PicBoxPortada.TabStop = false;
             // 
             // editarReparto
             // 
+            this.editarReparto.Controls.Add(this.BtnEliminarReparto);
+            this.editarReparto.Controls.Add(this.BtnCancelarReparto);
+            this.editarReparto.Controls.Add(this.BtnAceptarReparto);
+            this.editarReparto.Controls.Add(this.label9);
+            this.editarReparto.Controls.Add(this.TxtBoxNombreReparto);
+            this.editarReparto.Controls.Add(this.BtnCambiarImagenReparto);
+            this.editarReparto.Controls.Add(this.PicBoxPortadaRetrato);
             this.editarReparto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editarReparto.Location = new System.Drawing.Point(0, 24);
             this.editarReparto.Name = "editarReparto";
             this.editarReparto.Size = new System.Drawing.Size(1149, 545);
             this.editarReparto.TabIndex = 1;
+            // 
+            // BtnEliminarReparto
+            // 
+            this.BtnEliminarReparto.Location = new System.Drawing.Point(393, 500);
+            this.BtnEliminarReparto.Name = "BtnEliminarReparto";
+            this.BtnEliminarReparto.Size = new System.Drawing.Size(130, 35);
+            this.BtnEliminarReparto.TabIndex = 6;
+            this.BtnEliminarReparto.Text = "Eliminar";
+            this.BtnEliminarReparto.UseVisualStyleBackColor = true;
+            this.BtnEliminarReparto.Visible = false;
+            this.BtnEliminarReparto.Click += new System.EventHandler(this.BtnEliminarReparto_Click);
+            // 
+            // BtnCancelarReparto
+            // 
+            this.BtnCancelarReparto.Location = new System.Drawing.Point(222, 500);
+            this.BtnCancelarReparto.Name = "BtnCancelarReparto";
+            this.BtnCancelarReparto.Size = new System.Drawing.Size(130, 35);
+            this.BtnCancelarReparto.TabIndex = 5;
+            this.BtnCancelarReparto.Text = "Cancelar";
+            this.BtnCancelarReparto.UseVisualStyleBackColor = true;
+            this.BtnCancelarReparto.Click += new System.EventHandler(this.BtnCancelarReparto_Click);
+            // 
+            // BtnAceptarReparto
+            // 
+            this.BtnAceptarReparto.Location = new System.Drawing.Point(50, 500);
+            this.BtnAceptarReparto.Name = "BtnAceptarReparto";
+            this.BtnAceptarReparto.Size = new System.Drawing.Size(130, 35);
+            this.BtnAceptarReparto.TabIndex = 4;
+            this.BtnAceptarReparto.Text = "Aceptar";
+            this.BtnAceptarReparto.UseVisualStyleBackColor = true;
+            this.BtnAceptarReparto.Click += new System.EventHandler(this.BtnAceptarReparto_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(298, 69);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Nombre";
+            // 
+            // TxtBoxNombreReparto
+            // 
+            this.TxtBoxNombreReparto.Location = new System.Drawing.Point(301, 92);
+            this.TxtBoxNombreReparto.Name = "TxtBoxNombreReparto";
+            this.TxtBoxNombreReparto.Size = new System.Drawing.Size(179, 20);
+            this.TxtBoxNombreReparto.TabIndex = 2;
+            // 
+            // BtnCambiarImagenReparto
+            // 
+            this.BtnCambiarImagenReparto.Location = new System.Drawing.Point(50, 352);
+            this.BtnCambiarImagenReparto.Name = "BtnCambiarImagenReparto";
+            this.BtnCambiarImagenReparto.Size = new System.Drawing.Size(211, 33);
+            this.BtnCambiarImagenReparto.TabIndex = 1;
+            this.BtnCambiarImagenReparto.Text = "Cambiar Imagen";
+            this.BtnCambiarImagenReparto.UseVisualStyleBackColor = true;
+            this.BtnCambiarImagenReparto.Click += new System.EventHandler(this.BtnCambiarImagenReparto_Click);
+            // 
+            // PicBoxPortadaRetrato
+            // 
+            this.PicBoxPortadaRetrato.Location = new System.Drawing.Point(50, 29);
+            this.PicBoxPortadaRetrato.Name = "PicBoxPortadaRetrato";
+            this.PicBoxPortadaRetrato.Size = new System.Drawing.Size(212, 296);
+            this.PicBoxPortadaRetrato.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxPortadaRetrato.TabIndex = 0;
+            this.PicBoxPortadaRetrato.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 167);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(826, 94);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Estado Servicio MongoDB:";
+            // 
+            // LblEstadoServicio
+            // 
+            this.LblEstadoServicio.AutoSize = true;
+            this.LblEstadoServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEstadoServicio.ForeColor = System.Drawing.Color.GreenYellow;
+            this.LblEstadoServicio.Location = new System.Drawing.Point(841, 195);
+            this.LblEstadoServicio.Name = "LblEstadoServicio";
+            this.LblEstadoServicio.Size = new System.Drawing.Size(412, 48);
+            this.LblEstadoServicio.TabIndex = 1;
+            this.LblEstadoServicio.Text = "Estado Servicio MongoDB:";
+            // 
+            // BtnIniciarServicio
+            // 
+            this.BtnIniciarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.BtnIniciarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIniciarServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnIniciarServicio.Location = new System.Drawing.Point(535, 391);
+            this.BtnIniciarServicio.Name = "BtnIniciarServicio";
+            this.BtnIniciarServicio.Size = new System.Drawing.Size(288, 83);
+            this.BtnIniciarServicio.TabIndex = 2;
+            this.BtnIniciarServicio.Text = "Iniciar";
+            this.BtnIniciarServicio.UseVisualStyleBackColor = false;
+            this.BtnIniciarServicio.Click += new System.EventHandler(this.BtnIniciarServicio_Click);
+            // 
+            // BtnPararServicio
+            // 
+            this.BtnPararServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BtnPararServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPararServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPararServicio.Location = new System.Drawing.Point(141, 391);
+            this.BtnPararServicio.Name = "BtnPararServicio";
+            this.BtnPararServicio.Size = new System.Drawing.Size(287, 83);
+            this.BtnPararServicio.TabIndex = 3;
+            this.BtnPararServicio.Text = "Parar";
+            this.BtnPararServicio.UseVisualStyleBackColor = false;
+            this.BtnPararServicio.Click += new System.EventHandler(this.BtnPararServicio_Click);
             // 
             // Admin
             // 
@@ -488,26 +640,32 @@ namespace MDbM.UI.AdminUI
             this.ClientSize = new System.Drawing.Size(1149, 569);
             this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.editarPelicula);
-            this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.editarReparto);
+            this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin";
             this.Text = "Admin";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.adminPanel.ResumeLayout(false);
+            this.adminPanel.PerformLayout();
             this.editarPelicula.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxDirector)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxReparto3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxReparto2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxReparto1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxDirector)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxReparto3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).EndInit();
+            this.editarReparto.ResumeLayout(false);
+            this.editarReparto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortadaRetrato)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,34 +685,46 @@ namespace MDbM.UI.AdminUI
         private System.Windows.Forms.ToolStripMenuItem inicio;
         private System.Windows.Forms.Panel editarPelicula;
         private System.Windows.Forms.Panel editarReparto;
-        private System.Windows.Forms.TextBox txtBoxTitulo;
-        private System.Windows.Forms.TextBox txtBoxValoracion;
-        private System.Windows.Forms.RichTextBox txtBoxDescripcion;
+        private System.Windows.Forms.TextBox TxtBoxTitulo;
+        private System.Windows.Forms.TextBox TxtBoxValoracion;
+        private System.Windows.Forms.RichTextBox TxtBoxDescripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCambiarPortada;
-        private System.Windows.Forms.PictureBox picBoxPortada;
-        private System.Windows.Forms.ComboBox cBoxReparto1;
-        private System.Windows.Forms.ComboBox cBoxReparto2;
-        private System.Windows.Forms.ComboBox cBoxReparto3;
-        private System.Windows.Forms.ComboBox cBoxDirector;
-        private System.Windows.Forms.PictureBox picBoxReparto2;
-        private System.Windows.Forms.PictureBox picBoxReparto1;
-        private System.Windows.Forms.PictureBox picBoxDirector;
-        private System.Windows.Forms.PictureBox picBoxReparto3;
+        private System.Windows.Forms.Button BtnCambiarPortada;
+        private System.Windows.Forms.PictureBox PicBoxPortada;
+        private System.Windows.Forms.ComboBox CBoxReparto1;
+        private System.Windows.Forms.ComboBox CBoxReparto2;
+        private System.Windows.Forms.ComboBox CBoxReparto3;
+        private System.Windows.Forms.ComboBox CBoxDirector;
+        private System.Windows.Forms.PictureBox PicBoxReparto2;
+        private System.Windows.Forms.PictureBox PicBoxReparto1;
+        private System.Windows.Forms.PictureBox PicBoxDirector;
+        private System.Windows.Forms.PictureBox PicBoxReparto3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBoxGenerosSeleccionados;
+        private System.Windows.Forms.ListBox ListBoxGenerosSeleccionados;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox listBoxTodosGeneros;
+        private System.Windows.Forms.ListBox ListBoxTodosGeneros;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtBoxAño;
+        private System.Windows.Forms.TextBox TxtBoxAño;
+        private System.Windows.Forms.TextBox TxtBoxNombreReparto;
+        private System.Windows.Forms.Button BtnCambiarImagenReparto;
+        private System.Windows.Forms.PictureBox PicBoxPortadaRetrato;
+        private System.Windows.Forms.Button BtnCancelarReparto;
+        private System.Windows.Forms.Button BtnAceptarReparto;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button BtnEliminarReparto;
+        private System.Windows.Forms.Button BtnEliminarPelicula;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LblEstadoServicio;
+        private System.Windows.Forms.Button BtnIniciarServicio;
+        private System.Windows.Forms.Button BtnPararServicio;
     }
 }

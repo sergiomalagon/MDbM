@@ -37,7 +37,7 @@ namespace PeliculaCtrl
             this.portadaPelicula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.portadaPelicula.TabIndex = 0;
             this.portadaPelicula.TabStop = false;
-            this.portadaPelicula.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.portadaPelicula.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // roundLblFilmStatus
             // 
@@ -47,7 +47,7 @@ namespace PeliculaCtrl
             this.roundLblFilmStatus.Name = "roundLblFilmStatus";
             this.roundLblFilmStatus.Size = new System.Drawing.Size(160, 34);
             this.roundLblFilmStatus.TabIndex = 1;
-            this.roundLblFilmStatus.Click += new System.EventHandler(this.roundLblFilmStatus_Click);
+            this.roundLblFilmStatus.Click += new System.EventHandler(this.RoundLblFilmStatus_Click);
             // 
             // PeliculaControl
             // 
@@ -94,12 +94,12 @@ namespace PeliculaCtrl
             this.id = id;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
             EntrarDetallePelicula(sender, null);
         }
 
-        private void roundLblFilmStatus_Click(object sender, EventArgs e)
+        private void RoundLblFilmStatus_Click(object sender, EventArgs e)
         {
             EntrarDetallePelicula(sender, null);
         }

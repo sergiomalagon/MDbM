@@ -22,5 +22,33 @@ namespace MDbM.Clases
         {
             return "..\\..\\Resources\\UserPP\\";
         }
+
+        public static string GenerarUrlImagen(string tipo, string nombre)
+        {
+            string[] aux = nombre.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            sb.Append(tipo);
+            foreach (string a in aux)
+            {
+                sb.Append("_");
+                sb.Append(a.ToLower());
+            }
+            return sb.ToString();
+        }
+
+        public static string GetCover()
+        {
+            return "cover";
+        }
+
+        public static string GetPeople()
+        {
+            return "people";
+        }
+
+        public static string GetUser()
+        {
+            return "user";
+        }
     }
 }

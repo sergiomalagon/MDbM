@@ -54,9 +54,6 @@ namespace MDbM.UI.MongoDB
 
             BsonDocument document = GetCollection("Usuarios").Find(filter).First();
 
-            //Usuario usuario = new Usuario();
-            //usuario.imagenPerfil = (string) document.GetValue("imagenPerfil", "N/A");
-
             return (Image)rm.GetObject((string)document.GetValue("imagenPerfil", "N/A"));
         }
 
@@ -73,15 +70,43 @@ namespace MDbM.UI.MongoDB
             return false;
         }
 
-        internal List<Peliculas> GetListaPeliculas()
+        internal List<Pelicula> GetListaPeliculas()
         {
             List<BsonDocument> lista = GetCollection("Peliculas").Find(new BsonDocument()).ToList();
-            List<Peliculas> salida = new List<Peliculas>();
+            List<Pelicula> salida = new List<Pelicula>();
             foreach (BsonDocument bd in lista)
             {
-                salida.Add(BsonSerializer.Deserialize<Peliculas>(bd));
+                salida.Add(BsonSerializer.Deserialize<Pelicula>(bd));
             }
             return salida;
+        }
+
+        internal async void ActualizarPelicula(Pelicula pelicula)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
+
+            await GetCollection("Peliculas").ReplaceOneAsync(filter, pelicula.ToBsonDocument());
+        }
+
+        internal async void CrearPelicula(Pelicula pelicula)
+        {
+            await GetCollection("Peliculas").InsertOneAsync(pelicula.ToBsonDocument());
+        }
+
+        internal Pelicula GetPelicula(ObjectId id)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+
+            BsonDocument document = GetCollection("Peliculas").Find(filter).First();
+
+            return BsonSerializer.Deserialize<Pelicula>(document);
+        }
+
+        internal async void EliminarPelicula(Pelicula pelicula)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
+
+            await GetCollection("Peliculas").DeleteOneAsync(filter);
         }
 
         internal List<Reparto> GetListaReparto()
@@ -96,15 +121,6 @@ namespace MDbM.UI.MongoDB
             }
 
             return salida;
-        }
-
-        internal Peliculas GetPelicula(ObjectId id)
-        {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-
-            BsonDocument document = GetCollection("Peliculas").Find(filter).First();
-
-            return BsonSerializer.Deserialize<Peliculas>(document);
         }
 
         internal Reparto GetReparto(ObjectId id)
@@ -125,17 +141,25 @@ namespace MDbM.UI.MongoDB
             return BsonSerializer.Deserialize<Reparto>(document);
         }
 
-        internal async void ActualizarPelicula(Peliculas pelicula)
+        internal async void CrearReparto(Reparto reparto)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
-
-            await GetCollection("Peliculas").ReplaceOneAsync(filter, pelicula.ToBsonDocument());
+            await GetCollection("Reparto").InsertOneAsync(reparto.ToBsonDocument());
         }
 
-        internal async void CrearPelicula(Peliculas pelicula)
+        internal async void ActualizarReparto(Reparto reparto)
         {
-            await GetCollection("Peliculas").InsertOneAsync(pelicula.ToBsonDocument());
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", reparto._id);
+
+            await GetCollection("Reparto").ReplaceOneAsync(filter, reparto.ToBsonDocument());
         }
+
+        internal async void EliminarReparto(Reparto reparto)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", reparto._id);
+
+            await GetCollection("Reparto").DeleteOneAsync(filter);
+        }
+
 
     }
 }
