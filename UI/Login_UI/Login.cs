@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using MDbM.Clases;
 
 namespace MDbM.UI.LoginUI
 {
@@ -27,7 +28,7 @@ namespace MDbM.UI.LoginUI
 
         public Login()
         {
-            new Admin().Show();
+           
             InitializeComponent();
             Init();
         }
@@ -35,17 +36,17 @@ namespace MDbM.UI.LoginUI
         private void Init()
         {
             db.GetConexion();
-            lblMensaje.Visible = false;
+            LblMensaje.Visible = false;
         }
 
         private void RegistrarUsuario()
         {
             Usuario usuario = new Usuario
             {
-                nombre = txtBoxLoginUsuario.Text.Trim(),
-                passw = txtBoxLoginPassword.Text.Trim(),
+                nombre = TxtBoxLoginUsuario.Text.Trim(),
+                passw = TxtBoxLoginPassword.Text.Trim(),
                 rol = (int)Enums.TipoUsuario.USER,
-                imagenPerfil = GenerarUrlImagenPerfil(txtBoxLoginUsuario.Text.Trim()),
+                imagenPerfil = Path.GenerarUrlImagen(Path.GetUser(),TxtBoxLoginUsuario.Text.Trim()),
                 abandonada = new ObjectId[0],
                 completada = new ObjectId[0],
                 planeada = new ObjectId[0],
@@ -54,29 +55,23 @@ namespace MDbM.UI.LoginUI
 
             if (db.CearUsuario(usuario))
             {
-                imgPerfil.Image.Save("..\\..\\Resources\\UserPP" + "\\" + usuario.imagenPerfil + ".jpg");
+                ImgPerfil.Image.Save(Path.GetUserPPPath() + usuario.imagenPerfil + ".jpg");
                 new Main(this, usuario).Show();
                 this.Hide();
             }
         }
 
-        private void IniciarSesion()
+        private bool IniciarSesion()
         {
-
-        }
-
-        private string GenerarUrlImagenPerfil(string nombre)
-        {
-            string[] aux = nombre.Split(' ');
-            StringBuilder sb = new StringBuilder();
-            sb.Append("user");
-            foreach (string a in aux)
+            Usuario usuarioLogin =  this.db.LoginUsuario(TxtBoxLoginUsuario.Text.Trim(), TxtBoxLoginPassword.Text.Trim());
+            if(usuarioLogin.rol == (int)Enums.TipoUsuario.ADMIN)
             {
-                sb.Append("_");
-                sb.Append(a);
+                new Admin().Show();
+                return true;
             }
-            return sb.ToString();
-
+            new Main(this, usuarioLogin).Show();
+            this.Hide();
+            return true;
         }
 
         protected override CreateParams CreateParams
@@ -90,77 +85,78 @@ namespace MDbM.UI.LoginUI
             }
         }
 
-        private void panelBarraControlVentana_MouseDown(object sender, MouseEventArgs e)
+        private void PanelBarraControlVentana_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void lblClose_Click(object sender, EventArgs e)
+        private void LblClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void lblMinimize_Click(object sender, EventArgs e)
+        private void LblMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void txtBoxLoginUsuario_Enter(object sender, EventArgs e)
+        private void TxtBoxLoginUsuario_Enter(object sender, EventArgs e)
         {
-            if (txtBoxLoginUsuario.Text.Trim().Equals("Usuario..."))
+            if (TxtBoxLoginUsuario.Text.Trim().Equals("Usuario..."))
             {
-                txtBoxLoginUsuario.Text = "";
+                TxtBoxLoginUsuario.Text = "";
             }
         }
 
-        private void txtBoxLoginUsuario_Leave(object sender, EventArgs e)
+        private void TxtBoxLoginUsuario_Leave(object sender, EventArgs e)
         {
-            if (txtBoxLoginUsuario.Text.Trim().Equals(""))
+            if (TxtBoxLoginUsuario.Text.Trim().Equals(""))
             {
-                txtBoxLoginUsuario.Text = "Usuario...";
+                TxtBoxLoginUsuario.Text = "Usuario...";
                 this.IsValidUsername = false;
             }
             else
             {
-                if (db.ComprobarExisteUsuario(txtBoxLoginUsuario.Text.Trim()))
+                if (db.ComprobarExisteUsuario(TxtBoxLoginUsuario.Text.Trim()))
                 {
-                    btnLoginRegistrer.Text = "LOGIN";
-                    lblMensaje.Visible = false;
+                    BtnLoginRegistrer.Text = "LOGIN";
+                    LblMensaje.Visible = false;
                     this.IsLogin = true;
-                    imgPerfil.Image = db.GetImagenUsuario(txtBoxLoginUsuario.Text.Trim());
-                    imgPerfil.Visible = true;
-                    btnImagenUsuario.SendToBack();
+                    ImgPerfil.Image = db.GetImagenUsuario(TxtBoxLoginUsuario.Text.Trim());
+                    ImgPerfil.Visible = true;
+                //    ImgPerfil.BringToFront();
+                    BtnImagenUsuario.SendToBack();
                 }
                 else
                 {
-                    btnLoginRegistrer.Text = "REGISTRER";
+                    BtnLoginRegistrer.Text = "REGISTRER";
                     this.IsLogin = false;
-                    lblMensaje.Text = "Advertencia!!!: Vas a crear un nuevo usuario";
-                    lblMensaje.Visible = true;
-                    imgPerfil.Image = null;
-                    btnImagenUsuario.BringToFront();
+                    LblMensaje.Text = "Advertencia!!!: Vas a crear un nuevo usuario";
+                    LblMensaje.Visible = true;
+                    ImgPerfil.Image = null;
+                    BtnImagenUsuario.BringToFront();
                 }
                 this.IsValidUsername = true;
             }
 
         }
 
-        private void txtBoxLoginPassword_Enter(object sender, EventArgs e)
+        private void TxtBoxLoginPassword_Enter(object sender, EventArgs e)
         {
-            if (txtBoxLoginPassword.Text.Trim().Equals("Contraseña..."))
+            if (TxtBoxLoginPassword.Text.Trim().Equals("Contraseña..."))
             {
-                txtBoxLoginPassword.Text = "";
-                txtBoxLoginPassword.UseSystemPasswordChar = true;
+                TxtBoxLoginPassword.Text = "";
+                TxtBoxLoginPassword.UseSystemPasswordChar = true;
             }
         }
 
-        private void txtBoxLoginPassword_Leave(object sender, EventArgs e)
+        private void TxtBoxLoginPassword_Leave(object sender, EventArgs e)
         {
-            if (txtBoxLoginPassword.Text.Trim().Equals(""))
+            if (TxtBoxLoginPassword.Text.Trim().Equals(""))
             {
-                txtBoxLoginPassword.Text = "Contraseña...";
-                txtBoxLoginPassword.UseSystemPasswordChar = false;
+                TxtBoxLoginPassword.Text = "Contraseña...";
+                TxtBoxLoginPassword.UseSystemPasswordChar = false;
                 this.IsValidPassw = false;
             }
             else
@@ -169,69 +165,71 @@ namespace MDbM.UI.LoginUI
             }
         }
 
-        private void lblMinimize_MouseEnter(object sender, EventArgs e)
+        private void LblMinimize_MouseEnter(object sender, EventArgs e)
         {
-            lblMinimize.BackColor = Color.DarkGray;
+            LblMinimize.BackColor = Color.DarkGray;
         }
 
-        private void lblMinimize_MouseLeave(object sender, EventArgs e)
+        private void LblMinimize_MouseLeave(object sender, EventArgs e)
         {
-            lblMinimize.BackColor = Color.FromArgb(48, 47, 49);
+            LblMinimize.BackColor = Color.FromArgb(48, 47, 49);
 
         }
 
-        private void lblClose_MouseEnter(object sender, EventArgs e)
+        private void LblClose_MouseEnter(object sender, EventArgs e)
         {
-            lblClose.BackColor = Color.Red;
+            LblClose.BackColor = Color.Red;
         }
 
-        private void lblClose_MouseLeave(object sender, EventArgs e)
+        private void LblClose_MouseLeave(object sender, EventArgs e)
         {
-            lblClose.BackColor = Color.FromArgb(48, 47, 49);
+            LblClose.BackColor = Color.FromArgb(48, 47, 49);
         }
 
-        private void btnLoginRegistrer_Click(object sender, EventArgs e)
+        private void BtnLoginRegistrer_Click(object sender, EventArgs e)
         {
             if (!this.IsValidUsername && !this.IsValidPassw)
             {
-                lblMensaje.Text = "Error: Los campos USUARIO y CONTRASEÑA no pueden estar vacios";
-                lblMensaje.Visible = true;
+                LblMensaje.Text = "Error: Los campos USUARIO y CONTRASEÑA no pueden estar vacios";
+                LblMensaje.Visible = true;
             }
             else
             {
                 if (!this.IsValidUsername)
                 {
-                    lblMensaje.Text = "Error: El campo USUARIO no puede estar vacio";
-                    lblMensaje.Visible = true;
+                    LblMensaje.Text = "Error: El campo USUARIO no puede estar vacio";
+                    LblMensaje.Visible = true;
                 }
 
                 if (!this.IsValidPassw)
                 {
-                    lblMensaje.Text = "Error: El campo CONTRASEÑA no puede estar vacio";
-                    lblMensaje.Visible = true;
+                    LblMensaje.Text = "Error: El campo CONTRASEÑA no puede estar vacio";
+                    LblMensaje.Visible = true;
                 }
             }
             if (this.IsLogin && this.IsValidPassw && this.IsValidUsername)
             {
-                lblMensaje.Visible = false;
+                LblMensaje.Visible = false;
                 IniciarSesion();
             }
             else if (!this.IsLogin && this.IsValidPassw && this.IsValidUsername)
             {
-                lblMensaje.Visible = false;
+                LblMensaje.Visible = false;
                 RegistrarUsuario();
             }
         }
-        private void btnImagenUsuario_Click(object sender, EventArgs e)
+        private void BtnImagenUsuario_Click(object sender, EventArgs e)
         {
             Image File;
-            OpenFileDialog f = new OpenFileDialog();
-            f.Filter = "Image files (*.jpg, *.png) | *.jpg; *.png";
+            OpenFileDialog f = new OpenFileDialog
+            {
+                Filter = "Image files (*.jpg, *.png) | *.jpg; *.png"
+            };
 
             if (f.ShowDialog() == DialogResult.OK)
             {
                 File = Image.FromFile(f.FileName);
-                imgPerfil.Image = File;
+                ImgPerfil.Image = File;
             }
         }
     }

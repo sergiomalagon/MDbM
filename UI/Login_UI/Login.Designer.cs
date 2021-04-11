@@ -29,168 +29,168 @@ namespace MDbM.UI.LoginUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBoxLoginUsuario = new System.Windows.Forms.TextBox();
-            this.txtBoxLoginPassword = new System.Windows.Forms.TextBox();
-            this.panelLoginPassword = new System.Windows.Forms.Panel();
-            this.panelLoginUsuario = new System.Windows.Forms.Panel();
-            this.panelIcono = new System.Windows.Forms.Panel();
-            this.panelControlVentana = new System.Windows.Forms.Panel();
-            this.lblClose = new System.Windows.Forms.Label();
-            this.lblMinimize = new System.Windows.Forms.Label();
-            this.btnLoginRegistrer = new System.Windows.Forms.Button();
-            this.lblMensaje = new System.Windows.Forms.Label();
-            this.btnImagenUsuario = new System.Windows.Forms.Button();
-            this.imgPerfil = new ImagenPerfil.ImgPerfil();
-            this.panelIcono.SuspendLayout();
-            this.panelControlVentana.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).BeginInit();
+            this.TxtBoxLoginUsuario = new System.Windows.Forms.TextBox();
+            this.TxtBoxLoginPassword = new System.Windows.Forms.TextBox();
+            this.PanelLoginPassword = new System.Windows.Forms.Panel();
+            this.PanelLoginUsuario = new System.Windows.Forms.Panel();
+            this.PanelIcono = new System.Windows.Forms.Panel();
+            this.ImgPerfil = new ImagenPerfil.ImgPerfil();
+            this.BtnImagenUsuario = new System.Windows.Forms.Button();
+            this.PanelControlVentana = new System.Windows.Forms.Panel();
+            this.LblClose = new System.Windows.Forms.Label();
+            this.LblMinimize = new System.Windows.Forms.Label();
+            this.BtnLoginRegistrer = new System.Windows.Forms.Button();
+            this.LblMensaje = new System.Windows.Forms.Label();
+            this.PanelIcono.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).BeginInit();
+            this.PanelControlVentana.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtBoxLoginUsuario
+            // TxtBoxLoginUsuario
             // 
-            this.txtBoxLoginUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
-            this.txtBoxLoginUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxLoginUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxLoginUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.txtBoxLoginUsuario.Location = new System.Drawing.Point(343, 76);
-            this.txtBoxLoginUsuario.MaxLength = 15;
-            this.txtBoxLoginUsuario.Name = "txtBoxLoginUsuario";
-            this.txtBoxLoginUsuario.Size = new System.Drawing.Size(624, 44);
-            this.txtBoxLoginUsuario.TabIndex = 999;
-            this.txtBoxLoginUsuario.Text = "Usuario...";
-            this.txtBoxLoginUsuario.Enter += new System.EventHandler(this.txtBoxLoginUsuario_Enter);
-            this.txtBoxLoginUsuario.Leave += new System.EventHandler(this.txtBoxLoginUsuario_Leave);
+            this.TxtBoxLoginUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
+            this.TxtBoxLoginUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtBoxLoginUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxLoginUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.TxtBoxLoginUsuario.Location = new System.Drawing.Point(343, 76);
+            this.TxtBoxLoginUsuario.MaxLength = 15;
+            this.TxtBoxLoginUsuario.Name = "TxtBoxLoginUsuario";
+            this.TxtBoxLoginUsuario.Size = new System.Drawing.Size(624, 44);
+            this.TxtBoxLoginUsuario.TabIndex = 999;
+            this.TxtBoxLoginUsuario.Text = "Usuario...";
+            this.TxtBoxLoginUsuario.Enter += new System.EventHandler(this.TxtBoxLoginUsuario_Enter);
+            this.TxtBoxLoginUsuario.Leave += new System.EventHandler(this.TxtBoxLoginUsuario_Leave);
             // 
-            // txtBoxLoginPassword
+            // TxtBoxLoginPassword
             // 
-            this.txtBoxLoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
-            this.txtBoxLoginPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxLoginPassword.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxLoginPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.txtBoxLoginPassword.Location = new System.Drawing.Point(343, 189);
-            this.txtBoxLoginPassword.MaxLength = 15;
-            this.txtBoxLoginPassword.Name = "txtBoxLoginPassword";
-            this.txtBoxLoginPassword.Size = new System.Drawing.Size(624, 44);
-            this.txtBoxLoginPassword.TabIndex = 999;
-            this.txtBoxLoginPassword.Text = "Contraseña...";
-            this.txtBoxLoginPassword.Enter += new System.EventHandler(this.txtBoxLoginPassword_Enter);
-            this.txtBoxLoginPassword.Leave += new System.EventHandler(this.txtBoxLoginPassword_Leave);
+            this.TxtBoxLoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
+            this.TxtBoxLoginPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtBoxLoginPassword.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxLoginPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.TxtBoxLoginPassword.Location = new System.Drawing.Point(343, 189);
+            this.TxtBoxLoginPassword.MaxLength = 15;
+            this.TxtBoxLoginPassword.Name = "TxtBoxLoginPassword";
+            this.TxtBoxLoginPassword.Size = new System.Drawing.Size(624, 44);
+            this.TxtBoxLoginPassword.TabIndex = 999;
+            this.TxtBoxLoginPassword.Text = "Contraseña...";
+            this.TxtBoxLoginPassword.Enter += new System.EventHandler(this.TxtBoxLoginPassword_Enter);
+            this.TxtBoxLoginPassword.Leave += new System.EventHandler(this.TxtBoxLoginPassword_Leave);
             // 
-            // panelLoginPassword
+            // PanelLoginPassword
             // 
-            this.panelLoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
-            this.panelLoginPassword.Location = new System.Drawing.Point(343, 239);
-            this.panelLoginPassword.Name = "panelLoginPassword";
-            this.panelLoginPassword.Size = new System.Drawing.Size(624, 3);
-            this.panelLoginPassword.TabIndex = 3;
+            this.PanelLoginPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
+            this.PanelLoginPassword.Location = new System.Drawing.Point(343, 239);
+            this.PanelLoginPassword.Name = "PanelLoginPassword";
+            this.PanelLoginPassword.Size = new System.Drawing.Size(624, 3);
+            this.PanelLoginPassword.TabIndex = 3;
             // 
-            // panelLoginUsuario
+            // PanelLoginUsuario
             // 
-            this.panelLoginUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
-            this.panelLoginUsuario.Location = new System.Drawing.Point(343, 126);
-            this.panelLoginUsuario.Name = "panelLoginUsuario";
-            this.panelLoginUsuario.Size = new System.Drawing.Size(624, 3);
-            this.panelLoginUsuario.TabIndex = 1;
+            this.PanelLoginUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
+            this.PanelLoginUsuario.Location = new System.Drawing.Point(343, 126);
+            this.PanelLoginUsuario.Name = "PanelLoginUsuario";
+            this.PanelLoginUsuario.Size = new System.Drawing.Size(624, 3);
+            this.PanelLoginUsuario.TabIndex = 1;
             // 
-            // panelIcono
+            // PanelIcono
             // 
-            this.panelIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.panelIcono.Controls.Add(this.imgPerfil);
-            this.panelIcono.Controls.Add(this.btnImagenUsuario);
-            this.panelIcono.Location = new System.Drawing.Point(26, 76);
-            this.panelIcono.Name = "panelIcono";
-            this.panelIcono.Size = new System.Drawing.Size(290, 270);
-            this.panelIcono.TabIndex = 999;
+            this.PanelIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.PanelIcono.Controls.Add(this.ImgPerfil);
+            this.PanelIcono.Controls.Add(this.BtnImagenUsuario);
+            this.PanelIcono.Location = new System.Drawing.Point(26, 76);
+            this.PanelIcono.Name = "PanelIcono";
+            this.PanelIcono.Size = new System.Drawing.Size(290, 270);
+            this.PanelIcono.TabIndex = 999;
             // 
-            // panelControlVentana
+            // ImgPerfil
             // 
-            this.panelControlVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.panelControlVentana.Controls.Add(this.lblClose);
-            this.panelControlVentana.Controls.Add(this.lblMinimize);
-            this.panelControlVentana.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControlVentana.Location = new System.Drawing.Point(0, 0);
-            this.panelControlVentana.Name = "panelControlVentana";
-            this.panelControlVentana.Size = new System.Drawing.Size(979, 42);
-            this.panelControlVentana.TabIndex = 6;
-            this.panelControlVentana.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarraControlVentana_MouseDown);
+            this.ImgPerfil.BackColor = System.Drawing.Color.DarkGray;
+            this.ImgPerfil.Location = new System.Drawing.Point(21, 11);
+            this.ImgPerfil.Name = "ImgPerfil";
+            this.ImgPerfil.Size = new System.Drawing.Size(250, 250);
+            this.ImgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgPerfil.TabIndex = 0;
+            this.ImgPerfil.TabStop = false;
             // 
-            // lblClose
+            // BtnImagenUsuario
             // 
-            this.lblClose.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClose.ForeColor = System.Drawing.Color.White;
-            this.lblClose.Location = new System.Drawing.Point(903, -4);
-            this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(83, 51);
-            this.lblClose.TabIndex = 0;
-            this.lblClose.Text = "X";
-            this.lblClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
-            this.lblClose.MouseEnter += new System.EventHandler(this.lblClose_MouseEnter);
-            this.lblClose.MouseLeave += new System.EventHandler(this.lblClose_MouseLeave);
+            this.BtnImagenUsuario.AutoSize = true;
+            this.BtnImagenUsuario.BackColor = System.Drawing.Color.Black;
+            this.BtnImagenUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnImagenUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImagenUsuario.ForeColor = System.Drawing.Color.White;
+            this.BtnImagenUsuario.Location = new System.Drawing.Point(108, 123);
+            this.BtnImagenUsuario.Name = "BtnImagenUsuario";
+            this.BtnImagenUsuario.Size = new System.Drawing.Size(75, 34);
+            this.BtnImagenUsuario.TabIndex = 1;
+            this.BtnImagenUsuario.Text = "SUBIR";
+            this.BtnImagenUsuario.UseVisualStyleBackColor = false;
+            this.BtnImagenUsuario.Click += new System.EventHandler(this.BtnImagenUsuario_Click);
             // 
-            // lblMinimize
+            // PanelControlVentana
             // 
-            this.lblMinimize.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinimize.ForeColor = System.Drawing.Color.White;
-            this.lblMinimize.Location = new System.Drawing.Point(827, -14);
-            this.lblMinimize.Name = "lblMinimize";
-            this.lblMinimize.Size = new System.Drawing.Size(79, 61);
-            this.lblMinimize.TabIndex = 1;
-            this.lblMinimize.Text = "-";
-            this.lblMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMinimize.Click += new System.EventHandler(this.lblMinimize_Click);
-            this.lblMinimize.MouseEnter += new System.EventHandler(this.lblMinimize_MouseEnter);
-            this.lblMinimize.MouseLeave += new System.EventHandler(this.lblMinimize_MouseLeave);
+            this.PanelControlVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.PanelControlVentana.Controls.Add(this.LblClose);
+            this.PanelControlVentana.Controls.Add(this.LblMinimize);
+            this.PanelControlVentana.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelControlVentana.Location = new System.Drawing.Point(0, 0);
+            this.PanelControlVentana.Name = "PanelControlVentana";
+            this.PanelControlVentana.Size = new System.Drawing.Size(979, 42);
+            this.PanelControlVentana.TabIndex = 6;
+            this.PanelControlVentana.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraControlVentana_MouseDown);
             // 
-            // btnLoginRegistrer
+            // LblClose
             // 
-            this.btnLoginRegistrer.AutoSize = true;
-            this.btnLoginRegistrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
-            this.btnLoginRegistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoginRegistrer.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 27F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginRegistrer.Location = new System.Drawing.Point(343, 291);
-            this.btnLoginRegistrer.Name = "btnLoginRegistrer";
-            this.btnLoginRegistrer.Size = new System.Drawing.Size(624, 55);
-            this.btnLoginRegistrer.TabIndex = 999;
-            this.btnLoginRegistrer.Text = "LOGIN/REGISTRER";
-            this.btnLoginRegistrer.UseVisualStyleBackColor = false;
-            this.btnLoginRegistrer.Click += new System.EventHandler(this.btnLoginRegistrer_Click);
+            this.LblClose.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblClose.ForeColor = System.Drawing.Color.White;
+            this.LblClose.Location = new System.Drawing.Point(903, -4);
+            this.LblClose.Name = "LblClose";
+            this.LblClose.Size = new System.Drawing.Size(83, 51);
+            this.LblClose.TabIndex = 0;
+            this.LblClose.Text = "X";
+            this.LblClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblClose.Click += new System.EventHandler(this.LblClose_Click);
+            this.LblClose.MouseEnter += new System.EventHandler(this.LblClose_MouseEnter);
+            this.LblClose.MouseLeave += new System.EventHandler(this.LblClose_MouseLeave);
             // 
-            // lblMensaje
+            // LblMinimize
             // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Eras Medium ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMensaje.Location = new System.Drawing.Point(340, 260);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(44, 17);
-            this.lblMensaje.TabIndex = 1000;
-            this.lblMensaje.Text = "label1";
+            this.LblMinimize.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMinimize.ForeColor = System.Drawing.Color.White;
+            this.LblMinimize.Location = new System.Drawing.Point(827, -14);
+            this.LblMinimize.Name = "LblMinimize";
+            this.LblMinimize.Size = new System.Drawing.Size(79, 61);
+            this.LblMinimize.TabIndex = 1;
+            this.LblMinimize.Text = "-";
+            this.LblMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblMinimize.Click += new System.EventHandler(this.LblMinimize_Click);
+            this.LblMinimize.MouseEnter += new System.EventHandler(this.LblMinimize_MouseEnter);
+            this.LblMinimize.MouseLeave += new System.EventHandler(this.LblMinimize_MouseLeave);
             // 
-            // btnImagenUsuario
+            // BtnLoginRegistrer
             // 
-            this.btnImagenUsuario.AutoSize = true;
-            this.btnImagenUsuario.BackColor = System.Drawing.Color.Black;
-            this.btnImagenUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImagenUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImagenUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnImagenUsuario.Location = new System.Drawing.Point(108, 123);
-            this.btnImagenUsuario.Name = "btnImagenUsuario";
-            this.btnImagenUsuario.Size = new System.Drawing.Size(75, 34);
-            this.btnImagenUsuario.TabIndex = 1;
-            this.btnImagenUsuario.Text = "SUBIR";
-            this.btnImagenUsuario.UseVisualStyleBackColor = false;
-            this.btnImagenUsuario.Click += new System.EventHandler(this.btnImagenUsuario_Click);
+            this.BtnLoginRegistrer.AutoSize = true;
+            this.BtnLoginRegistrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
+            this.BtnLoginRegistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLoginRegistrer.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 27F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLoginRegistrer.Location = new System.Drawing.Point(343, 291);
+            this.BtnLoginRegistrer.Name = "BtnLoginRegistrer";
+            this.BtnLoginRegistrer.Size = new System.Drawing.Size(624, 55);
+            this.BtnLoginRegistrer.TabIndex = 999;
+            this.BtnLoginRegistrer.Text = "LOGIN/REGISTRER";
+            this.BtnLoginRegistrer.UseVisualStyleBackColor = false;
+            this.BtnLoginRegistrer.Click += new System.EventHandler(this.BtnLoginRegistrer_Click);
             // 
-            // imgPerfil
+            // LblMensaje
             // 
-            this.imgPerfil.BackColor = System.Drawing.Color.DarkGray;
-            this.imgPerfil.Location = new System.Drawing.Point(21, 11);
-            this.imgPerfil.Name = "imgPerfil";
-            this.imgPerfil.Size = new System.Drawing.Size(250, 250);
-            this.imgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPerfil.TabIndex = 0;
-            this.imgPerfil.TabStop = false;
+            this.LblMensaje.AutoSize = true;
+            this.LblMensaje.Font = new System.Drawing.Font("Eras Medium ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMensaje.ForeColor = System.Drawing.Color.DarkRed;
+            this.LblMensaje.Location = new System.Drawing.Point(340, 260);
+            this.LblMensaje.Name = "LblMensaje";
+            this.LblMensaje.Size = new System.Drawing.Size(44, 17);
+            this.LblMensaje.TabIndex = 1000;
+            this.LblMensaje.Text = "label1";
             // 
             // Login
             // 
@@ -198,22 +198,22 @@ namespace MDbM.UI.LoginUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(979, 364);
-            this.Controls.Add(this.lblMensaje);
-            this.Controls.Add(this.panelControlVentana);
-            this.Controls.Add(this.btnLoginRegistrer);
-            this.Controls.Add(this.panelIcono);
-            this.Controls.Add(this.txtBoxLoginPassword);
-            this.Controls.Add(this.panelLoginPassword);
-            this.Controls.Add(this.txtBoxLoginUsuario);
-            this.Controls.Add(this.panelLoginUsuario);
+            this.Controls.Add(this.LblMensaje);
+            this.Controls.Add(this.PanelControlVentana);
+            this.Controls.Add(this.BtnLoginRegistrer);
+            this.Controls.Add(this.PanelIcono);
+            this.Controls.Add(this.TxtBoxLoginPassword);
+            this.Controls.Add(this.PanelLoginPassword);
+            this.Controls.Add(this.TxtBoxLoginUsuario);
+            this.Controls.Add(this.PanelLoginUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MdbM";
-            this.panelIcono.ResumeLayout(false);
-            this.panelIcono.PerformLayout();
-            this.panelControlVentana.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).EndInit();
+            this.PanelIcono.ResumeLayout(false);
+            this.PanelIcono.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).EndInit();
+            this.PanelControlVentana.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,18 +221,18 @@ namespace MDbM.UI.LoginUI
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBoxLoginUsuario;
-        private System.Windows.Forms.TextBox txtBoxLoginPassword;
-        private System.Windows.Forms.Panel panelLoginPassword;
-        private System.Windows.Forms.Panel panelLoginUsuario;
-        private System.Windows.Forms.Panel panelIcono;
-        private System.Windows.Forms.Panel panelControlVentana;
-        private System.Windows.Forms.Label lblClose;
-        private System.Windows.Forms.Label lblMinimize;
-        private System.Windows.Forms.Button btnLoginRegistrer;
-        private System.Windows.Forms.Label lblMensaje;
-        private ImagenPerfil.ImgPerfil imgPerfil;
-        private System.Windows.Forms.Button btnImagenUsuario;
+        private System.Windows.Forms.TextBox TxtBoxLoginUsuario;
+        private System.Windows.Forms.TextBox TxtBoxLoginPassword;
+        private System.Windows.Forms.Panel PanelLoginPassword;
+        private System.Windows.Forms.Panel PanelLoginUsuario;
+        private System.Windows.Forms.Panel PanelIcono;
+        private System.Windows.Forms.Panel PanelControlVentana;
+        private System.Windows.Forms.Label LblClose;
+        private System.Windows.Forms.Label LblMinimize;
+        private System.Windows.Forms.Button BtnLoginRegistrer;
+        private System.Windows.Forms.Label LblMensaje;
+        private ImagenPerfil.ImgPerfil ImgPerfil;
+        private System.Windows.Forms.Button BtnImagenUsuario;
     }
 }
 

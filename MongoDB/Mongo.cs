@@ -1,4 +1,5 @@
-﻿using MDbM.Properties;
+﻿using MDbM.Clases;
+using MDbM.Properties;
 using MDbM.UI.Clases;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -54,7 +55,7 @@ namespace MDbM.UI.MongoDB
 
             BsonDocument document = GetCollection("Usuarios").Find(filter).First();
 
-            return (Image)rm.GetObject((string)document.GetValue("imagenPerfil", "N/A"));
+            return Image.FromFile(Path.GetUserPPPath() + document.GetValue("imagenPerfil", "N/A") + ".jpg");
         }
 
         internal bool CearUsuario(Usuario Usuario)
@@ -63,11 +64,15 @@ namespace MDbM.UI.MongoDB
             return true;
         }
 
-        internal bool LoginUsuario(Usuario Usuario)
+        internal Usuario LoginUsuario(string nombre, string passw)
         {
+            var filterNombre = Builders<BsonDocument>.Filter.Eq("nombre", nombre);
 
+            var filterPassw = Builders<BsonDocument>.Filter.Eq("passw", passw);
 
-            return false;
+            BsonDocument document =  GetCollection("Usuarios").Aggregate().Match(filterNombre).Match(filterPassw).First();
+
+            return BsonSerializer.Deserialize<Usuario>(document);
         }
 
         internal List<Pelicula> GetListaPeliculas()
