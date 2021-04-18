@@ -4,6 +4,7 @@ using MDbM.UI.Clases;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -70,7 +71,16 @@ namespace MDbM.UI.MongoDB
 
             var filterPassw = Builders<BsonDocument>.Filter.Eq("passw", passw);
 
-            BsonDocument document =  GetCollection("Usuarios").Aggregate().Match(filterNombre).Match(filterPassw).First();
+            BsonDocument document;
+            try
+            {
+                document = GetCollection("Usuarios").Aggregate().Match(filterNombre).Match(filterPassw).First();
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("Intento de incio de sesion con usuario no existente");
+                return null;
+            }
 
             return BsonSerializer.Deserialize<Usuario>(document);
         }
@@ -78,6 +88,19 @@ namespace MDbM.UI.MongoDB
         internal List<Pelicula> GetListaPeliculas()
         {
             List<BsonDocument> lista = GetCollection("Peliculas").Find(new BsonDocument()).ToList();
+            List<Pelicula> salida = new List<Pelicula>();
+            foreach (BsonDocument bd in lista)
+            {
+                salida.Add(BsonSerializer.Deserialize<Pelicula>(bd));
+            }
+            return salida;
+        }
+
+        internal List<Pelicula> GetListaPeliculas(string nombre)
+        {
+            var filter = new BsonDocument { { "titulo", new BsonDocument { { "$regex", nombre }, { "$options", "i" } } } };
+
+            List<BsonDocument> lista = GetCollection("Peliculas").Find(filter).ToList();
             List<Pelicula> salida = new List<Pelicula>();
             foreach (BsonDocument bd in lista)
             {
@@ -127,6 +150,40 @@ namespace MDbM.UI.MongoDB
 
             return salida;
         }
+
+        internal Enums.EstadosPelicula GetEstadoPelicula(Usuario usuario, Pelicula pelicula)
+        {
+            var Userfilter = Builders<BsonDocument>.Filter.Eq("_id", usuario._id);
+
+            var Abandonadafilter = Builders<BsonDocument>.Filter.Eq("abandonada", pelicula._id);
+            var Completadafilter = Builders<BsonDocument>.Filter.Eq("completada", pelicula._id);
+            var Planeadafilter = Builders<BsonDocument>.Filter.Eq("planeada", pelicula._id);
+            var Viendofilter = Builders<BsonDocument>.Filter.Eq("viendo", pelicula._id);
+
+            if (GetCollection("Usuarios").Aggregate().Match(Userfilter).Match(Abandonadafilter).ToEnumerable().Count() > 0)
+            {
+                return Enums.EstadosPelicula.ABANDONADA;
+            }
+            else if (GetCollection("Usuarios").Aggregate().Match(Userfilter).Match(Completadafilter).ToEnumerable().Count() > 0)
+            {
+                return Enums.EstadosPelicula.TERMINADA;
+            }
+            else if (GetCollection("Usuarios").Aggregate().Match(Userfilter).Match(Planeadafilter).ToEnumerable().Count() > 0)
+            {
+                return Enums.EstadosPelicula.PLANEADA;
+            }
+            else if (GetCollection("Usuarios").Aggregate().Match(Userfilter).Match(Viendofilter).ToEnumerable().Count() > 0)
+            {
+                return Enums.EstadosPelicula.VIENDO;
+            }
+            else
+            {
+                return Enums.EstadosPelicula.NO_AGREGADA;
+            }
+        }
+
+
+
 
         internal Reparto GetReparto(ObjectId id)
         {

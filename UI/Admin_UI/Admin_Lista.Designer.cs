@@ -39,6 +39,10 @@ namespace MDbM.UI.AdminUI
             this.crearReparto = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.adminPanel = new System.Windows.Forms.Panel();
+            this.BtnPararServicio = new System.Windows.Forms.Button();
+            this.BtnIniciarServicio = new System.Windows.Forms.Button();
+            this.LblEstadoServicio = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.editarPelicula = new System.Windows.Forms.Panel();
             this.BtnEliminarPelicula = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -78,10 +82,6 @@ namespace MDbM.UI.AdminUI
             this.TxtBoxNombreReparto = new System.Windows.Forms.TextBox();
             this.BtnCambiarImagenReparto = new System.Windows.Forms.Button();
             this.PicBoxPortadaRetrato = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.LblEstadoServicio = new System.Windows.Forms.Label();
-            this.BtnIniciarServicio = new System.Windows.Forms.Button();
-            this.BtnPararServicio = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.adminPanel.SuspendLayout();
             this.editarPelicula.SuspendLayout();
@@ -182,6 +182,53 @@ namespace MDbM.UI.AdminUI
             this.adminPanel.Name = "adminPanel";
             this.adminPanel.Size = new System.Drawing.Size(1149, 545);
             this.adminPanel.TabIndex = 0;
+            // 
+            // BtnPararServicio
+            // 
+            this.BtnPararServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BtnPararServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPararServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPararServicio.Location = new System.Drawing.Point(141, 391);
+            this.BtnPararServicio.Name = "BtnPararServicio";
+            this.BtnPararServicio.Size = new System.Drawing.Size(287, 83);
+            this.BtnPararServicio.TabIndex = 3;
+            this.BtnPararServicio.Text = "Parar";
+            this.BtnPararServicio.UseVisualStyleBackColor = false;
+            this.BtnPararServicio.Click += new System.EventHandler(this.BtnPararServicio_Click);
+            // 
+            // BtnIniciarServicio
+            // 
+            this.BtnIniciarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.BtnIniciarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIniciarServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnIniciarServicio.Location = new System.Drawing.Point(535, 391);
+            this.BtnIniciarServicio.Name = "BtnIniciarServicio";
+            this.BtnIniciarServicio.Size = new System.Drawing.Size(288, 83);
+            this.BtnIniciarServicio.TabIndex = 2;
+            this.BtnIniciarServicio.Text = "Iniciar";
+            this.BtnIniciarServicio.UseVisualStyleBackColor = false;
+            this.BtnIniciarServicio.Click += new System.EventHandler(this.BtnIniciarServicio_Click);
+            // 
+            // LblEstadoServicio
+            // 
+            this.LblEstadoServicio.AutoSize = true;
+            this.LblEstadoServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEstadoServicio.ForeColor = System.Drawing.Color.GreenYellow;
+            this.LblEstadoServicio.Location = new System.Drawing.Point(841, 195);
+            this.LblEstadoServicio.Name = "LblEstadoServicio";
+            this.LblEstadoServicio.Size = new System.Drawing.Size(412, 48);
+            this.LblEstadoServicio.TabIndex = 1;
+            this.LblEstadoServicio.Text = "Estado Servicio MongoDB:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 167);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(826, 94);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Estado Servicio MongoDB:";
             // 
             // editarPelicula
             // 
@@ -585,53 +632,6 @@ namespace MDbM.UI.AdminUI
             this.PicBoxPortadaRetrato.TabIndex = 0;
             this.PicBoxPortadaRetrato.TabStop = false;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 167);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(826, 94);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Estado Servicio MongoDB:";
-            // 
-            // LblEstadoServicio
-            // 
-            this.LblEstadoServicio.AutoSize = true;
-            this.LblEstadoServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEstadoServicio.ForeColor = System.Drawing.Color.GreenYellow;
-            this.LblEstadoServicio.Location = new System.Drawing.Point(841, 195);
-            this.LblEstadoServicio.Name = "LblEstadoServicio";
-            this.LblEstadoServicio.Size = new System.Drawing.Size(412, 48);
-            this.LblEstadoServicio.TabIndex = 1;
-            this.LblEstadoServicio.Text = "Estado Servicio MongoDB:";
-            // 
-            // BtnIniciarServicio
-            // 
-            this.BtnIniciarServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.BtnIniciarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIniciarServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIniciarServicio.Location = new System.Drawing.Point(535, 391);
-            this.BtnIniciarServicio.Name = "BtnIniciarServicio";
-            this.BtnIniciarServicio.Size = new System.Drawing.Size(288, 83);
-            this.BtnIniciarServicio.TabIndex = 2;
-            this.BtnIniciarServicio.Text = "Iniciar";
-            this.BtnIniciarServicio.UseVisualStyleBackColor = false;
-            this.BtnIniciarServicio.Click += new System.EventHandler(this.BtnIniciarServicio_Click);
-            // 
-            // BtnPararServicio
-            // 
-            this.BtnPararServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.BtnPararServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPararServicio.Font = new System.Drawing.Font("Tw Cen MT Condensed", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPararServicio.Location = new System.Drawing.Point(141, 391);
-            this.BtnPararServicio.Name = "BtnPararServicio";
-            this.BtnPararServicio.Size = new System.Drawing.Size(287, 83);
-            this.BtnPararServicio.TabIndex = 3;
-            this.BtnPararServicio.Text = "Parar";
-            this.BtnPararServicio.UseVisualStyleBackColor = false;
-            this.BtnPararServicio.Click += new System.EventHandler(this.BtnPararServicio_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,8 +639,8 @@ namespace MDbM.UI.AdminUI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(1149, 569);
             this.Controls.Add(this.adminPanel);
-            this.Controls.Add(this.editarPelicula);
             this.Controls.Add(this.editarReparto);
+            this.Controls.Add(this.editarPelicula);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

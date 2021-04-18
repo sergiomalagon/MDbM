@@ -29,352 +29,377 @@ namespace MDbM.UI.MainUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelControlVentana = new System.Windows.Forms.Panel();
-            this.lblMinimize = new System.Windows.Forms.Label();
-            this.panelLateral = new System.Windows.Forms.Panel();
-            this.imgPerfil = new ImagenPerfil.ImgPerfil();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.lblListaCompleted = new System.Windows.Forms.Label();
-            this.lblListaDropped = new System.Windows.Forms.Label();
-            this.lblListaPlantToWatch = new System.Windows.Forms.Label();
-            this.lblListaWatching = new System.Windows.Forms.Label();
-            this.lblListaGeneral = new System.Windows.Forms.Label();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.lblInicio = new System.Windows.Forms.Label();
-            this.panelLista = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelDetalle = new System.Windows.Forms.Panel();
-            this.lblCerrarPanelDetalle = new System.Windows.Forms.Label();
-            this.panelListaReparto = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelDescripcion = new System.Windows.Forms.Panel();
-            this.panelCambiarStatus = new System.Windows.Forms.Panel();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.panelPortadaHolder = new System.Windows.Forms.Panel();
-            this.picBoxPortada = new System.Windows.Forms.PictureBox();
-            this.panelInfoHolder = new System.Windows.Forms.Panel();
-            this.lblValoracion = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.panelAux = new System.Windows.Forms.Panel();
-            this.panelControlVentana.SuspendLayout();
-            this.panelLateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).BeginInit();
-            this.panelDetalle.SuspendLayout();
-            this.panelCambiarStatus.SuspendLayout();
-            this.panelPortadaHolder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).BeginInit();
-            this.panelInfoHolder.SuspendLayout();
+            this.PanelControlVentana = new System.Windows.Forms.Panel();
+            this.TxtBoxBarraBusqueda = new System.Windows.Forms.TextBox();
+            this.LblMinimize = new System.Windows.Forms.Label();
+            this.PanelLateral = new System.Windows.Forms.Panel();
+            this.BtnInicio = new System.Windows.Forms.Button();
+            this.BtnMiLista = new System.Windows.Forms.Button();
+            this.BtnViendo = new System.Windows.Forms.Button();
+            this.BtnCompletada = new System.Windows.Forms.Button();
+            this.BtnAbandonada = new System.Windows.Forms.Button();
+            this.BtnPlaneada = new System.Windows.Forms.Button();
+            this.LblVersion = new System.Windows.Forms.Label();
+            this.BtnSalir = new System.Windows.Forms.Button();
+            this.LblNombreUsuario = new System.Windows.Forms.Label();
+            this.PanelLista = new System.Windows.Forms.FlowLayoutPanel();
+            this.PanelDetalle = new System.Windows.Forms.Panel();
+            this.LblCerrarPanelDetalle = new System.Windows.Forms.Label();
+            this.PanelListaReparto = new System.Windows.Forms.FlowLayoutPanel();
+            this.PanelDescripcion = new System.Windows.Forms.Panel();
+            this.PanelCambiarStatus = new System.Windows.Forms.Panel();
+            this.ComboBoxEstado = new MetroFramework.Controls.MetroComboBox();
+            this.PanelPortadaHolder = new System.Windows.Forms.Panel();
+            this.PicBoxPortada = new System.Windows.Forms.PictureBox();
+            this.PanelInfoHolder = new System.Windows.Forms.Panel();
+            this.LblValoracion = new System.Windows.Forms.Label();
+            this.LblNombre = new System.Windows.Forms.Label();
+            this.PanelAux = new System.Windows.Forms.Panel();
+            this.ImgPerfil = new ImagenPerfil.ImgPerfil();
+            this.PanelControlVentana.SuspendLayout();
+            this.PanelLateral.SuspendLayout();
+            this.PanelDetalle.SuspendLayout();
+            this.PanelCambiarStatus.SuspendLayout();
+            this.PanelPortadaHolder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).BeginInit();
+            this.PanelInfoHolder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelControlVentana
+            // PanelControlVentana
             // 
-            this.panelControlVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.panelControlVentana.Controls.Add(this.lblMinimize);
-            this.panelControlVentana.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControlVentana.Location = new System.Drawing.Point(0, 0);
-            this.panelControlVentana.Name = "panelControlVentana";
-            this.panelControlVentana.Size = new System.Drawing.Size(1600, 46);
-            this.panelControlVentana.TabIndex = 0;
-            this.panelControlVentana.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelControlVentana_MouseDown);
+            this.PanelControlVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.PanelControlVentana.Controls.Add(this.LblMinimize);
+            this.PanelControlVentana.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelControlVentana.Location = new System.Drawing.Point(0, 0);
+            this.PanelControlVentana.Name = "PanelControlVentana";
+            this.PanelControlVentana.Size = new System.Drawing.Size(1600, 55);
+            this.PanelControlVentana.TabIndex = 0;
+            this.PanelControlVentana.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelControlVentana_MouseDown);
             // 
-            // lblMinimize
+            // TxtBoxBarraBusqueda
             // 
-            this.lblMinimize.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinimize.ForeColor = System.Drawing.Color.White;
-            this.lblMinimize.Location = new System.Drawing.Point(1506, -15);
-            this.lblMinimize.Name = "lblMinimize";
-            this.lblMinimize.Size = new System.Drawing.Size(94, 61);
-            this.lblMinimize.TabIndex = 2;
-            this.lblMinimize.Text = "-";
-            this.lblMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMinimize.Click += new System.EventHandler(this.lblMinimize_Click);
-            this.lblMinimize.MouseEnter += new System.EventHandler(this.lblMinimize_MouseEnter);
-            this.lblMinimize.MouseLeave += new System.EventHandler(this.lblMinimize_MouseLeave);
+            this.TxtBoxBarraBusqueda.AllowDrop = true;
+            this.TxtBoxBarraBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TxtBoxBarraBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtBoxBarraBusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtBoxBarraBusqueda.Font = new System.Drawing.Font("Tw Cen MT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxBarraBusqueda.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.TxtBoxBarraBusqueda.Location = new System.Drawing.Point(570, 10);
+            this.TxtBoxBarraBusqueda.Name = "TxtBoxBarraBusqueda";
+            this.TxtBoxBarraBusqueda.Size = new System.Drawing.Size(527, 39);
+            this.TxtBoxBarraBusqueda.TabIndex = 3;
+            this.TxtBoxBarraBusqueda.Text = "BUSCAR PELICULA...";
+            this.TxtBoxBarraBusqueda.TextChanged += new System.EventHandler(this.TxtBoxBarraBusqueda_TextChanged);
+            this.TxtBoxBarraBusqueda.Enter += new System.EventHandler(this.TxtBoxBarraBusqueda_Enter);
+            this.TxtBoxBarraBusqueda.Leave += new System.EventHandler(this.TxtBoxBarraBusqueda_Leave);
             // 
-            // panelLateral
+            // LblMinimize
             // 
-            this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.panelLateral.Controls.Add(this.imgPerfil);
-            this.panelLateral.Controls.Add(this.lblVersion);
-            this.panelLateral.Controls.Add(this.btnSalir);
-            this.panelLateral.Controls.Add(this.lblListaCompleted);
-            this.panelLateral.Controls.Add(this.lblListaDropped);
-            this.panelLateral.Controls.Add(this.lblListaPlantToWatch);
-            this.panelLateral.Controls.Add(this.lblListaWatching);
-            this.panelLateral.Controls.Add(this.lblListaGeneral);
-            this.panelLateral.Controls.Add(this.lblNombreUsuario);
-            this.panelLateral.Controls.Add(this.lblInicio);
-            this.panelLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLateral.Location = new System.Drawing.Point(0, 46);
-            this.panelLateral.Name = "panelLateral";
-            this.panelLateral.Size = new System.Drawing.Size(305, 854);
-            this.panelLateral.TabIndex = 1;
+            this.LblMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LblMinimize.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMinimize.ForeColor = System.Drawing.Color.White;
+            this.LblMinimize.Location = new System.Drawing.Point(1506, 0);
+            this.LblMinimize.Name = "LblMinimize";
+            this.LblMinimize.Size = new System.Drawing.Size(94, 55);
+            this.LblMinimize.TabIndex = 2;
+            this.LblMinimize.Text = "-";
+            this.LblMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblMinimize.Click += new System.EventHandler(this.LblMinimize_Click);
+            this.LblMinimize.MouseEnter += new System.EventHandler(this.LblMinimize_MouseEnter);
+            this.LblMinimize.MouseLeave += new System.EventHandler(this.LblMinimize_MouseLeave);
             // 
-            // imgPerfil
+            // PanelLateral
             // 
-            this.imgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.imgPerfil.Location = new System.Drawing.Point(50, 24);
-            this.imgPerfil.Name = "imgPerfil";
-            this.imgPerfil.Size = new System.Drawing.Size(200, 200);
-            this.imgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPerfil.TabIndex = 21;
-            this.imgPerfil.TabStop = false;
+            this.PanelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.PanelLateral.Controls.Add(this.BtnInicio);
+            this.PanelLateral.Controls.Add(this.BtnMiLista);
+            this.PanelLateral.Controls.Add(this.BtnViendo);
+            this.PanelLateral.Controls.Add(this.BtnCompletada);
+            this.PanelLateral.Controls.Add(this.BtnAbandonada);
+            this.PanelLateral.Controls.Add(this.BtnPlaneada);
+            this.PanelLateral.Controls.Add(this.ImgPerfil);
+            this.PanelLateral.Controls.Add(this.LblVersion);
+            this.PanelLateral.Controls.Add(this.BtnSalir);
+            this.PanelLateral.Controls.Add(this.LblNombreUsuario);
+            this.PanelLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelLateral.Location = new System.Drawing.Point(0, 55);
+            this.PanelLateral.Name = "PanelLateral";
+            this.PanelLateral.Size = new System.Drawing.Size(305, 845);
+            this.PanelLateral.TabIndex = 1;
             // 
-            // lblVersion
+            // BtnInicio
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblVersion.Location = new System.Drawing.Point(3, 780);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(108, 22);
-            this.lblVersion.TabIndex = 20;
-            this.lblVersion.Text = "Version 0.0.1";
+            this.BtnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnInicio.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInicio.ForeColor = System.Drawing.Color.White;
+            this.BtnInicio.Location = new System.Drawing.Point(12, 379);
+            this.BtnInicio.Name = "BtnInicio";
+            this.BtnInicio.Size = new System.Drawing.Size(281, 53);
+            this.BtnInicio.TabIndex = 27;
+            this.BtnInicio.Text = "Inicio";
+            this.BtnInicio.UseVisualStyleBackColor = false;
+            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
             // 
-            // btnSalir
+            // BtnMiLista
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(0, 808);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(305, 46);
-            this.btnSalir.TabIndex = 19;
-            this.btnSalir.Text = "SALIR";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.BtnMiLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnMiLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMiLista.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMiLista.ForeColor = System.Drawing.Color.White;
+            this.BtnMiLista.Location = new System.Drawing.Point(12, 438);
+            this.BtnMiLista.Name = "BtnMiLista";
+            this.BtnMiLista.Size = new System.Drawing.Size(281, 53);
+            this.BtnMiLista.TabIndex = 26;
+            this.BtnMiLista.Text = "Mi Lista";
+            this.BtnMiLista.UseVisualStyleBackColor = false;
+            this.BtnMiLista.Click += new System.EventHandler(this.BtnMiLista_Click);
             // 
-            // lblListaCompleted
+            // BtnViendo
             // 
-            this.lblListaCompleted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
-            this.lblListaCompleted.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaCompleted.ForeColor = System.Drawing.Color.White;
-            this.lblListaCompleted.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblListaCompleted.Location = new System.Drawing.Point(65, 575);
-            this.lblListaCompleted.Name = "lblListaCompleted";
-            this.lblListaCompleted.Size = new System.Drawing.Size(228, 53);
-            this.lblListaCompleted.TabIndex = 16;
-            this.lblListaCompleted.Text = "Completada";
-            this.lblListaCompleted.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnViendo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnViendo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnViendo.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnViendo.ForeColor = System.Drawing.Color.White;
+            this.BtnViendo.Location = new System.Drawing.Point(65, 517);
+            this.BtnViendo.Name = "BtnViendo";
+            this.BtnViendo.Size = new System.Drawing.Size(228, 53);
+            this.BtnViendo.TabIndex = 25;
+            this.BtnViendo.Text = "Viendo";
+            this.BtnViendo.UseVisualStyleBackColor = false;
+            this.BtnViendo.Click += new System.EventHandler(this.BtnViendo_Click);
             // 
-            // lblListaDropped
+            // BtnCompletada
             // 
-            this.lblListaDropped.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
-            this.lblListaDropped.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaDropped.ForeColor = System.Drawing.Color.White;
-            this.lblListaDropped.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblListaDropped.Location = new System.Drawing.Point(65, 637);
-            this.lblListaDropped.Name = "lblListaDropped";
-            this.lblListaDropped.Size = new System.Drawing.Size(228, 53);
-            this.lblListaDropped.TabIndex = 15;
-            this.lblListaDropped.Text = "Abandonada";
-            this.lblListaDropped.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnCompletada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnCompletada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCompletada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCompletada.ForeColor = System.Drawing.Color.White;
+            this.BtnCompletada.Location = new System.Drawing.Point(65, 576);
+            this.BtnCompletada.Name = "BtnCompletada";
+            this.BtnCompletada.Size = new System.Drawing.Size(228, 53);
+            this.BtnCompletada.TabIndex = 24;
+            this.BtnCompletada.Text = "Completada";
+            this.BtnCompletada.UseVisualStyleBackColor = false;
+            this.BtnCompletada.Click += new System.EventHandler(this.BtnCompletada_Click);
             // 
-            // lblListaPlantToWatch
+            // BtnAbandonada
             // 
-            this.lblListaPlantToWatch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
-            this.lblListaPlantToWatch.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaPlantToWatch.ForeColor = System.Drawing.Color.White;
-            this.lblListaPlantToWatch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblListaPlantToWatch.Location = new System.Drawing.Point(65, 699);
-            this.lblListaPlantToWatch.Name = "lblListaPlantToWatch";
-            this.lblListaPlantToWatch.Size = new System.Drawing.Size(228, 53);
-            this.lblListaPlantToWatch.TabIndex = 14;
-            this.lblListaPlantToWatch.Text = "Planeada";
-            this.lblListaPlantToWatch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnAbandonada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnAbandonada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAbandonada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAbandonada.ForeColor = System.Drawing.Color.White;
+            this.BtnAbandonada.Location = new System.Drawing.Point(65, 635);
+            this.BtnAbandonada.Name = "BtnAbandonada";
+            this.BtnAbandonada.Size = new System.Drawing.Size(228, 53);
+            this.BtnAbandonada.TabIndex = 23;
+            this.BtnAbandonada.Text = "Abandonada";
+            this.BtnAbandonada.UseVisualStyleBackColor = false;
+            this.BtnAbandonada.Click += new System.EventHandler(this.BtnAbandonada_Click);
             // 
-            // lblListaWatching
+            // BtnPlaneada
             // 
-            this.lblListaWatching.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
-            this.lblListaWatching.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaWatching.ForeColor = System.Drawing.Color.White;
-            this.lblListaWatching.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblListaWatching.Location = new System.Drawing.Point(65, 513);
-            this.lblListaWatching.Name = "lblListaWatching";
-            this.lblListaWatching.Size = new System.Drawing.Size(228, 53);
-            this.lblListaWatching.TabIndex = 13;
-            this.lblListaWatching.Text = "Viendo";
-            this.lblListaWatching.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnPlaneada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnPlaneada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPlaneada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPlaneada.ForeColor = System.Drawing.Color.White;
+            this.BtnPlaneada.Location = new System.Drawing.Point(65, 694);
+            this.BtnPlaneada.Name = "BtnPlaneada";
+            this.BtnPlaneada.Size = new System.Drawing.Size(228, 53);
+            this.BtnPlaneada.TabIndex = 22;
+            this.BtnPlaneada.Text = "Pleaneada";
+            this.BtnPlaneada.UseVisualStyleBackColor = false;
+            this.BtnPlaneada.Click += new System.EventHandler(this.BtnPlaneada_Click);
             // 
-            // lblListaGeneral
+            // LblVersion
             // 
-            this.lblListaGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
-            this.lblListaGeneral.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaGeneral.ForeColor = System.Drawing.Color.White;
-            this.lblListaGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblListaGeneral.Location = new System.Drawing.Point(12, 438);
-            this.lblListaGeneral.Name = "lblListaGeneral";
-            this.lblListaGeneral.Size = new System.Drawing.Size(281, 53);
-            this.lblListaGeneral.TabIndex = 9;
-            this.lblListaGeneral.Text = "Mi Lista";
-            this.lblListaGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblVersion.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.LblVersion.Location = new System.Drawing.Point(3, 774);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(108, 22);
+            this.LblVersion.TabIndex = 20;
+            this.LblVersion.Text = "Version 0.0.1";
             // 
-            // lblNombreUsuario
+            // BtnSalir
             // 
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(12, 238);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(275, 32);
-            this.lblNombreUsuario.TabIndex = 1;
-            this.lblNombreUsuario.Text = "Nombre Apellido Apellido";
-            this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(24)))));
+            this.BtnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSalir.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.ForeColor = System.Drawing.Color.Black;
+            this.BtnSalir.Location = new System.Drawing.Point(0, 799);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(305, 46);
+            this.BtnSalir.TabIndex = 19;
+            this.BtnSalir.Text = "SALIR";
+            this.BtnSalir.UseVisualStyleBackColor = false;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // lblInicio
+            // LblNombreUsuario
             // 
-            this.lblInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
-            this.lblInicio.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInicio.ForeColor = System.Drawing.Color.White;
-            this.lblInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblInicio.Location = new System.Drawing.Point(12, 368);
-            this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(281, 53);
-            this.lblInicio.TabIndex = 8;
-            this.lblInicio.Text = "Inicio";
-            this.lblInicio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblNombreUsuario.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.LblNombreUsuario.Location = new System.Drawing.Point(12, 238);
+            this.LblNombreUsuario.Name = "LblNombreUsuario";
+            this.LblNombreUsuario.Size = new System.Drawing.Size(275, 32);
+            this.LblNombreUsuario.TabIndex = 1;
+            this.LblNombreUsuario.Text = "Nombre Apellido Apellido";
+            this.LblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelLista
+            // PanelLista
             // 
-            this.panelLista.AutoScroll = true;
-            this.panelLista.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLista.Location = new System.Drawing.Point(305, 46);
-            this.panelLista.Name = "panelLista";
-            this.panelLista.Size = new System.Drawing.Size(1295, 854);
-            this.panelLista.TabIndex = 0;
+            this.PanelLista.AutoScroll = true;
+            this.PanelLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelLista.Location = new System.Drawing.Point(305, 55);
+            this.PanelLista.Name = "PanelLista";
+            this.PanelLista.Size = new System.Drawing.Size(1295, 845);
+            this.PanelLista.TabIndex = 0;
             // 
-            // panelDetalle
+            // PanelDetalle
             // 
-            this.panelDetalle.Controls.Add(this.lblCerrarPanelDetalle);
-            this.panelDetalle.Controls.Add(this.panelListaReparto);
-            this.panelDetalle.Controls.Add(this.panelDescripcion);
-            this.panelDetalle.Controls.Add(this.panelCambiarStatus);
-            this.panelDetalle.Controls.Add(this.panelPortadaHolder);
-            this.panelDetalle.Controls.Add(this.panelInfoHolder);
-            this.panelDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDetalle.Location = new System.Drawing.Point(305, 46);
-            this.panelDetalle.Name = "panelDetalle";
-            this.panelDetalle.Size = new System.Drawing.Size(1295, 854);
-            this.panelDetalle.TabIndex = 0;
+            this.PanelDetalle.Controls.Add(this.LblCerrarPanelDetalle);
+            this.PanelDetalle.Controls.Add(this.PanelListaReparto);
+            this.PanelDetalle.Controls.Add(this.PanelDescripcion);
+            this.PanelDetalle.Controls.Add(this.PanelCambiarStatus);
+            this.PanelDetalle.Controls.Add(this.PanelPortadaHolder);
+            this.PanelDetalle.Controls.Add(this.PanelInfoHolder);
+            this.PanelDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelDetalle.Location = new System.Drawing.Point(305, 55);
+            this.PanelDetalle.Name = "PanelDetalle";
+            this.PanelDetalle.Size = new System.Drawing.Size(1295, 845);
+            this.PanelDetalle.TabIndex = 0;
             // 
-            // lblCerrarPanelDetalle
+            // LblCerrarPanelDetalle
             // 
-            this.lblCerrarPanelDetalle.AutoSize = true;
-            this.lblCerrarPanelDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCerrarPanelDetalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.lblCerrarPanelDetalle.Location = new System.Drawing.Point(16, 6);
-            this.lblCerrarPanelDetalle.Name = "lblCerrarPanelDetalle";
-            this.lblCerrarPanelDetalle.Size = new System.Drawing.Size(47, 46);
-            this.lblCerrarPanelDetalle.TabIndex = 4;
-            this.lblCerrarPanelDetalle.Text = "X";
-            this.lblCerrarPanelDetalle.Click += new System.EventHandler(this.lblCerrarPanelDetalle_Click);
+            this.LblCerrarPanelDetalle.AutoSize = true;
+            this.LblCerrarPanelDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCerrarPanelDetalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.LblCerrarPanelDetalle.Location = new System.Drawing.Point(16, 6);
+            this.LblCerrarPanelDetalle.Name = "LblCerrarPanelDetalle";
+            this.LblCerrarPanelDetalle.Size = new System.Drawing.Size(47, 46);
+            this.LblCerrarPanelDetalle.TabIndex = 4;
+            this.LblCerrarPanelDetalle.Text = "X";
+            this.LblCerrarPanelDetalle.Click += new System.EventHandler(this.LblCerrarPanelDetalle_Click);
             // 
-            // panelListaReparto
+            // PanelListaReparto
             // 
-            this.panelListaReparto.AutoScroll = true;
-            this.panelListaReparto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.panelListaReparto.Location = new System.Drawing.Point(82, 564);
-            this.panelListaReparto.Name = "panelListaReparto";
-            this.panelListaReparto.Size = new System.Drawing.Size(1151, 256);
-            this.panelListaReparto.TabIndex = 3;
+            this.PanelListaReparto.AutoScroll = true;
+            this.PanelListaReparto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelListaReparto.Location = new System.Drawing.Point(82, 564);
+            this.PanelListaReparto.Name = "PanelListaReparto";
+            this.PanelListaReparto.Size = new System.Drawing.Size(1151, 256);
+            this.PanelListaReparto.TabIndex = 3;
             // 
-            // panelDescripcion
+            // PanelDescripcion
             // 
-            this.panelDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.panelDescripcion.Location = new System.Drawing.Point(328, 146);
-            this.panelDescripcion.Name = "panelDescripcion";
-            this.panelDescripcion.Size = new System.Drawing.Size(904, 364);
-            this.panelDescripcion.TabIndex = 2;
+            this.PanelDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelDescripcion.Location = new System.Drawing.Point(328, 146);
+            this.PanelDescripcion.Name = "PanelDescripcion";
+            this.PanelDescripcion.Size = new System.Drawing.Size(904, 364);
+            this.PanelDescripcion.TabIndex = 2;
             // 
-            // panelCambiarStatus
+            // PanelCambiarStatus
             // 
-            this.panelCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.panelCambiarStatus.Controls.Add(this.metroComboBox1);
-            this.panelCambiarStatus.Location = new System.Drawing.Point(81, 438);
-            this.panelCambiarStatus.Name = "panelCambiarStatus";
-            this.panelCambiarStatus.Size = new System.Drawing.Size(225, 72);
-            this.panelCambiarStatus.TabIndex = 2;
+            this.PanelCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelCambiarStatus.Controls.Add(this.ComboBoxEstado);
+            this.PanelCambiarStatus.Location = new System.Drawing.Point(81, 438);
+            this.PanelCambiarStatus.Name = "PanelCambiarStatus";
+            this.PanelCambiarStatus.Size = new System.Drawing.Size(225, 72);
+            this.PanelCambiarStatus.TabIndex = 2;
             // 
-            // metroComboBox1
+            // ComboBoxEstado
             // 
-            this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroComboBox1.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.metroComboBox1.FontWeight = MetroFramework.MetroLinkWeight.Bold;
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 29;
-            this.metroComboBox1.Items.AddRange(new object[] {
+            this.ComboBoxEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxEstado.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.ComboBoxEstado.FontWeight = MetroFramework.MetroLinkWeight.Bold;
+            this.ComboBoxEstado.FormattingEnabled = true;
+            this.ComboBoxEstado.ItemHeight = 29;
+            this.ComboBoxEstado.Items.AddRange(new object[] {
             "VIENDO",
             "COMPLETADA",
             "ABANDONADA",
             "PLANEADA"});
-            this.metroComboBox1.Location = new System.Drawing.Point(14, 23);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(196, 35);
-            this.metroComboBox1.Style = MetroFramework.MetroColorStyle.Black;
-            this.metroComboBox1.TabIndex = 0;
-            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ComboBoxEstado.Location = new System.Drawing.Point(14, 23);
+            this.ComboBoxEstado.Name = "ComboBoxEstado";
+            this.ComboBoxEstado.Size = new System.Drawing.Size(196, 35);
+            this.ComboBoxEstado.Style = MetroFramework.MetroColorStyle.Black;
+            this.ComboBoxEstado.TabIndex = 0;
+            this.ComboBoxEstado.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // panelPortadaHolder
+            // PanelPortadaHolder
             // 
-            this.panelPortadaHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.panelPortadaHolder.Controls.Add(this.picBoxPortada);
-            this.panelPortadaHolder.Location = new System.Drawing.Point(81, 53);
-            this.panelPortadaHolder.Name = "panelPortadaHolder";
-            this.panelPortadaHolder.Size = new System.Drawing.Size(225, 360);
-            this.panelPortadaHolder.TabIndex = 2;
+            this.PanelPortadaHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelPortadaHolder.Controls.Add(this.PicBoxPortada);
+            this.PanelPortadaHolder.Location = new System.Drawing.Point(81, 53);
+            this.PanelPortadaHolder.Name = "PanelPortadaHolder";
+            this.PanelPortadaHolder.Size = new System.Drawing.Size(225, 360);
+            this.PanelPortadaHolder.TabIndex = 2;
             // 
-            // picBoxPortada
+            // PicBoxPortada
             // 
-            this.picBoxPortada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
-            this.picBoxPortada.Location = new System.Drawing.Point(14, 15);
-            this.picBoxPortada.Name = "picBoxPortada";
-            this.picBoxPortada.Size = new System.Drawing.Size(197, 322);
-            this.picBoxPortada.TabIndex = 0;
-            this.picBoxPortada.TabStop = false;
+            this.PicBoxPortada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
+            this.PicBoxPortada.Location = new System.Drawing.Point(14, 15);
+            this.PicBoxPortada.Name = "PicBoxPortada";
+            this.PicBoxPortada.Size = new System.Drawing.Size(197, 322);
+            this.PicBoxPortada.TabIndex = 0;
+            this.PicBoxPortada.TabStop = false;
             // 
-            // panelInfoHolder
+            // PanelInfoHolder
             // 
-            this.panelInfoHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.panelInfoHolder.Controls.Add(this.lblValoracion);
-            this.panelInfoHolder.Controls.Add(this.lblNombre);
-            this.panelInfoHolder.Location = new System.Drawing.Point(328, 53);
-            this.panelInfoHolder.Name = "panelInfoHolder";
-            this.panelInfoHolder.Size = new System.Drawing.Size(904, 72);
-            this.panelInfoHolder.TabIndex = 1;
+            this.PanelInfoHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelInfoHolder.Controls.Add(this.LblValoracion);
+            this.PanelInfoHolder.Controls.Add(this.LblNombre);
+            this.PanelInfoHolder.Location = new System.Drawing.Point(328, 53);
+            this.PanelInfoHolder.Name = "PanelInfoHolder";
+            this.PanelInfoHolder.Size = new System.Drawing.Size(904, 72);
+            this.PanelInfoHolder.TabIndex = 1;
             // 
-            // lblValoracion
+            // LblValoracion
             // 
-            this.lblValoracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.lblValoracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblValoracion.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValoracion.ForeColor = System.Drawing.Color.White;
-            this.lblValoracion.Location = new System.Drawing.Point(62, 8);
-            this.lblValoracion.Name = "lblValoracion";
-            this.lblValoracion.Size = new System.Drawing.Size(103, 54);
-            this.lblValoracion.TabIndex = 0;
-            this.lblValoracion.Text = "label1";
-            this.lblValoracion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblValoracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
+            this.LblValoracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LblValoracion.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblValoracion.ForeColor = System.Drawing.Color.White;
+            this.LblValoracion.Location = new System.Drawing.Point(62, 8);
+            this.LblValoracion.Name = "LblValoracion";
+            this.LblValoracion.Size = new System.Drawing.Size(103, 54);
+            this.LblValoracion.TabIndex = 0;
+            this.LblValoracion.Text = "label1";
+            this.LblValoracion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblNombre
+            // LblNombre
             // 
-            this.lblNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.lblNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNombre.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(216, 8);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(613, 54);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "label1";
-            this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
+            this.LblNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LblNombre.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombre.ForeColor = System.Drawing.Color.White;
+            this.LblNombre.Location = new System.Drawing.Point(216, 8);
+            this.LblNombre.Name = "LblNombre";
+            this.LblNombre.Size = new System.Drawing.Size(613, 54);
+            this.LblNombre.TabIndex = 1;
+            this.LblNombre.Text = "label1";
+            this.LblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelAux
+            // PanelAux
             // 
-            this.panelAux.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
-            this.panelAux.Location = new System.Drawing.Point(1537, 46);
-            this.panelAux.Name = "panelAux";
-            this.panelAux.Size = new System.Drawing.Size(63, 854);
-            this.panelAux.TabIndex = 0;
+            this.PanelAux.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
+            this.PanelAux.Location = new System.Drawing.Point(1537, 55);
+            this.PanelAux.Name = "PanelAux";
+            this.PanelAux.Size = new System.Drawing.Size(63, 845);
+            this.PanelAux.TabIndex = 0;
+            // 
+            // ImgPerfil
+            // 
+            this.ImgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ImgPerfil.Location = new System.Drawing.Point(50, 24);
+            this.ImgPerfil.Name = "ImgPerfil";
+            this.ImgPerfil.Size = new System.Drawing.Size(200, 200);
+            this.ImgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgPerfil.TabIndex = 21;
+            this.ImgPerfil.TabStop = false;
             // 
             // Main
             // 
@@ -382,58 +407,61 @@ namespace MDbM.UI.MainUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Controls.Add(this.panelAux);
-            this.Controls.Add(this.panelLista);
-            this.Controls.Add(this.panelDetalle);
-            this.Controls.Add(this.panelLateral);
-            this.Controls.Add(this.panelControlVentana);
+            this.Controls.Add(this.TxtBoxBarraBusqueda);
+            this.Controls.Add(this.PanelAux);
+            this.Controls.Add(this.PanelLista);
+            this.Controls.Add(this.PanelDetalle);
+            this.Controls.Add(this.PanelLateral);
+            this.Controls.Add(this.PanelControlVentana);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MdbM";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.panelControlVentana.ResumeLayout(false);
-            this.panelLateral.ResumeLayout(false);
-            this.panelLateral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPerfil)).EndInit();
-            this.panelDetalle.ResumeLayout(false);
-            this.panelDetalle.PerformLayout();
-            this.panelCambiarStatus.ResumeLayout(false);
-            this.panelPortadaHolder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortada)).EndInit();
-            this.panelInfoHolder.ResumeLayout(false);
+            this.PanelControlVentana.ResumeLayout(false);
+            this.PanelLateral.ResumeLayout(false);
+            this.PanelLateral.PerformLayout();
+            this.PanelDetalle.ResumeLayout(false);
+            this.PanelDetalle.PerformLayout();
+            this.PanelCambiarStatus.ResumeLayout(false);
+            this.PanelPortadaHolder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).EndInit();
+            this.PanelInfoHolder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelControlVentana;
-        private System.Windows.Forms.Panel panelLateral;
-        private System.Windows.Forms.Label lblMinimize;
-        private System.Windows.Forms.Label lblNombreUsuario;
-        private System.Windows.Forms.Label lblInicio;
-        private System.Windows.Forms.Label lblListaGeneral;
-        private System.Windows.Forms.Label lblListaWatching;
-        private System.Windows.Forms.Label lblListaCompleted;
-        private System.Windows.Forms.Label lblListaDropped;
-        private System.Windows.Forms.Label lblListaPlantToWatch;
-        private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.FlowLayoutPanel panelLista;
-        private System.Windows.Forms.Panel panelDetalle;
-        private System.Windows.Forms.Panel panelAux;
-        private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.PictureBox picBoxPortada;
-        private System.Windows.Forms.Panel panelInfoHolder;
-        private System.Windows.Forms.Panel panelPortadaHolder;
-        private System.Windows.Forms.Panel panelDescripcion;
-        private System.Windows.Forms.Panel panelCambiarStatus;
-        private System.Windows.Forms.FlowLayoutPanel panelListaReparto;
-        private System.Windows.Forms.Label lblCerrarPanelDetalle;
-        private System.Windows.Forms.Label lblValoracion;
-        private System.Windows.Forms.Label lblNombre;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private ImagenPerfil.ImgPerfil imgPerfil;
+        private System.Windows.Forms.Panel PanelControlVentana;
+        private System.Windows.Forms.Panel PanelLateral;
+        private System.Windows.Forms.Label LblMinimize;
+        private System.Windows.Forms.Label LblNombreUsuario;
+        private System.Windows.Forms.Button BtnSalir;
+        private System.Windows.Forms.FlowLayoutPanel PanelLista;
+        private System.Windows.Forms.Panel PanelDetalle;
+        private System.Windows.Forms.Panel PanelAux;
+        private System.Windows.Forms.Label LblVersion;
+        private System.Windows.Forms.PictureBox PicBoxPortada;
+        private System.Windows.Forms.Panel PanelInfoHolder;
+        private System.Windows.Forms.Panel PanelPortadaHolder;
+        private System.Windows.Forms.Panel PanelDescripcion;
+        private System.Windows.Forms.Panel PanelCambiarStatus;
+        private System.Windows.Forms.FlowLayoutPanel PanelListaReparto;
+        private System.Windows.Forms.Label LblCerrarPanelDetalle;
+        private System.Windows.Forms.Label LblValoracion;
+        private System.Windows.Forms.Label LblNombre;
+        private MetroFramework.Controls.MetroComboBox ComboBoxEstado;
+        private ImagenPerfil.ImgPerfil ImgPerfil;
+        private System.Windows.Forms.Button BtnPlaneada;
+        private System.Windows.Forms.Button BtnAbandonada;
+        private System.Windows.Forms.Button BtnViendo;
+        private System.Windows.Forms.Button BtnCompletada;
+        private System.Windows.Forms.Button BtnMiLista;
+        private System.Windows.Forms.Button BtnInicio;
+        private System.Windows.Forms.TextBox TxtBoxBarraBusqueda;
     }
 }

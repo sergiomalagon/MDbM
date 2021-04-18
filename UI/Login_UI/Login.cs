@@ -64,6 +64,13 @@ namespace MDbM.UI.LoginUI
         private bool IniciarSesion()
         {
             Usuario usuarioLogin =  this.db.LoginUsuario(TxtBoxLoginUsuario.Text.Trim(), TxtBoxLoginPassword.Text.Trim());
+            if(usuarioLogin == null)
+            {
+                LblMensaje.Text = "Error!! La contraseña introducida no es correcta";
+                LblMensaje.Visible = true;
+                return true;
+            }
+
             if(usuarioLogin.rol == (int)Enums.TipoUsuario.ADMIN)
             {
                 new Admin().Show();
@@ -94,6 +101,14 @@ namespace MDbM.UI.LoginUI
         private void LblClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        internal void LimpiarInput()
+        {
+            TxtBoxLoginUsuario.Text = "Usuario...";
+            TxtBoxLoginPassword.UseSystemPasswordChar = false;
+            TxtBoxLoginPassword.Text = "Contraseña...";
+            ImgPerfil.Image = null;
         }
 
         private void LblMinimize_Click(object sender, EventArgs e)

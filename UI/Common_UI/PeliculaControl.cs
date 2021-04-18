@@ -14,6 +14,7 @@ namespace PeliculaCtrl
         private RoundLabel roundLblFilmStatus;
         private PictureBox portadaPelicula;
         public ObjectId id;
+        public Enums.EstadosPelicula EstadosPelicula;
 
 
         public PeliculaControl()
@@ -68,18 +69,23 @@ namespace PeliculaCtrl
             {
                 case Enums.EstadosPelicula.VIENDO:
                     roundLblFilmStatus._BackColor = Color.FromArgb(0, 255, 0);
+                    this.EstadosPelicula = Enums.EstadosPelicula.VIENDO;
                     break;
                 case Enums.EstadosPelicula.TERMINADA:
                     roundLblFilmStatus._BackColor = Color.FromArgb(0, 0, 255);
+                    this.EstadosPelicula = Enums.EstadosPelicula.TERMINADA;
                     break;
                 case Enums.EstadosPelicula.ABANDONADA:
                     roundLblFilmStatus._BackColor = Color.FromArgb(182, 60, 60);
+                    this.EstadosPelicula = Enums.EstadosPelicula.ABANDONADA;
                     break;
                 case Enums.EstadosPelicula.PLANEADA:
                     roundLblFilmStatus._BackColor = Color.FromArgb(207, 209, 184);
+                    this.EstadosPelicula = Enums.EstadosPelicula.PLANEADA;
                     break;
                 case Enums.EstadosPelicula.NO_AGREGADA:
                     roundLblFilmStatus._BackColor = Color.WhiteSmoke;
+                    this.EstadosPelicula = Enums.EstadosPelicula.NO_AGREGADA;
                     break;
             }
         }

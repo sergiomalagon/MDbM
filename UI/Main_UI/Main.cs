@@ -1,10 +1,13 @@
-﻿using MDbM.Properties;
+﻿using MDbM.Clases;
+using MDbM.Properties;
 using MDbM.UI.Clases;
 using MDbM.UI.LoginUI;
+using MDbM.UI.MongoDB;
+using PeliculaCtrl;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
@@ -19,16 +22,16 @@ namespace MDbM.UI.MainUI
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        internal ResourceManager resourceManager = new ResourceManager(typeof(Resources));
 
+        internal Mongo db = new Mongo();
 
         internal Login LoginForm = null;
         internal Usuario Usuario = null;
-        internal static string PATH_IMG_PERFIL = "..\\..\\Resources\\UserPP\\";
 
         public Main(Login Login, Usuario Usuario)
         {
             InitializeComponent();
+            this.db.GetConexion();
             this.LoginForm = Login;
             this.Usuario = Usuario;
             Init();
@@ -36,13 +39,66 @@ namespace MDbM.UI.MainUI
 
         private void Init()
         {
-            imgPerfil.ImageLocation = PATH_IMG_PERFIL + this.Usuario.imagenPerfil + ".jpg";
-            lblNombreUsuario.Text = this.Usuario.nombre;
+            ImgPerfil.Image = Image.FromFile(Path.GetUserPPPath() + this.Usuario.imagenPerfil + ".jpg");
+            LblNombreUsuario.Text = this.Usuario.nombre;
+            CargarInicio(this.db.GetListaPeliculas());
         }
 
-        private void entrarPeliculaDetalle(object sender, EventArgs e)
+        private void CargarInicio(List<Pelicula> lista)
         {
-            panelDetalle.BringToFront();
+            List<Pelicula> peliculas = lista;
+            PanelLista.Controls.Clear();
+            foreach (Pelicula p in peliculas)
+            {
+                PeliculaControl Control = new PeliculaControl();
+                Control.SetEstado(this.db.GetEstadoPelicula(this.Usuario, p));
+                Control.SetPortada(p.portada);
+                Control.SetObjectId(p._id);
+                PanelLista.Controls.Add(Control);
+            }
+        }
+
+        private bool CargarMiLista()
+        {
+            List<Pelicula> peliculas = this.db.GetListaPeliculas();
+            PanelLista.Controls.Clear();
+            foreach (Pelicula p in peliculas)
+            {
+                PeliculaControl Control = new PeliculaControl();
+                Control.SetEstado(this.db.GetEstadoPelicula(this.Usuario, p));
+                Control.SetPortada(p.portada);
+                Control.SetObjectId(p._id);
+                if (Control.EstadosPelicula == Enums.EstadosPelicula.NO_AGREGADA)
+                {
+                    continue;
+                }
+                PanelLista.Controls.Add(Control);
+            }
+            return true;
+        }
+
+        private bool CargarMiListaEstados(Enums.EstadosPelicula estadosPelicula)
+        {
+            List<Pelicula> peliculas = this.db.GetListaPeliculas();
+            PanelLista.Controls.Clear();
+            foreach (Pelicula p in peliculas)
+            {
+                PeliculaControl Control = new PeliculaControl();
+                Control.SetEstado(this.db.GetEstadoPelicula(this.Usuario, p));
+                Control.SetPortada(p.portada);
+                Control.SetObjectId(p._id);
+                if (Control.EstadosPelicula == estadosPelicula)
+                {
+                    PanelLista.Controls.Add(Control);
+                }
+
+            }
+            return true;
+        }
+
+        private void EntrarPeliculaDetalle(object sender, EventArgs e)
+        {
+            PanelDetalle.BringToFront();
         }
 
 
@@ -57,30 +113,31 @@ namespace MDbM.UI.MainUI
             }
         }
 
-        private void lblMinimize_MouseEnter(object sender, EventArgs e)
+        private void LblMinimize_MouseEnter(object sender, EventArgs e)
         {
-            lblMinimize.BackColor = Color.DarkGray;
+            LblMinimize.BackColor = Color.DarkGray;
         }
 
-        private void lblMinimize_MouseLeave(object sender, EventArgs e)
+        private void LblMinimize_MouseLeave(object sender, EventArgs e)
         {
-            lblMinimize.BackColor = Color.FromArgb(48, 47, 49);
+            LblMinimize.BackColor = Color.FromArgb(48, 47, 49);
         }
 
-        private void lblMinimize_Click(object sender, EventArgs e)
+        private void LblMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void panelControlVentana_MouseDown(object sender, MouseEventArgs e)
+        private void PanelControlVentana_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
 
+            this.LoginForm.LimpiarInput();
             this.LoginForm.Show();
             Hide();
         }
@@ -90,9 +147,73 @@ namespace MDbM.UI.MainUI
             Application.Exit();
         }
 
-        private void lblCerrarPanelDetalle_Click(object sender, EventArgs e)
+        private void LblCerrarPanelDetalle_Click(object sender, EventArgs e)
         {
-            panelDetalle.SendToBack();
+            PanelDetalle.SendToBack();
+        }
+
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+            CargarInicio(this.db.GetListaPeliculas());
+        }
+
+        private void BtnMiLista_Click(object sender, EventArgs e)
+        {
+            CargarMiLista();
+        }
+
+        private void BtnViendo_Click(object sender, EventArgs e)
+        {
+            CargarMiListaEstados(Enums.EstadosPelicula.VIENDO);
+        }
+
+        private void BtnCompletada_Click(object sender, EventArgs e)
+        {
+            CargarMiListaEstados(Enums.EstadosPelicula.TERMINADA);
+        }
+
+        private void BtnAbandonada_Click(object sender, EventArgs e)
+        {
+            CargarMiListaEstados(Enums.EstadosPelicula.ABANDONADA);
+        }
+
+        private void BtnPlaneada_Click(object sender, EventArgs e)
+        {
+            CargarMiListaEstados(Enums.EstadosPelicula.PLANEADA);
+        }
+
+        private void TxtBoxBarraBusqueda_Enter(object sender, EventArgs e)
+        {
+            if (TxtBoxBarraBusqueda.Text.Trim() == "BUSCAR PELICULA...")
+            {
+                TxtBoxBarraBusqueda.Text = "";
+            }
+        }
+
+        private void TxtBoxBarraBusqueda_Leave(object sender, EventArgs e)
+        {
+            if (TxtBoxBarraBusqueda.Text.Trim() == "")
+            {
+                TxtBoxBarraBusqueda.Text = "BUSCAR PELICULA...";
+            }
+        }
+
+        private void TxtBoxBarraBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(TxtBoxBarraBusqueda.Text);
+            if (TxtBoxBarraBusqueda.Text.Trim() != "")
+            {
+                CargarInicio(this.db.GetListaPeliculas(TxtBoxBarraBusqueda.Text.Trim()));
+            }
+            else if (TxtBoxBarraBusqueda.Text.Trim() != "BUSCAR PELICULA...")
+            {
+                CargarInicio(this.db.GetListaPeliculas());
+            }
+            else
+            {
+                CargarInicio(this.db.GetListaPeliculas());
+            }
+
         }
     }
 }
