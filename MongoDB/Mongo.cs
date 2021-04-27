@@ -109,6 +109,29 @@ namespace MDbM.UI.MongoDB
             return salida;
         }
 
+        internal List<Pelicula> GetListaPeliculasOrdenadas(string ordenKey, int orden)
+        {
+            SortDefinition<BsonDocument> filterOrder = null;
+            switch (orden)
+            {
+                case (int) Enums.Orden.ASCENDENTE:
+                    filterOrder = Builders<BsonDocument>.Sort.Ascending(ordenKey);
+                    break;
+                case (int) Enums.Orden.DESCENDENTE:
+                    filterOrder = Builders<BsonDocument>.Sort.Descending(ordenKey);
+                    break;
+            }
+
+            var filterExist = Builders<BsonDocument>.Filter.Exists(ordenKey);
+            List<BsonDocument> lista = GetCollection("Peliculas").Find(filterExist).Sort(filterOrder).ToList();
+            List<Pelicula> salida = new List<Pelicula>();
+            foreach (BsonDocument bd in lista)
+            {
+                salida.Add(BsonSerializer.Deserialize<Pelicula>(bd));
+            }
+            return salida;
+        }
+
         internal async void ActualizarPelicula(Pelicula pelicula)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
@@ -181,7 +204,6 @@ namespace MDbM.UI.MongoDB
                 return Enums.EstadosPelicula.NO_AGREGADA;
             }
         }
-
 
 
 

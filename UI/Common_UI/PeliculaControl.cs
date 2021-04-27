@@ -100,6 +100,7 @@ namespace PeliculaCtrl
             this.id = id;
         }
 
+
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             EntrarDetallePelicula(sender, null);

@@ -41,7 +41,9 @@ namespace MDbM.UI.MainUI
         {
             ImgPerfil.Image = Image.FromFile(Path.GetUserPPPath() + this.Usuario.imagenPerfil + ".jpg");
             LblNombreUsuario.Text = this.Usuario.nombre;
-            CargarInicio(this.db.GetListaPeliculas());
+            ComboBoxOrdenKey.SelectedIndex = 0;
+            ComboBoxOrden.SelectedIndex = 0;
+            CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void CargarInicio(List<Pelicula> lista)
@@ -154,7 +156,7 @@ namespace MDbM.UI.MainUI
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            CargarInicio(this.db.GetListaPeliculas());
+            CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnMiLista_Click(object sender, EventArgs e)
@@ -184,36 +186,37 @@ namespace MDbM.UI.MainUI
 
         private void TxtBoxBarraBusqueda_Enter(object sender, EventArgs e)
         {
-            if (TxtBoxBarraBusqueda.Text.Trim() == "BUSCAR PELICULA...")
-            {
-                TxtBoxBarraBusqueda.Text = "";
-            }
+            (sender as TextBox).SelectAll();
         }
 
         private void TxtBoxBarraBusqueda_Leave(object sender, EventArgs e)
         {
-            if (TxtBoxBarraBusqueda.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(TxtBoxBarraBusqueda.Text))
             {
                 TxtBoxBarraBusqueda.Text = "BUSCAR PELICULA...";
+                CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
             }
         }
 
         private void TxtBoxBarraBusqueda_TextChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(TxtBoxBarraBusqueda.Text);
-            if (TxtBoxBarraBusqueda.Text.Trim() != "")
+            if (!string.IsNullOrWhiteSpace(TxtBoxBarraBusqueda.Text))
             {
                 CargarInicio(this.db.GetListaPeliculas(TxtBoxBarraBusqueda.Text.Trim()));
             }
-            else if (TxtBoxBarraBusqueda.Text.Trim() != "BUSCAR PELICULA...")
+            else if (string.IsNullOrWhiteSpace(TxtBoxBarraBusqueda.Text))
             {
-                CargarInicio(this.db.GetListaPeliculas());
+                CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
             }
             else
             {
-                CargarInicio(this.db.GetListaPeliculas());
+                CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
             }
+        }
 
+        private void ComboBoxOrden_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
     }
 }

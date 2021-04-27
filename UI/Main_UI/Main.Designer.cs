@@ -30,7 +30,10 @@ namespace MDbM.UI.MainUI
         private void InitializeComponent()
         {
             this.PanelControlVentana = new System.Windows.Forms.Panel();
+            this.ComboBoxOrden = new MetroFramework.Controls.MetroComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TxtBoxBarraBusqueda = new System.Windows.Forms.TextBox();
+            this.ComboBoxOrdenKey = new MetroFramework.Controls.MetroComboBox();
             this.LblMinimize = new System.Windows.Forms.Label();
             this.PanelLateral = new System.Windows.Forms.Panel();
             this.BtnInicio = new System.Windows.Forms.Button();
@@ -69,6 +72,10 @@ namespace MDbM.UI.MainUI
             // PanelControlVentana
             // 
             this.PanelControlVentana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.PanelControlVentana.Controls.Add(this.ComboBoxOrden);
+            this.PanelControlVentana.Controls.Add(this.label1);
+            this.PanelControlVentana.Controls.Add(this.TxtBoxBarraBusqueda);
+            this.PanelControlVentana.Controls.Add(this.ComboBoxOrdenKey);
             this.PanelControlVentana.Controls.Add(this.LblMinimize);
             this.PanelControlVentana.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelControlVentana.Location = new System.Drawing.Point(0, 0);
@@ -76,6 +83,34 @@ namespace MDbM.UI.MainUI
             this.PanelControlVentana.Size = new System.Drawing.Size(1600, 55);
             this.PanelControlVentana.TabIndex = 0;
             this.PanelControlVentana.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelControlVentana_MouseDown);
+            // 
+            // ComboBoxOrden
+            // 
+            this.ComboBoxOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxOrden.FontWeight = MetroFramework.MetroLinkWeight.Bold;
+            this.ComboBoxOrden.FormattingEnabled = true;
+            this.ComboBoxOrden.ItemHeight = 23;
+            this.ComboBoxOrden.Items.AddRange(new object[] {
+            "ASC",
+            "DESC"});
+            this.ComboBoxOrden.Location = new System.Drawing.Point(651, 14);
+            this.ComboBoxOrden.Name = "ComboBoxOrden";
+            this.ComboBoxOrden.Size = new System.Drawing.Size(99, 29);
+            this.ComboBoxOrden.Style = MetroFramework.MetroColorStyle.Black;
+            this.ComboBoxOrden.TabIndex = 5;
+            this.ComboBoxOrden.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ComboBoxOrden.SelectedIndexChanged += new System.EventHandler(this.ComboBoxOrden_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(301, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 22);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Ordenadar Por:";
             // 
             // TxtBoxBarraBusqueda
             // 
@@ -85,23 +120,40 @@ namespace MDbM.UI.MainUI
             this.TxtBoxBarraBusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtBoxBarraBusqueda.Font = new System.Drawing.Font("Tw Cen MT", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtBoxBarraBusqueda.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.TxtBoxBarraBusqueda.Location = new System.Drawing.Point(570, 10);
+            this.TxtBoxBarraBusqueda.Location = new System.Drawing.Point(817, 7);
             this.TxtBoxBarraBusqueda.Name = "TxtBoxBarraBusqueda";
-            this.TxtBoxBarraBusqueda.Size = new System.Drawing.Size(527, 39);
+            this.TxtBoxBarraBusqueda.Size = new System.Drawing.Size(601, 39);
             this.TxtBoxBarraBusqueda.TabIndex = 3;
             this.TxtBoxBarraBusqueda.Text = "BUSCAR PELICULA...";
             this.TxtBoxBarraBusqueda.TextChanged += new System.EventHandler(this.TxtBoxBarraBusqueda_TextChanged);
             this.TxtBoxBarraBusqueda.Enter += new System.EventHandler(this.TxtBoxBarraBusqueda_Enter);
             this.TxtBoxBarraBusqueda.Leave += new System.EventHandler(this.TxtBoxBarraBusqueda_Leave);
             // 
+            // ComboBoxOrdenKey
+            // 
+            this.ComboBoxOrdenKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxOrdenKey.FontWeight = MetroFramework.MetroLinkWeight.Bold;
+            this.ComboBoxOrdenKey.FormattingEnabled = true;
+            this.ComboBoxOrdenKey.ItemHeight = 23;
+            this.ComboBoxOrdenKey.Items.AddRange(new object[] {
+            "TITULO",
+            "VALORACION",
+            "AÑO"});
+            this.ComboBoxOrdenKey.Location = new System.Drawing.Point(429, 14);
+            this.ComboBoxOrdenKey.Name = "ComboBoxOrdenKey";
+            this.ComboBoxOrdenKey.Size = new System.Drawing.Size(212, 29);
+            this.ComboBoxOrdenKey.Style = MetroFramework.MetroColorStyle.Black;
+            this.ComboBoxOrdenKey.TabIndex = 3;
+            this.ComboBoxOrdenKey.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ComboBoxOrdenKey.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxOrden_SelectionChangeCommitted);
+            // 
             // LblMinimize
             // 
-            this.LblMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.LblMinimize.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMinimize.ForeColor = System.Drawing.Color.White;
-            this.LblMinimize.Location = new System.Drawing.Point(1506, 0);
+            this.LblMinimize.Location = new System.Drawing.Point(1502, -9);
             this.LblMinimize.Name = "LblMinimize";
-            this.LblMinimize.Size = new System.Drawing.Size(94, 55);
+            this.LblMinimize.Size = new System.Drawing.Size(98, 64);
             this.LblMinimize.TabIndex = 2;
             this.LblMinimize.Text = "-";
             this.LblMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,7 +273,7 @@ namespace MDbM.UI.MainUI
             this.LblVersion.Name = "LblVersion";
             this.LblVersion.Size = new System.Drawing.Size(108, 22);
             this.LblVersion.TabIndex = 20;
-            this.LblVersion.Text = "Version 0.0.1";
+            this.LblVersion.Text = "Version 1.0.0";
             // 
             // BtnSalir
             // 
@@ -407,7 +459,6 @@ namespace MDbM.UI.MainUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Controls.Add(this.TxtBoxBarraBusqueda);
             this.Controls.Add(this.PanelAux);
             this.Controls.Add(this.PanelLista);
             this.Controls.Add(this.PanelDetalle);
@@ -420,6 +471,7 @@ namespace MDbM.UI.MainUI
             this.Text = "MdbM";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.PanelControlVentana.ResumeLayout(false);
+            this.PanelControlVentana.PerformLayout();
             this.PanelLateral.ResumeLayout(false);
             this.PanelLateral.PerformLayout();
             this.PanelDetalle.ResumeLayout(false);
@@ -430,7 +482,6 @@ namespace MDbM.UI.MainUI
             this.PanelInfoHolder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -463,5 +514,8 @@ namespace MDbM.UI.MainUI
         private System.Windows.Forms.Button BtnMiLista;
         private System.Windows.Forms.Button BtnInicio;
         private System.Windows.Forms.TextBox TxtBoxBarraBusqueda;
+        private MetroFramework.Controls.MetroComboBox ComboBoxOrdenKey;
+        private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroComboBox ComboBoxOrden;
     }
 }

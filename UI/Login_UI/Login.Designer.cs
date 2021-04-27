@@ -56,7 +56,7 @@ namespace MDbM.UI.LoginUI
             this.TxtBoxLoginUsuario.MaxLength = 15;
             this.TxtBoxLoginUsuario.Name = "TxtBoxLoginUsuario";
             this.TxtBoxLoginUsuario.Size = new System.Drawing.Size(624, 44);
-            this.TxtBoxLoginUsuario.TabIndex = 999;
+            this.TxtBoxLoginUsuario.TabIndex = 1;
             this.TxtBoxLoginUsuario.Text = "Usuario...";
             this.TxtBoxLoginUsuario.Enter += new System.EventHandler(this.TxtBoxLoginUsuario_Enter);
             this.TxtBoxLoginUsuario.Leave += new System.EventHandler(this.TxtBoxLoginUsuario_Leave);
@@ -71,7 +71,7 @@ namespace MDbM.UI.LoginUI
             this.TxtBoxLoginPassword.MaxLength = 15;
             this.TxtBoxLoginPassword.Name = "TxtBoxLoginPassword";
             this.TxtBoxLoginPassword.Size = new System.Drawing.Size(624, 44);
-            this.TxtBoxLoginPassword.TabIndex = 999;
+            this.TxtBoxLoginPassword.TabIndex = 2;
             this.TxtBoxLoginPassword.Text = "Contraseña...";
             this.TxtBoxLoginPassword.Enter += new System.EventHandler(this.TxtBoxLoginPassword_Enter);
             this.TxtBoxLoginPassword.Leave += new System.EventHandler(this.TxtBoxLoginPassword_Leave);
@@ -176,7 +176,7 @@ namespace MDbM.UI.LoginUI
             this.BtnLoginRegistrer.Location = new System.Drawing.Point(343, 291);
             this.BtnLoginRegistrer.Name = "BtnLoginRegistrer";
             this.BtnLoginRegistrer.Size = new System.Drawing.Size(624, 55);
-            this.BtnLoginRegistrer.TabIndex = 999;
+            this.BtnLoginRegistrer.TabIndex = 3;
             this.BtnLoginRegistrer.Text = "LOGIN/REGISTRER";
             this.BtnLoginRegistrer.UseVisualStyleBackColor = false;
             this.BtnLoginRegistrer.Click += new System.EventHandler(this.BtnLoginRegistrer_Click);

@@ -15,5 +15,11 @@
             ADMIN,
             USER
         }
+
+        public enum Orden
+        {
+            ASCENDENTE,
+            DESCENDENTE
+        }
     }
 }
