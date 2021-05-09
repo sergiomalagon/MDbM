@@ -16,7 +16,6 @@ namespace MDbM.UI.MongoDB
     class Mongo
     {
         private MongoClient conexion;
-        private ResourceManager rm = new ResourceManager(typeof(Resources));
 
         internal MongoClient GetConexion()
         {
@@ -137,6 +136,22 @@ namespace MDbM.UI.MongoDB
             var filter = Builders<BsonDocument>.Filter.Eq("_id", pelicula._id);
 
             await GetCollection("Peliculas").ReplaceOneAsync(filter, pelicula.ToBsonDocument());
+        }
+
+        internal async void ActualizarEstadoPelicula(Usuario usuario, Pelicula pelicula, string estadoOrigen, string estadoDestino)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", usuario._id);
+
+            if(estadoDestino == "-- no agregada --") { 
+            }
+            var updatePull = Builders<BsonDocument>.Update.Pull(estadoOrigen, pelicula._id);
+            var updatePush = estadoDestino != "-- no agregada --" ? Builders<BsonDocument>.Update.Push(estadoDestino, pelicula._id) : null;
+
+            await GetCollection("Usuarios").UpdateOneAsync(filter, updatePull);
+            if(updatePush != null)
+            {
+                await GetCollection("Usuarios").UpdateOneAsync(filter, updatePush);
+            }
         }
 
         internal async void CrearPelicula(Pelicula pelicula)

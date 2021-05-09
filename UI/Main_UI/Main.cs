@@ -3,7 +3,9 @@ using MDbM.Properties;
 using MDbM.UI.Clases;
 using MDbM.UI.LoginUI;
 using MDbM.UI.MongoDB;
+using MongoDB.Bson;
 using PeliculaCtrl;
+using RepartoCtrl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace MDbM.UI.MainUI
@@ -27,6 +30,14 @@ namespace MDbM.UI.MainUI
 
         internal Login LoginForm = null;
         internal Usuario Usuario = null;
+
+        internal bool IsInicio = true;
+        internal bool IsMiLista = false;
+        internal bool IsMiListaEstado = false;
+
+        internal string EstadoOrigen;
+
+        private Pelicula PeliculaPulsada;
 
         public Main(Login Login, Usuario Usuario)
         {
@@ -56,17 +67,19 @@ namespace MDbM.UI.MainUI
                 Control.SetEstado(this.db.GetEstadoPelicula(this.Usuario, p));
                 Control.SetPortada(p.portada);
                 Control.SetObjectId(p._id);
+                Control.EntrarDetallePelicula += new EventHandler(EntrarPeliculaDetalle);
                 PanelLista.Controls.Add(Control);
             }
         }
 
-        private bool CargarMiLista()
+        private bool CargarMiLista(List<Pelicula> lista)
         {
-            List<Pelicula> peliculas = this.db.GetListaPeliculas();
+            List<Pelicula> peliculas = lista;
             PanelLista.Controls.Clear();
             foreach (Pelicula p in peliculas)
             {
                 PeliculaControl Control = new PeliculaControl();
+                Control.EntrarDetallePelicula += new EventHandler(EntrarPeliculaDetalle);
                 Control.SetEstado(this.db.GetEstadoPelicula(this.Usuario, p));
                 Control.SetPortada(p.portada);
                 Control.SetObjectId(p._id);
@@ -79,13 +92,14 @@ namespace MDbM.UI.MainUI
             return true;
         }
 
-        private bool CargarMiListaEstados(Enums.EstadosPelicula estadosPelicula)
+        private bool CargarMiListaEstados(Enums.EstadosPelicula estadosPelicula, List<Pelicula> lista)
         {
-            List<Pelicula> peliculas = this.db.GetListaPeliculas();
+            List<Pelicula> peliculas = lista;
             PanelLista.Controls.Clear();
             foreach (Pelicula p in peliculas)
             {
                 PeliculaControl Control = new PeliculaControl();
+                Control.EntrarDetallePelicula += new EventHandler(EntrarPeliculaDetalle);
                 Control.SetEstado(this.db.GetEstadoPelicula(this.Usuario, p));
                 Control.SetPortada(p.portada);
                 Control.SetObjectId(p._id);
@@ -100,9 +114,61 @@ namespace MDbM.UI.MainUI
 
         private void EntrarPeliculaDetalle(object sender, EventArgs e)
         {
+            this.BlockOrdenYBusqueda(true);
+            Control b = (Control)sender;
+            PeliculaControl pc = (PeliculaControl)b.Parent;
+            this.PeliculaPulsada = this.db.GetPelicula(pc.id);
+            ComboBoxEstado.SelectedIndex = (int) pc.EstadosPelicula;
+            StringBuilder sb = new StringBuilder();
+            PanelListaReparto.Controls.Clear();
+
+            PicBoxPortada.Image = Image.FromFile(Path.GetFilmCoversPath() + this.PeliculaPulsada.portada + ".jpg");
+            LblValoracion.Text = this.PeliculaPulsada.valoracion.ToString();
+            LblNombre.Text = this.PeliculaPulsada.titulo.ToUpper() + " (" + this.PeliculaPulsada.año + ")";
+            foreach (string i in this.PeliculaPulsada.generos)
+            {
+                sb.Append('|');
+                sb.Append(i.ToUpper());
+                sb.Append('|');
+            }
+            LblGenros.Text = sb.ToString();
+            TxtBoxDescripcion.Text = this.PeliculaPulsada.descripcion;
+
+            //Director
+            RepartoControl rc = new RepartoControl();
+            rc.CambiarImagen(this.db.GetReparto(this.PeliculaPulsada.director[0]).imagenPerfil);
+            rc.CambiarNombre(this.db.GetReparto(this.PeliculaPulsada.director[0]).nombre);
+            rc.EntrarDetalleReparto += new EventHandler(EntrarRepartoDetalleVoid);
+            PanelListaReparto.Controls.Add(rc);
+
+            // Null
+            PanelListaReparto.Controls.Add(null);
+
+            // Reparto
+            foreach (ObjectId r in this.PeliculaPulsada.reparto)
+            {
+                rc = new RepartoControl();
+                rc.CambiarImagen(this.db.GetReparto(r).imagenPerfil);
+                rc.CambiarNombre(this.db.GetReparto(r).nombre);
+                rc.EntrarDetalleReparto += new EventHandler(EntrarRepartoDetalleVoid);
+                PanelListaReparto.Controls.Add(rc);
+            }
+
+            
+
+
             PanelDetalle.BringToFront();
         }
 
+        private void EntrarRepartoDetalleVoid(object sender, EventArgs e) { }
+
+
+        private void BlockOrdenYBusqueda(bool block)
+        {
+            ComboBoxOrdenKey.Enabled =
+            ComboBoxOrden.Enabled =
+            TxtBoxBarraBusqueda.Enabled = block;
+        }
 
         protected override CreateParams CreateParams
         {
@@ -151,37 +217,50 @@ namespace MDbM.UI.MainUI
 
         private void LblCerrarPanelDetalle_Click(object sender, EventArgs e)
         {
+            CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
             PanelDetalle.SendToBack();
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
+            PanelDetalle.SendToBack();
+            this.BlockOrdenYBusqueda(false);
             CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnMiLista_Click(object sender, EventArgs e)
         {
-            CargarMiLista();
+            PanelDetalle.SendToBack();
+            this.BlockOrdenYBusqueda(true);
+            CargarMiLista(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnViendo_Click(object sender, EventArgs e)
         {
-            CargarMiListaEstados(Enums.EstadosPelicula.VIENDO);
+            PanelDetalle.SendToBack();
+            this.BlockOrdenYBusqueda(true);
+            CargarMiListaEstados(Enums.EstadosPelicula.VIENDO, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnCompletada_Click(object sender, EventArgs e)
         {
-            CargarMiListaEstados(Enums.EstadosPelicula.TERMINADA);
+            PanelDetalle.SendToBack();
+            this.BlockOrdenYBusqueda(true);
+            CargarMiListaEstados(Enums.EstadosPelicula.TERMINADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnAbandonada_Click(object sender, EventArgs e)
         {
-            CargarMiListaEstados(Enums.EstadosPelicula.ABANDONADA);
+            PanelDetalle.SendToBack();
+            this.BlockOrdenYBusqueda(true);
+            CargarMiListaEstados(Enums.EstadosPelicula.ABANDONADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnPlaneada_Click(object sender, EventArgs e)
         {
-            CargarMiListaEstados(Enums.EstadosPelicula.PLANEADA);
+            PanelDetalle.SendToBack();
+            this.BlockOrdenYBusqueda(true);
+            CargarMiListaEstados(Enums.EstadosPelicula.PLANEADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void TxtBoxBarraBusqueda_Enter(object sender, EventArgs e)
@@ -217,6 +296,16 @@ namespace MDbM.UI.MainUI
         private void ComboBoxOrden_SelectionChangeCommitted(object sender, EventArgs e)
         {
             CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
+        }
+
+        private void ComboBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.db.ActualizarEstadoPelicula(this.Usuario, this.PeliculaPulsada, this.EstadoOrigen, ComboBoxEstado.Text.ToLower());
+        }
+
+        private void ComboBoxEstado_DropDown(object sender, EventArgs e)
+        {
+            this.EstadoOrigen = ComboBoxEstado.Text.ToLower();
         }
     }
 }

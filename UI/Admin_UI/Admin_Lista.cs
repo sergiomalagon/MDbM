@@ -63,9 +63,9 @@ namespace MDbM.UI.AdminUI
                 LblEstadoServicio.ForeColor = Color.Red;
                 BtnIniciarServicio.Enabled = true;
                 BtnPararServicio.Enabled = false;
-                verPeliculas.Enabled = 
-                crearPeliculas.Enabled = 
-                verReparto.Enabled = 
+                verPeliculas.Enabled =
+                crearPeliculas.Enabled =
+                verReparto.Enabled =
                 crearReparto.Enabled = false;
             }
         }

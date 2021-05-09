@@ -50,11 +50,13 @@ namespace MDbM.UI.MainUI
             this.LblCerrarPanelDetalle = new System.Windows.Forms.Label();
             this.PanelListaReparto = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelDescripcion = new System.Windows.Forms.Panel();
+            this.TxtBoxDescripcion = new System.Windows.Forms.TextBox();
             this.PanelCambiarStatus = new System.Windows.Forms.Panel();
             this.ComboBoxEstado = new MetroFramework.Controls.MetroComboBox();
             this.PanelPortadaHolder = new System.Windows.Forms.Panel();
             this.PicBoxPortada = new System.Windows.Forms.PictureBox();
             this.PanelInfoHolder = new System.Windows.Forms.Panel();
+            this.LblGenros = new System.Windows.Forms.Label();
             this.LblValoracion = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
             this.PanelAux = new System.Windows.Forms.Panel();
@@ -62,6 +64,7 @@ namespace MDbM.UI.MainUI
             this.PanelControlVentana.SuspendLayout();
             this.PanelLateral.SuspendLayout();
             this.PanelDetalle.SuspendLayout();
+            this.PanelDescripcion.SuspendLayout();
             this.PanelCambiarStatus.SuspendLayout();
             this.PanelPortadaHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).BeginInit();
@@ -186,7 +189,7 @@ namespace MDbM.UI.MainUI
             this.BtnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInicio.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnInicio.ForeColor = System.Drawing.Color.White;
-            this.BtnInicio.Location = new System.Drawing.Point(12, 379);
+            this.BtnInicio.Location = new System.Drawing.Point(12, 309);
             this.BtnInicio.Name = "BtnInicio";
             this.BtnInicio.Size = new System.Drawing.Size(281, 53);
             this.BtnInicio.TabIndex = 27;
@@ -200,7 +203,7 @@ namespace MDbM.UI.MainUI
             this.BtnMiLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMiLista.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMiLista.ForeColor = System.Drawing.Color.White;
-            this.BtnMiLista.Location = new System.Drawing.Point(12, 438);
+            this.BtnMiLista.Location = new System.Drawing.Point(12, 368);
             this.BtnMiLista.Name = "BtnMiLista";
             this.BtnMiLista.Size = new System.Drawing.Size(281, 53);
             this.BtnMiLista.TabIndex = 26;
@@ -214,7 +217,7 @@ namespace MDbM.UI.MainUI
             this.BtnViendo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnViendo.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnViendo.ForeColor = System.Drawing.Color.White;
-            this.BtnViendo.Location = new System.Drawing.Point(65, 517);
+            this.BtnViendo.Location = new System.Drawing.Point(65, 447);
             this.BtnViendo.Name = "BtnViendo";
             this.BtnViendo.Size = new System.Drawing.Size(228, 53);
             this.BtnViendo.TabIndex = 25;
@@ -228,7 +231,7 @@ namespace MDbM.UI.MainUI
             this.BtnCompletada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCompletada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCompletada.ForeColor = System.Drawing.Color.White;
-            this.BtnCompletada.Location = new System.Drawing.Point(65, 576);
+            this.BtnCompletada.Location = new System.Drawing.Point(65, 506);
             this.BtnCompletada.Name = "BtnCompletada";
             this.BtnCompletada.Size = new System.Drawing.Size(228, 53);
             this.BtnCompletada.TabIndex = 24;
@@ -242,7 +245,7 @@ namespace MDbM.UI.MainUI
             this.BtnAbandonada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAbandonada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAbandonada.ForeColor = System.Drawing.Color.White;
-            this.BtnAbandonada.Location = new System.Drawing.Point(65, 635);
+            this.BtnAbandonada.Location = new System.Drawing.Point(65, 565);
             this.BtnAbandonada.Name = "BtnAbandonada";
             this.BtnAbandonada.Size = new System.Drawing.Size(228, 53);
             this.BtnAbandonada.TabIndex = 23;
@@ -256,7 +259,7 @@ namespace MDbM.UI.MainUI
             this.BtnPlaneada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPlaneada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPlaneada.ForeColor = System.Drawing.Color.White;
-            this.BtnPlaneada.Location = new System.Drawing.Point(65, 694);
+            this.BtnPlaneada.Location = new System.Drawing.Point(65, 624);
             this.BtnPlaneada.Name = "BtnPlaneada";
             this.BtnPlaneada.Size = new System.Drawing.Size(228, 53);
             this.BtnPlaneada.TabIndex = 22;
@@ -340,26 +343,40 @@ namespace MDbM.UI.MainUI
             // 
             this.PanelListaReparto.AutoScroll = true;
             this.PanelListaReparto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
-            this.PanelListaReparto.Location = new System.Drawing.Point(82, 564);
+            this.PanelListaReparto.Location = new System.Drawing.Point(72, 564);
             this.PanelListaReparto.Name = "PanelListaReparto";
-            this.PanelListaReparto.Size = new System.Drawing.Size(1151, 256);
+            this.PanelListaReparto.Size = new System.Drawing.Size(1161, 256);
             this.PanelListaReparto.TabIndex = 3;
             // 
             // PanelDescripcion
             // 
             this.PanelDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelDescripcion.Controls.Add(this.TxtBoxDescripcion);
             this.PanelDescripcion.Location = new System.Drawing.Point(328, 146);
             this.PanelDescripcion.Name = "PanelDescripcion";
             this.PanelDescripcion.Size = new System.Drawing.Size(904, 364);
             this.PanelDescripcion.TabIndex = 2;
             // 
+            // TxtBoxDescripcion
+            // 
+            this.TxtBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.TxtBoxDescripcion.Enabled = false;
+            this.TxtBoxDescripcion.Font = new System.Drawing.Font("Tw Cen MT Condensed", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBoxDescripcion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.TxtBoxDescripcion.Location = new System.Drawing.Point(18, 15);
+            this.TxtBoxDescripcion.Multiline = true;
+            this.TxtBoxDescripcion.Name = "TxtBoxDescripcion";
+            this.TxtBoxDescripcion.ReadOnly = true;
+            this.TxtBoxDescripcion.Size = new System.Drawing.Size(869, 335);
+            this.TxtBoxDescripcion.TabIndex = 0;
+            // 
             // PanelCambiarStatus
             // 
             this.PanelCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
             this.PanelCambiarStatus.Controls.Add(this.ComboBoxEstado);
-            this.PanelCambiarStatus.Location = new System.Drawing.Point(81, 438);
+            this.PanelCambiarStatus.Location = new System.Drawing.Point(72, 438);
             this.PanelCambiarStatus.Name = "PanelCambiarStatus";
-            this.PanelCambiarStatus.Size = new System.Drawing.Size(225, 72);
+            this.PanelCambiarStatus.Size = new System.Drawing.Size(234, 72);
             this.PanelCambiarStatus.TabIndex = 2;
             // 
             // ComboBoxEstado
@@ -370,24 +387,27 @@ namespace MDbM.UI.MainUI
             this.ComboBoxEstado.FormattingEnabled = true;
             this.ComboBoxEstado.ItemHeight = 29;
             this.ComboBoxEstado.Items.AddRange(new object[] {
+            "-- NO AGREGADA --",
             "VIENDO",
             "COMPLETADA",
             "ABANDONADA",
             "PLANEADA"});
             this.ComboBoxEstado.Location = new System.Drawing.Point(14, 23);
             this.ComboBoxEstado.Name = "ComboBoxEstado";
-            this.ComboBoxEstado.Size = new System.Drawing.Size(196, 35);
+            this.ComboBoxEstado.Size = new System.Drawing.Size(205, 35);
             this.ComboBoxEstado.Style = MetroFramework.MetroColorStyle.Black;
             this.ComboBoxEstado.TabIndex = 0;
             this.ComboBoxEstado.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ComboBoxEstado.DropDown += new System.EventHandler(this.ComboBoxEstado_DropDown);
+            this.ComboBoxEstado.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxEstado_SelectedIndexChanged);
             // 
             // PanelPortadaHolder
             // 
             this.PanelPortadaHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
             this.PanelPortadaHolder.Controls.Add(this.PicBoxPortada);
-            this.PanelPortadaHolder.Location = new System.Drawing.Point(81, 53);
+            this.PanelPortadaHolder.Location = new System.Drawing.Point(72, 53);
             this.PanelPortadaHolder.Name = "PanelPortadaHolder";
-            this.PanelPortadaHolder.Size = new System.Drawing.Size(225, 360);
+            this.PanelPortadaHolder.Size = new System.Drawing.Size(234, 360);
             this.PanelPortadaHolder.TabIndex = 2;
             // 
             // PicBoxPortada
@@ -395,19 +415,34 @@ namespace MDbM.UI.MainUI
             this.PicBoxPortada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(109)))), ((int)(((byte)(110)))));
             this.PicBoxPortada.Location = new System.Drawing.Point(14, 15);
             this.PicBoxPortada.Name = "PicBoxPortada";
-            this.PicBoxPortada.Size = new System.Drawing.Size(197, 322);
+            this.PicBoxPortada.Size = new System.Drawing.Size(205, 322);
+            this.PicBoxPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicBoxPortada.TabIndex = 0;
             this.PicBoxPortada.TabStop = false;
             // 
             // PanelInfoHolder
             // 
             this.PanelInfoHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(60)))));
+            this.PanelInfoHolder.Controls.Add(this.LblGenros);
             this.PanelInfoHolder.Controls.Add(this.LblValoracion);
             this.PanelInfoHolder.Controls.Add(this.LblNombre);
             this.PanelInfoHolder.Location = new System.Drawing.Point(328, 53);
             this.PanelInfoHolder.Name = "PanelInfoHolder";
-            this.PanelInfoHolder.Size = new System.Drawing.Size(904, 72);
+            this.PanelInfoHolder.Size = new System.Drawing.Size(904, 87);
             this.PanelInfoHolder.TabIndex = 1;
+            // 
+            // LblGenros
+            // 
+            this.LblGenros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
+            this.LblGenros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LblGenros.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGenros.ForeColor = System.Drawing.Color.White;
+            this.LblGenros.Location = new System.Drawing.Point(216, 52);
+            this.LblGenros.Name = "LblGenros";
+            this.LblGenros.Size = new System.Drawing.Size(613, 25);
+            this.LblGenros.TabIndex = 2;
+            this.LblGenros.Text = "label1";
+            this.LblGenros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblValoracion
             // 
@@ -415,9 +450,9 @@ namespace MDbM.UI.MainUI
             this.LblValoracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LblValoracion.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblValoracion.ForeColor = System.Drawing.Color.White;
-            this.LblValoracion.Location = new System.Drawing.Point(62, 8);
+            this.LblValoracion.Location = new System.Drawing.Point(19, 13);
             this.LblValoracion.Name = "LblValoracion";
-            this.LblValoracion.Size = new System.Drawing.Size(103, 54);
+            this.LblValoracion.Size = new System.Drawing.Size(113, 62);
             this.LblValoracion.TabIndex = 0;
             this.LblValoracion.Text = "label1";
             this.LblValoracion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -430,7 +465,7 @@ namespace MDbM.UI.MainUI
             this.LblNombre.ForeColor = System.Drawing.Color.White;
             this.LblNombre.Location = new System.Drawing.Point(216, 8);
             this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(613, 54);
+            this.LblNombre.Size = new System.Drawing.Size(613, 39);
             this.LblNombre.TabIndex = 1;
             this.LblNombre.Text = "label1";
             this.LblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -476,6 +511,8 @@ namespace MDbM.UI.MainUI
             this.PanelLateral.PerformLayout();
             this.PanelDetalle.ResumeLayout(false);
             this.PanelDetalle.PerformLayout();
+            this.PanelDescripcion.ResumeLayout(false);
+            this.PanelDescripcion.PerformLayout();
             this.PanelCambiarStatus.ResumeLayout(false);
             this.PanelPortadaHolder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).EndInit();
@@ -517,5 +554,7 @@ namespace MDbM.UI.MainUI
         private MetroFramework.Controls.MetroComboBox ComboBoxOrdenKey;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroComboBox ComboBoxOrden;
+        private System.Windows.Forms.Label LblGenros;
+        private System.Windows.Forms.TextBox TxtBoxDescripcion;
     }
 }

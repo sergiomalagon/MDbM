@@ -63,7 +63,6 @@ namespace RepartoCtrl
         }
 
 
-
         internal void CambiarImagen(string image)
         {
             picBoxRepartoImagen.ImageLocation = Path.GetPeoplePath() + image + ".jpg";
