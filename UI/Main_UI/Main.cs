@@ -204,7 +204,6 @@ namespace MDbM.UI.MainUI
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-
             this.LoginForm.LimpiarInput();
             this.LoginForm.Show();
             Hide();
