@@ -114,7 +114,7 @@ namespace MDbM.UI.MainUI
 
         private void EntrarPeliculaDetalle(object sender, EventArgs e)
         {
-            this.BlockOrdenYBusqueda(true);
+            this.OrdenYBusqueda(false);
             Control b = (Control)sender;
             PeliculaControl pc = (PeliculaControl)b.Parent;
             this.PeliculaPulsada = this.db.GetPelicula(pc.id);
@@ -163,7 +163,7 @@ namespace MDbM.UI.MainUI
         private void EntrarRepartoDetalleVoid(object sender, EventArgs e) { }
 
 
-        private void BlockOrdenYBusqueda(bool block)
+        private void OrdenYBusqueda(bool block)
         {
             ComboBoxOrdenKey.Enabled =
             ComboBoxOrden.Enabled =
@@ -217,50 +217,56 @@ namespace MDbM.UI.MainUI
 
         private void LblCerrarPanelDetalle_Click(object sender, EventArgs e)
         {
-            CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
-            PanelDetalle.SendToBack();
+            BtnInicio_Click(sender, e);
         }
 
         private void BtnInicio_Click(object sender, EventArgs e)
         {
             PanelDetalle.SendToBack();
-            this.BlockOrdenYBusqueda(false);
+            this.OrdenYBusqueda(true);
             CargarInicio(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnMiLista_Click(object sender, EventArgs e)
         {
             PanelDetalle.SendToBack();
-            this.BlockOrdenYBusqueda(true);
+            this.OrdenYBusqueda(false);
             CargarMiLista(this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnViendo_Click(object sender, EventArgs e)
         {
             PanelDetalle.SendToBack();
-            this.BlockOrdenYBusqueda(true);
+            this.OrdenYBusqueda(false);
             CargarMiListaEstados(Enums.EstadosPelicula.VIENDO, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnCompletada_Click(object sender, EventArgs e)
         {
             PanelDetalle.SendToBack();
-            this.BlockOrdenYBusqueda(true);
+            this.OrdenYBusqueda(false);
             CargarMiListaEstados(Enums.EstadosPelicula.TERMINADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnAbandonada_Click(object sender, EventArgs e)
         {
             PanelDetalle.SendToBack();
-            this.BlockOrdenYBusqueda(true);
+            this.OrdenYBusqueda(false);
             CargarMiListaEstados(Enums.EstadosPelicula.ABANDONADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void BtnPlaneada_Click(object sender, EventArgs e)
         {
             PanelDetalle.SendToBack();
-            this.BlockOrdenYBusqueda(true);
+            this.OrdenYBusqueda(false);
             CargarMiListaEstados(Enums.EstadosPelicula.PLANEADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
+        }
+
+        private void BtnNoAgregada_Click(object sender, EventArgs e)
+        {
+            PanelDetalle.SendToBack();
+            this.OrdenYBusqueda(false);
+            CargarMiListaEstados(Enums.EstadosPelicula.NO_AGREGADA, this.db.GetListaPeliculasOrdenadas(ComboBoxOrdenKey.SelectedItem.ToString().ToLower(), ComboBoxOrden.SelectedIndex));
         }
 
         private void TxtBoxBarraBusqueda_Enter(object sender, EventArgs e)
@@ -307,5 +313,7 @@ namespace MDbM.UI.MainUI
         {
             this.EstadoOrigen = ComboBoxEstado.Text.ToLower();
         }
+
+        
     }
 }

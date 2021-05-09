@@ -36,12 +36,19 @@ namespace MDbM.UI.MainUI
             this.ComboBoxOrdenKey = new MetroFramework.Controls.MetroComboBox();
             this.LblMinimize = new System.Windows.Forms.Label();
             this.PanelLateral = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnNoAgregada = new System.Windows.Forms.Button();
             this.BtnInicio = new System.Windows.Forms.Button();
             this.BtnMiLista = new System.Windows.Forms.Button();
             this.BtnViendo = new System.Windows.Forms.Button();
             this.BtnCompletada = new System.Windows.Forms.Button();
             this.BtnAbandonada = new System.Windows.Forms.Button();
             this.BtnPlaneada = new System.Windows.Forms.Button();
+            this.ImgPerfil = new ImagenPerfil.ImgPerfil();
             this.LblVersion = new System.Windows.Forms.Label();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.LblNombreUsuario = new System.Windows.Forms.Label();
@@ -60,16 +67,15 @@ namespace MDbM.UI.MainUI
             this.LblValoracion = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
             this.PanelAux = new System.Windows.Forms.Panel();
-            this.ImgPerfil = new ImagenPerfil.ImgPerfil();
             this.PanelControlVentana.SuspendLayout();
             this.PanelLateral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).BeginInit();
             this.PanelDetalle.SuspendLayout();
             this.PanelDescripcion.SuspendLayout();
             this.PanelCambiarStatus.SuspendLayout();
             this.PanelPortadaHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).BeginInit();
             this.PanelInfoHolder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelControlVentana
@@ -167,6 +173,12 @@ namespace MDbM.UI.MainUI
             // PanelLateral
             // 
             this.PanelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.PanelLateral.Controls.Add(this.label6);
+            this.PanelLateral.Controls.Add(this.label5);
+            this.PanelLateral.Controls.Add(this.label4);
+            this.PanelLateral.Controls.Add(this.label3);
+            this.PanelLateral.Controls.Add(this.label2);
+            this.PanelLateral.Controls.Add(this.BtnNoAgregada);
             this.PanelLateral.Controls.Add(this.BtnInicio);
             this.PanelLateral.Controls.Add(this.BtnMiLista);
             this.PanelLateral.Controls.Add(this.BtnViendo);
@@ -182,6 +194,60 @@ namespace MDbM.UI.MainUI
             this.PanelLateral.Name = "PanelLateral";
             this.PanelLateral.Size = new System.Drawing.Size(305, 845);
             this.PanelLateral.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(253, 683);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 53);
+            this.label6.TabIndex = 32;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(253, 506);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 53);
+            this.label5.TabIndex = 31;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label4.Location = new System.Drawing.Point(253, 564);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 54);
+            this.label4.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(209)))), ((int)(((byte)(184)))));
+            this.label3.Location = new System.Drawing.Point(253, 624);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 53);
+            this.label3.TabIndex = 29;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Lime;
+            this.label2.Location = new System.Drawing.Point(253, 447);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 53);
+            this.label2.TabIndex = 28;
+            // 
+            // BtnNoAgregada
+            // 
+            this.BtnNoAgregada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(68)))), ((int)(((byte)(71)))));
+            this.BtnNoAgregada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNoAgregada.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNoAgregada.ForeColor = System.Drawing.Color.White;
+            this.BtnNoAgregada.Location = new System.Drawing.Point(65, 683);
+            this.BtnNoAgregada.Name = "BtnNoAgregada";
+            this.BtnNoAgregada.Size = new System.Drawing.Size(228, 53);
+            this.BtnNoAgregada.TabIndex = 33;
+            this.BtnNoAgregada.Text = "No Agregada";
+            this.BtnNoAgregada.UseVisualStyleBackColor = false;
+            this.BtnNoAgregada.Click += new System.EventHandler(this.BtnNoAgregada_Click);
             // 
             // BtnInicio
             // 
@@ -266,6 +332,16 @@ namespace MDbM.UI.MainUI
             this.BtnPlaneada.Text = "Pleaneada";
             this.BtnPlaneada.UseVisualStyleBackColor = false;
             this.BtnPlaneada.Click += new System.EventHandler(this.BtnPlaneada_Click);
+            // 
+            // ImgPerfil
+            // 
+            this.ImgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.ImgPerfil.Location = new System.Drawing.Point(50, 24);
+            this.ImgPerfil.Name = "ImgPerfil";
+            this.ImgPerfil.Size = new System.Drawing.Size(200, 200);
+            this.ImgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImgPerfil.TabIndex = 21;
+            this.ImgPerfil.TabStop = false;
             // 
             // LblVersion
             // 
@@ -478,16 +554,6 @@ namespace MDbM.UI.MainUI
             this.PanelAux.Size = new System.Drawing.Size(63, 845);
             this.PanelAux.TabIndex = 0;
             // 
-            // ImgPerfil
-            // 
-            this.ImgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ImgPerfil.Location = new System.Drawing.Point(50, 24);
-            this.ImgPerfil.Name = "ImgPerfil";
-            this.ImgPerfil.Size = new System.Drawing.Size(200, 200);
-            this.ImgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ImgPerfil.TabIndex = 21;
-            this.ImgPerfil.TabStop = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,6 +575,7 @@ namespace MDbM.UI.MainUI
             this.PanelControlVentana.PerformLayout();
             this.PanelLateral.ResumeLayout(false);
             this.PanelLateral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).EndInit();
             this.PanelDetalle.ResumeLayout(false);
             this.PanelDetalle.PerformLayout();
             this.PanelDescripcion.ResumeLayout(false);
@@ -517,7 +584,6 @@ namespace MDbM.UI.MainUI
             this.PanelPortadaHolder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxPortada)).EndInit();
             this.PanelInfoHolder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,5 +622,11 @@ namespace MDbM.UI.MainUI
         private MetroFramework.Controls.MetroComboBox ComboBoxOrden;
         private System.Windows.Forms.Label LblGenros;
         private System.Windows.Forms.TextBox TxtBoxDescripcion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button BtnNoAgregada;
     }
 }
