@@ -249,9 +249,9 @@
     <EmbeddedResource Include="UI\Common_UI\RepartoControl.resx">
       <DependentUpon>RepartoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="libmongocrypt.dylib" />
-    <None Include="libmongocrypt.so" />
-    <None Include="packages.config" />
+    <None Include="Config\libmongocrypt.dylib" />
+    <None Include="Config\libmongocrypt.so" />
+    <None Include="Config\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -263,11 +263,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Config\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MetroFramework.txt" />
-    <Content Include="mongocrypt.dll" />
+    <Content Include="Config\MetroFramework.txt" />
+    <Content Include="Config\mongocrypt.dll" />
     <None Include="Resources\UserPP\user_sergio.jpg" />
     <None Include="Resources\UserPP\user_admin.jpg" />
     <None Include="Resources\People\people_viggo_mortensen.jpg" />
