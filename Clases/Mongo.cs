@@ -142,8 +142,6 @@ namespace MDbM.UI.MongoDB
         {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", usuario._id);
 
-            if(estadoDestino == "-- no agregada --") { 
-            }
             var updatePull = Builders<BsonDocument>.Update.Pull(estadoOrigen, pelicula._id);
             var updatePush = estadoDestino != "-- no agregada --" ? Builders<BsonDocument>.Update.Push(estadoDestino, pelicula._id) : null;
 

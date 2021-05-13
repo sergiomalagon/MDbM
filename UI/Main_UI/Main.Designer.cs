@@ -67,6 +67,8 @@ namespace MDbM.UI.MainUI
             this.LblValoracion = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
             this.PanelAux = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.PanelControlVentana.SuspendLayout();
             this.PanelLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgPerfil)).BeginInit();
@@ -391,6 +393,8 @@ namespace MDbM.UI.MainUI
             // 
             // PanelDetalle
             // 
+            this.PanelDetalle.Controls.Add(this.label8);
+            this.PanelDetalle.Controls.Add(this.label7);
             this.PanelDetalle.Controls.Add(this.LblCerrarPanelDetalle);
             this.PanelDetalle.Controls.Add(this.PanelListaReparto);
             this.PanelDetalle.Controls.Add(this.PanelDescripcion);
@@ -554,6 +558,28 @@ namespace MDbM.UI.MainUI
             this.PanelAux.Size = new System.Drawing.Size(63, 845);
             this.PanelAux.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label7.Location = new System.Drawing.Point(131, 521);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(140, 40);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "DIRECTOR";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label8.Location = new System.Drawing.Point(720, 521);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(132, 40);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "REPARTO";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,5 +654,7 @@ namespace MDbM.UI.MainUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnNoAgregada;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }

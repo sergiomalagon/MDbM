@@ -141,17 +141,18 @@ namespace MDbM.UI.MainUI
             rc.EntrarDetalleReparto += new EventHandler(EntrarRepartoDetalleVoid);
             PanelListaReparto.Controls.Add(rc);
 
-            // Null
-            PanelListaReparto.Controls.Add(null);
+            PanelListaReparto.Controls.Add(new Panel());
 
             // Reparto
             foreach (ObjectId r in this.PeliculaPulsada.reparto)
             {
+                
                 rc = new RepartoControl();
                 rc.CambiarImagen(this.db.GetReparto(r).imagenPerfil);
                 rc.CambiarNombre(this.db.GetReparto(r).nombre);
                 rc.EntrarDetalleReparto += new EventHandler(EntrarRepartoDetalleVoid);
                 PanelListaReparto.Controls.Add(rc);
+                PanelListaReparto.Controls.Add(new Label());
             }
 
             
